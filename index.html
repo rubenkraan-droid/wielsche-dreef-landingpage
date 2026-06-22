@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landal De Wielsche Dreef – Jouw plek in de Betuwe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:       #00857A;
+      --teal-dark:  #006059;
+      --teal-light: #E6F4F3;
+      --cream:      #FAF8F4;
+      --brown:      #5C4A32;
+      --text:       #1A1A1A;
+      --text-muted: #6B6B6B;
+      --white:      #FFFFFF;
+      --border:     #E0DAD0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.2;
+    }
+
+    /* ── STICKY HEADER ── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .site-header img.logo {
+      height: 36px;
+    }
+
+    .header-ctas {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    /* ── VERKOOPWEEKEND BANNER ── */
+    .vw-banner {
+      background: var(--teal);
+      color: var(--white);
+      text-align: center;
+      padding: 14px 24px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .vw-banner strong {
+      font-weight: 700;
+    }
+
+    .vw-banner .vw-date {
+      display: inline-block;
+      background: var(--white);
+      color: var(--teal);
+      font-weight: 700;
+      border-radius: 4px;
+      padding: 2px 10px;
+      margin: 0 6px;
+      font-size: 1rem;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: var(--white);
+      border-color: var(--teal);
+    }
+
+    .btn-primary:hover {
+      background: var(--teal-dark);
+      border-color: var(--teal-dark);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--teal);
+      border-color: var(--teal);
+    }
+
+    .btn-outline:hover {
+      background: var(--teal-light);
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      border-color: var(--white);
+    }
+
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    .btn-sm {
+      padding: 10px 20px;
+      font-size: 0.875rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-4p-ELW-scaled.jpg');
+      background-size: cover;
+      background-position: center 60%;
+      filter: brightness(0.55);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      padding: 80px 48px;
+      color: var(--white);
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.92;
+      max-width: 560px;
+      margin-bottom: 36px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: 80px 24px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    /* ── GEVOEL SECTIE ── */
+    .gevoel {
+      background: var(--cream);
+    }
+
+    .gevoel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .gevoel-image {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .gevoel-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gevoel-text blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--teal-dark);
+      border-left: 4px solid var(--teal);
+      padding-left: 20px;
+      margin: 24px 0;
+      line-height: 1.5;
+    }
+
+    .gevoel-text p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    /* ── ONTZORGD SECTIE ── */
+    .ontzorgd-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .ontzorgd-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 28px;
+      text-align: center;
+    }
+
+    .ontzorgd-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--teal-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.6rem;
+    }
+
+    .ontzorgd-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .ontzorgd-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── PARK SECTIE ── */
+    .park {
+      background: var(--teal-dark);
+      color: var(--white);
+    }
+
+    .park .section-label { color: rgba(255,255,255,0.6); }
+    .park .section-title { color: var(--white); }
+    .park .section-sub   { color: rgba(255,255,255,0.75); }
+
+    .park-kenmerken {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .park-kenmerk {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .park-kenmerk-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .park-kenmerk h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      color: var(--white);
+    }
+
+    .park-kenmerk p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    .park-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .park-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .park-images img {
+      width: 100%;
+      border-radius: 8px;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .park-images img:first-child {
+      grid-column: span 2;
+      aspect-ratio: 16/7;
+    }
+
+    /* ── WONINGEN SECTIE ── */
+    .woningen {
+      background: var(--cream);
+    }
+
+    .woningen-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .woning-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .woning-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+    }
+
+    .woning-card img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .woning-card-body {
+      padding: 20px;
+    }
+
+    .woning-type {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .woning-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .woning-prijs {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .woning-prijs strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .woning-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .woning-tag {
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── RENDEMENT SECTIE ── */
+    .rendement-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .rendement-punten {
+      list-style: none;
+      margin-top: 24px;
+    }
+
+    .rendement-punten li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .rendement-punten li:last-child {
+      border-bottom: none;
+    }
+
+    .rp-check {
+      width: 24px;
+      height: 24px;
+      background: var(--teal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 0.75rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .rp-text strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .rp-text span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .rendement-aside {
+      background: var(--teal-light);
+      border-radius: 16px;
+      padding: 40px 36px;
+    }
+
+    .rendement-aside h3 {
+      font-size: 1.4rem;
+      color: var(--teal-dark);
+      margin-bottom: 16px;
+    }
+
+    .rendement-aside p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* ── VERKOOPWEEKEND SECTIE ── */
+    .verkoopweekend {
+      background: var(--cream);
+    }
+
+    .vw-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .vw-stappen {
+      list-style: none;
+      margin-top: 24px;
+    }
+
+    .vw-stap {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .vw-stap-nr {
+      width: 36px;
+      height: 36px;
+      background: var(--teal);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .vw-stap-text h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .vw-stap-text p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .vw-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 36px;
+      text-align: center;
+    }
+
+    .vw-card .datum-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+
+    .vw-card .datum-groot {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .vw-card .datum-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .vw-card-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* ── FOOTER CTA ── */
+    .footer-cta {
+      background: var(--teal);
+      color: var(--white);
+      text-align: center;
+      padding: 80px 24px;
+    }
+
+    .footer-cta h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+
+    .footer-cta p {
+      font-size: 1.05rem;
+      opacity: 0.85;
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .footer-cta-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 24px;
+      font-size: 0.85rem;
+    }
+
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .gevoel-grid,
+      .park-grid,
+      .rendement-grid,
+      .vw-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      .woningen-grid { grid-template-columns: 1fr 1fr; }
+      .ontzorgd-grid { grid-template-columns: 1fr; }
+      .park-kenmerken { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-content { padding: 60px 24px; }
+      .hero-ctas { flex-direction: column; }
+      .woningen-grid { grid-template-columns: 1fr; }
+      .header-ctas .btn-outline { display: none; }
+      .vw-card-ctas .btn { font-size: 0.85rem; padding: 12px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── STICKY HEADER ── -->
+  <header class="site-header">
+    <img class="logo"
+         src="https://dewielschedreef.nl/wp-content/uploads/2024/09/Frame-13.svg"
+         alt="De Wielsche Dreef" />
+    <div class="header-ctas">
+      <a href="#brochure" class="btn btn-outline btn-sm">Brochure aanvragen</a>
+      <a href="#aanmelden" class="btn btn-primary btn-sm">Aanmelden verkoopweekend</a>
+    </div>
+  </header>
+
+  <!-- ── VERKOOPWEEKEND DATUM BANNER ── -->
+  <div class="vw-banner">
+    Volgend verkoopweekend:
+    <span class="vw-date" id="vw-datum">5 &amp; 6 juli 2026</span>
+    — Kom langs en ontdek jouw woning
+    <a href="#aanmelden" style="color:var(--white);margin-left:12px;font-weight:700;text-decoration:underline;">Aanmelden &rarr;</a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Fase 1 &bull; 39 woningen &bull; Oplevering 31 juli 2026</span>
+      <h1>Eindelijk een plek<br/>die echt van jou is</h1>
+      <p>Een luxe recreatiewoning in de Betuwe. Omringd door fruitboomgaarden en de Nederrijn. Volledig verzorgd verhuurd als jij er niet bent — en elke keer thuiskomen als je er wel bent.</p>
+      <div class="hero-ctas">
+        <a href="#aanmelden" class="btn btn-primary">Aanmelden verkoopweekend</a>
+        <a href="#brochure" class="btn btn-outline-white">Brochure aanvragen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HET GEVOEL ── -->
+  <section class="gevoel">
+    <div class="container">
+      <div class="gevoel-grid">
+        <div class="gevoel-image">
+          <img src="https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-6p-L-scaled.jpg"
+               alt="Sfeer De Wielsche Dreef" loading="lazy" />
+        </div>
+        <div class="gevoel-text">
+          <p class="section-label">Het gevoel</p>
+          <h2 class="section-title">Niet huren.<br/>Niet ergens logeren.<br/>Thuiskomen.</h2>
+          <blockquote>"Jouw plek, jouw stoel op het terras, jouw wijn in de koelkast."</blockquote>
+          <p>De Wielsche Dreef is geen vakantiepark voor een weekje. Het is een plek die je kent, die op je past en die er altijd voor je is — ook als jij er niet bent.</p>
+          <p>En als jij er niet bent? Dan geniet een ander ervan, en betaalt Landal jou daarvoor. Elke maand. Zonder gedoe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ALLES ONTZORGD ── -->
+  <section>
+    <div class="container">
+      <p class="section-label" style="text-align:center;">Hoe het werkt</p>
+      <h2 class="section-title" style="text-align:center;margin:0 auto 16px;">Jij geniet.<br/>De rest regelen wij.</h2>
+      <p class="section-sub" style="margin:0 auto 0;text-align:center;">Landal — de grootste vakantieaanbieder van Nederland — regelt alles. Marketing, boeking, beheer, schoonmaak. Jij ziet elke maand wat het oplevert.</p>
+
+      <div class="ontzorgd-grid">
+        <div class="ontzorgd-card">
+          <div class="ontzorgd-icon">🏡</div>
+          <h3>Eigen woning, eigen plek</h3>
+          <p>Tot 90 dagen per jaar gebruik je de woning zelf. Je eigen meubels, je eigen tuin, je eigen terras aan de vijver.</p>
+        </div>
+        <div class="ontzorgd-card">
+          <div class="ontzorgd-icon">📋</div>
+          <h3>Landal regelt de verhuur</h3>
+          <p>Boekingen, gasten, schoonmaak, beheer — Landal neemt het volledig over. Jij ontvangt maandelijks je aandeel uit de verhuurpool.</p>
+        </div>
+        <div class="ontzorgd-card">
+          <div class="ontzorgd-icon">💶</div>
+          <h3>Het verdient zichzelf terug</h3>
+          <p>Geen mega-rendement, maar alles klopt. De woning kost je netto weinig tot niets — en bouwt ondertussen waarde op.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HET PARK ── -->
+  <section class="park">
+    <div class="container">
+      <div class="park-grid">
+        <div>
+          <p class="section-label">Het park</p>
+          <h2 class="section-title" style="color:var(--white);">De Betuwe op zijn<br/>allermooiste</h2>
+          <p class="section-sub">Langs de Nederrijn, tussen de appelboomgaarden van Eck en Wiel. Dit is de stilte die je vergeten was dat ze bestond.</p>
+
+          <div class="park-kenmerken">
+            <div class="park-kenmerk">
+              <span class="park-kenmerk-icon">🌊</span>
+              <div>
+                <h4>Vijver zonder muggen</h4>
+                <p>Kunstmatige stroming zorgt voor helder water en geen overlast. Door het hele park.</p>
+              </div>
+            </div>
+            <div class="park-kenmerk">
+              <span class="park-kenmerk-icon">🍎</span>
+              <div>
+                <h4>Fruitboomgaarden</h4>
+                <p>Omgeven door het typische Betuwse landschap. Fiets- en wandelroutes voor de deur.</p>
+              </div>
+            </div>
+            <div class="park-kenmerk">
+              <span class="park-kenmerk-icon">🏊</span>
+              <div>
+                <h4>Subtropisch zwembad</h4>
+                <p>Binnenzwembad, restaurant, snackbar en speelruimte in het centrale parkgebouw.</p>
+              </div>
+            </div>
+            <div class="park-kenmerk">
+              <span class="park-kenmerk-icon">🌿</span>
+              <div>
+                <h4>Eigen grond</h4>
+                <p>Geen erfpacht. Je koopt de woning én de grond. Volledig eigendom.</p>
+              </div>
+            </div>
+            <div class="park-kenmerk">
+              <span class="park-kenmerk-icon">⚡</span>
+              <div>
+                <h4>Duurzaam gebouwd</h4>
+                <p>Gasloos, BENG-gecertificeerd, zonnepanelen en hoogwaardige isolatie.</p>
+              </div>
+            </div>
+            <div class="park-kenmerk">
+              <span class="park-kenmerk-icon">📍</span>
+              <div>
+                <h4>Betuwe, Gelderland</h4>
+                <p>Kastelen, restaurants, Ouwehands Dierenpark, golfbaan — alles dichtbij.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="park-images">
+          <img src="https://dewielschedreef.nl/wp-content/uploads/2025/11/Fase-1-Map-scaled.jpg"
+               alt="Plattegrond park" loading="lazy" />
+          <img src="https://dewielschedreef.nl/wp-content/uploads/2024/11/8C_EXT-dwd.jpg"
+               alt="Woning exterieur" loading="lazy" />
+          <img src="https://dewielschedreef.nl/wp-content/uploads/2024/11/12C_EXT-dwd.jpg"
+               alt="Woning exterieur" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DE WONINGEN ── -->
+  <section class="woningen">
+    <div class="container">
+      <p class="section-label">De woningen</p>
+      <h2 class="section-title">Kies jouw woning</h2>
+      <p class="section-sub">Van 2 tot 12 personen, van Comfort tot Extra Luxe Wellness. Alle woningen worden turnkey opgeleverd — inclusief interieur, tuin en privé parkeerplaats.</p>
+
+      <div class="woningen-grid">
+        <div class="woning-card">
+          <img src="https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-2p-ELW-scaled.jpg"
+               alt="2-persoons Extra Luxe Wellness" loading="lazy" />
+          <div class="woning-card-body">
+            <p class="woning-type">Extra Luxe Wellness</p>
+            <h3>2-persoons</h3>
+            <p class="woning-prijs">Vanaf <strong>€ 323.500</strong> <span style="font-size:0.82rem;">(excl. btw)</span></p>
+            <div class="woning-tags">
+              <span class="woning-tag">Bubbelbad</span>
+              <span class="woning-tag">Regendouche</span>
+              <span class="woning-tag">Sauna</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="woning-card">
+          <img src="https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-4p-L-scaled.jpg"
+               alt="4-persoons Luxe" loading="lazy" />
+          <div class="woning-card-body">
+            <p class="woning-type">Luxe</p>
+            <h3>4-persoons</h3>
+            <p class="woning-prijs">Vanaf <strong>€ 358.500</strong> <span style="font-size:0.82rem;">(excl. btw)</span></p>
+            <div class="woning-tags">
+              <span class="woning-tag">Finse sauna</span>
+              <span class="woning-tag">En-suite badkamer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="woning-card">
+          <img src="https://dewielschedreef.nl/wp-content/uploads/2024/11/12ELF_EXT-dwd.jpg"
+               alt="12-persoons Extra Luxe Culinair" loading="lazy" />
+          <div class="woning-card-body">
+            <p class="woning-type">Extra Luxe Culinair</p>
+            <h3>12-persoons</h3>
+            <p class="woning-prijs">Vanaf <strong>€ 558.000</strong> <span style="font-size:0.82rem;">(excl. btw)</span></p>
+            <div class="woning-tags">
+              <span class="woning-tag">Buitenkeuken</span>
+              <span class="woning-tag">Wijnklimaatkast</span>
+              <span class="woning-tag">Premium keuken</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top:24px;font-size:0.9rem;color:var(--text-muted);text-align:center;">
+        Alle typen en prijzen op de <a href="https://dewielschedreef.nl" style="color:var(--teal);">website</a> — of vraag de brochure aan voor een volledig overzicht.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── HET RENDEMENT ── -->
+  <section>
+    <div class="container">
+      <div class="rendement-grid">
+        <div>
+          <p class="section-label">Het rendement</p>
+          <h2 class="section-title">Eerlijk gezegd:<br/>het klopt gewoon.</h2>
+          <p style="color:var(--text-muted);line-height:1.8;margin:16px 0 8px;">We beloven geen wonderen. Maar we beloven wel dat alles op zijn plek valt — en dat de woning zichzelf terugverdient terwijl jij geniet.</p>
+
+          <ul class="rendement-punten">
+            <li>
+              <span class="rp-check">✓</span>
+              <div class="rp-text">
+                <strong>BTW-voordeel op de aankoop</strong>
+                <span>Als verhuurder kun je de btw op de woning en inrichting terugvragen. Dat scheelt direct een fors bedrag.</span>
+              </div>
+            </li>
+            <li>
+              <span class="rp-check">✓</span>
+              <div class="rp-text">
+                <strong>Maandelijkse verhuurinkomsten</strong>
+                <span>Via de verhuurpool van Landal ontvang je elke maand een eerlijk aandeel — ongeacht de bezetting van jouw woning.</span>
+              </div>
+            </li>
+            <li>
+              <span class="rp-check">✓</span>
+              <div class="rp-text">
+                <strong>Vrijstelling overdrachtsbelasting</strong>
+                <span>Op nieuwbouw betaal je geen overdrachtsbelasting. Voordeel direct bij aankoop.</span>
+              </div>
+            </li>
+            <li>
+              <span class="rp-check">✓</span>
+              <div class="rp-text">
+                <strong>Eigen grond = eigen vermogen</strong>
+                <span>De woning staat op grond die van jou is. Geen erfpacht, geen verrassingen. Gewoon bezit.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="rendement-aside">
+          <h3>Geen gedoe, wel opbrengst</h3>
+          <p>Veel vakantiewoningen kosten je geld en tijd. De Wielsche Dreef is anders: Landal neemt alles over — van marketing tot schoonmaak — en jij ontvangt elke maand je aandeel.</p>
+          <p>Geen verhuurstress, geen lege kalenders, geen facturen die je zelf moet uitsturen.</p>
+          <p style="font-weight:600;color:var(--teal-dark);">Wil je de exacte cijfers zien? Vraag de brochure aan of kom naar het verkoopweekend.</p>
+          <a href="#brochure" class="btn btn-primary" style="margin-top:8px;">Brochure aanvragen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VERKOOPWEEKEND ── -->
+  <section class="verkoopweekend" id="aanmelden">
+    <div class="container">
+      <div class="vw-grid">
+        <div>
+          <p class="section-label">Verkoopweekend</p>
+          <h2 class="section-title">Kom kijken,<br/>niet beslissen.</h2>
+          <p style="color:var(--text-muted);line-height:1.8;margin:16px 0 24px;">Elke drie weken organiseren we een verkoopweekend op het park. Geen verkooppraatje — gewoon rondlopen, zien, voelen. Alle woningtypes zijn open.</p>
+
+          <ul class="vw-stappen">
+            <li class="vw-stap">
+              <span class="vw-stap-nr">1</span>
+              <div class="vw-stap-text">
+                <h4>Welkom op het park</h4>
+                <p>Je wordt ontvangen en krijgt een overzicht van het programma voor die dag.</p>
+              </div>
+            </li>
+            <li class="vw-stap">
+              <span class="vw-stap-nr">2</span>
+              <div class="vw-stap-text">
+                <h4>Rondleiding door alle typen</h4>
+                <p>Van 2-persoons tot 12-persoons, Comfort tot Extra Luxe — je ziet ze allemaal van binnen.</p>
+              </div>
+            </li>
+            <li class="vw-stap">
+              <span class="vw-stap-nr">3</span>
+              <div class="vw-stap-text">
+                <h4>Alles uitgelegd</h4>
+                <p>Verhuurmodel, rendement, kosten, BTW-voordeel — geen vraag is te klein.</p>
+              </div>
+            </li>
+            <li class="vw-stap">
+              <span class="vw-stap-nr">4</span>
+              <div class="vw-stap-text">
+                <h4>Geen verplichtingen</h4>
+                <p>Je gaat naar huis met een goed gevoel en alle informatie. Beslissen doe je zelf, op jouw moment.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="vw-card">
+          <p class="datum-label">Volgend verkoopweekend</p>
+          <p class="datum-groot" id="vw-datum-card">5 &amp; 6 juli 2026</p>
+          <p class="datum-sub">Eck en Wiel, Gelderland<br/>Aanvang: 10:00 – 17:00 uur</p>
+          <div class="vw-card-ctas">
+            <a href="#ghl-aanmelden" class="btn btn-primary">Ja, ik meld me aan</a>
+            <a href="#brochure" class="btn btn-outline">Liever eerst de brochure</a>
+          </div>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:16px;">Elke 3 weken een nieuw weekend. Kan dit weekend niet? Dan is er snel een volgende.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GHL FORMULIEREN PLACEHOLDER ── -->
+  <section id="ghl-aanmelden" style="background:var(--white);padding:60px 24px;">
+    <div class="container" style="max-width:700px;text-align:center;">
+      <p class="section-label">Aanmelden</p>
+      <h2 class="section-title">Aanmelden verkoopweekend</h2>
+      <p class="section-sub" style="margin:16px auto 32px;">Vul je gegevens in en we bevestigen je plek.</p>
+      <!-- GHL FORMULIER AANMELDEN HIER INSLUITEN -->
+      <div style="background:var(--teal-light);border-radius:12px;padding:48px;color:var(--text-muted);font-size:0.95rem;">
+        [GHL formulier aanmelden verkoopweekend]
+      </div>
+    </div>
+  </section>
+
+  <section id="brochure" style="background:var(--cream);padding:60px 24px;">
+    <div class="container" style="max-width:700px;text-align:center;">
+      <p class="section-label">Brochure</p>
+      <h2 class="section-title">Brochure aanvragen</h2>
+      <p class="section-sub" style="margin:16px auto 32px;">Ontvang alle informatie — woningtypes, prijzen, rendement en het verhuurmodel — direct in je mailbox.</p>
+      <!-- GHL FORMULIER BROCHURE HIER INSLUITEN -->
+      <div style="background:var(--teal-light);border-radius:12px;padding:48px;color:var(--text-muted);font-size:0.95rem;">
+        [GHL formulier brochure aanvragen]
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER CTA ── -->
+  <section class="footer-cta">
+    <div class="container">
+      <h2>Jouw plek wacht.</h2>
+      <p>39 woningen, fase 1. Kom kijken tijdens het verkoopweekend — of begin met de brochure.</p>
+      <div class="footer-cta-btns">
+        <a href="#aanmelden" class="btn btn-outline-white">Aanmelden verkoopweekend</a>
+        <a href="#brochure" class="btn" style="background:var(--white);color:var(--teal);">Brochure aanvragen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>
+      &copy; 2026 De Wielsche Dreef &nbsp;|&nbsp;
+      <a href="https://dewielschedreef.nl">dewielschedreef.nl</a> &nbsp;|&nbsp;
+      Recravas: <a href="tel:0853032844">085-30 32 844</a> &nbsp;|&nbsp;
+      Landal Makelaardij: <a href="tel:0882059777">088-20 59 777</a>
+    </p>
+  </footer>
+
+</body>
+</html>
