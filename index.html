@@ -656,24 +656,93 @@
     footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
     footer a:hover { color: var(--white); }
 
-    /* ── RESPONSIVE ── */
+    /* ── RESPONSIVE: TABLET (≤900px) ── */
     @media (max-width: 900px) {
+      section { padding: 60px 20px; }
+
       .gevoel-grid,
       .park-grid,
       .rendement-grid,
-      .vw-grid { grid-template-columns: 1fr; gap: 40px; }
+      .vw-grid { grid-template-columns: 1fr; gap: 36px; }
 
+      /* Gevoel: afbeelding boven tekst */
+      .gevoel-grid { direction: ltr; }
+
+      /* Park: kenmerken 2 kolommen blijft leesbaar op tablet */
+      .park-kenmerken { grid-template-columns: 1fr 1fr; gap: 16px; }
+
+      /* Park foto's: 2 kolommen */
+      .park-images { grid-template-columns: 1fr 1fr; }
+      .park-images img:first-child { grid-column: span 2; }
+
+      /* Woningen: 2 kolommen */
       .woningen-grid { grid-template-columns: 1fr 1fr; }
-      .ontzorgd-grid { grid-template-columns: 1fr; }
-      .park-kenmerken { grid-template-columns: 1fr; }
+
+      /* Ontzorgd: 1 kolom */
+      .ontzorgd-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+      /* Rendement aside: vol breedte */
+      .rendement-aside { padding: 28px 24px; }
     }
 
+    /* ── RESPONSIVE: MOBIEL (≤600px) ── */
     @media (max-width: 600px) {
-      .hero-content { padding: 60px 24px; }
-      .hero-ctas { flex-direction: column; }
-      .woningen-grid { grid-template-columns: 1fr; }
+      /* Header */
+      .site-header { height: 72px; padding: 0 16px; }
+      .site-header img.logo { height: 52px; }
       .header-ctas .btn-outline { display: none; }
-      .vw-card-ctas .btn { font-size: 0.85rem; padding: 12px 20px; }
+      .header-ctas .btn-primary { padding: 10px 16px; font-size: 0.82rem; }
+
+      /* Banner */
+      .vw-banner { font-size: 0.82rem; padding: 10px 16px; line-height: 1.6; }
+      .vw-banner .vw-date { display: block; margin: 6px auto 2px; width: fit-content; }
+
+      /* Hero */
+      .hero { min-height: 80vh; }
+      .hero-content { padding: 48px 20px 40px; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .hero-ctas { flex-direction: column; gap: 12px; }
+      .hero-ctas .btn { width: 100%; text-align: center; }
+
+      /* Secties */
+      section { padding: 48px 16px; }
+      .section-title { font-size: 1.7rem; }
+
+      /* Gevoel */
+      .gevoel-image { aspect-ratio: 16/9; }
+      .gevoel-text blockquote { font-size: 1.2rem; }
+
+      /* Ontzorgd */
+      .ontzorgd-grid { grid-template-columns: 1fr; max-width: 100%; }
+      .ontzorgd-card { padding: 24px 20px; }
+
+      /* Park */
+      .park-kenmerken { grid-template-columns: 1fr; gap: 16px; }
+      .park-images { grid-template-columns: 1fr; }
+      .park-images img:first-child { grid-column: span 1; aspect-ratio: 16/9; }
+      .park-images img { aspect-ratio: 4/3; }
+
+      /* Woningen */
+      .woningen-grid { grid-template-columns: 1fr; }
+
+      /* Rendement */
+      .rendement-grid { gap: 24px; }
+      .rendement-aside { padding: 24px 20px; }
+
+      /* Verkoopweekend */
+      .vw-grid { gap: 32px; }
+      .vw-card { padding: 28px 20px; }
+      .vw-card .datum-groot { font-size: 1.7rem; }
+      .vw-card-ctas .btn { padding: 13px 20px; font-size: 0.9rem; }
+
+      /* Footer CTA */
+      .footer-cta { padding: 56px 20px; }
+      .footer-cta-btns { flex-direction: column; align-items: center; }
+      .footer-cta-btns .btn { width: 100%; max-width: 320px; }
+
+      /* Footer */
+      footer { font-size: 0.78rem; line-height: 1.8; }
     }
   </style>
 </head>
