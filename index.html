@@ -3,13 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Landal De Wielsche Dreef – Uw plek aan de Utrechtse Heuvelrug</title>
+  <title>Landal De Wielsche Dreef – Jouw plek aan de Utrechtse Heuvelrug</title>
+  <meta name="description" content="Koop een luxe recreatiewoning op Landal De Wielsche Dreef in Eck en Wiel. Eigen grond, volledig verzorgd verhuurd door Landal. Kom kijken tijdens het verkoopweekend." />
+
+  <link rel="canonical" href="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/" />
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="nl_NL" />
+  <meta property="og:site_name" content="Landal De Wielsche Dreef" />
+  <meta property="og:title" content="Eindelijk een plek die echt van jou is – Landal De Wielsche Dreef" />
+  <meta property="og:description" content="Een luxe recreatiewoning op eigen grond, volledig verzorgd verhuurd door Landal. Kom kijken tijdens het verkoopweekend." />
+  <meta property="og:url" content="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/" />
+  <meta property="og:image" content="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/hero-vijver.jpg" />
+  <meta property="og:image:alt" content="Recreatiewoning aan de vijver op Landal De Wielsche Dreef" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Eindelijk een plek die echt van jou is – Landal De Wielsche Dreef" />
+  <meta name="twitter:description" content="Een luxe recreatiewoning op eigen grond, volledig verzorgd verhuurd door Landal. Kom kijken tijdens het verkoopweekend." />
+  <meta name="twitter:image" content="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/hero-vijver.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Noe Display: huisstijlfont, zelfde als dewielschedreef.nl. Lokaal gehost (cross-origin fonts worden door CORS geblokkeerd). -->
+  <link rel="preload" as="font" type="font/woff2" href="fonts/noe-display-bold.woff2" crossorigin />
   <link rel="icon" type="image/svg+xml" href="https://dewielschedreef.nl/wp-content/uploads/2024/09/Frame-13.svg" />
   <link rel="shortcut icon" href="https://dewielschedreef.nl/wp-content/uploads/2024/09/Frame-13.svg" />
+
+  <!-- Hero laadt als eerste zichtbare beeld: vooraf ophalen scheelt laadtijd -->
+  <link rel="preload" as="image" href="images/hero-vijver.jpg" fetchpriority="high" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Place",
+    "name": "Landal De Wielsche Dreef",
+    "url": "https://dewielschedreef.nl",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Kalverlandseweg 3",
+      "postalCode": "4024 BT",
+      "addressLocality": "Eck en Wiel",
+      "addressRegion": "Gelderland",
+      "addressCountry": "NL"
+    },
+    "image": "https://dewielschedreef.nl/wp-content/uploads/2025/07/DWD-Algemeen-Stills-44-Header.jpg"
+  }
+  </script>
   <style>
+    /* ── HUISSTIJLFONT ── */
+    @font-face {
+      font-family: 'Noe Display';
+      src: url('fonts/noe-display-bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Noe Display';
+      src: url('fonts/noe-display-italic.woff2') format('woff2');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -26,6 +85,10 @@
 
     html { scroll-behavior: smooth; }
 
+    /* Ankerdoelen: de sticky header (84px) mag de kop niet bedekken bij het scrollen.
+       Ook nodig als de formuliersecties straks GHL-secties met hetzelfde id worden. */
+    #verkoopweekend, #aanmelden, #brochure { scroll-margin-top: 96px; }
+
     body {
       font-family: 'Inter', sans-serif;
       color: var(--text);
@@ -34,7 +97,8 @@
     }
 
     h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Noe Display', Georgia, serif;
+      font-weight: 700;   /* enige beschikbare Noe Display-gewicht; voorkomt synthetic bold */
       line-height: 1.2;
     }
 
@@ -152,10 +216,21 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://dewielschedreef.nl/wp-content/uploads/2025/07/DWD-Algemeen-Stills-44-Header.jpg');
+      background-image: url('images/hero-vijver.jpg');
       background-size: cover;
-      background-position: center 60%;
-      filter: brightness(0.55);
+      background-position: center center;
+    }
+
+    /* Leesbaarheidslaag: donker aan de tekstzijde, helder waar het park in beeld is */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(100deg,
+        rgba(0,0,0,0.78) 0%,
+        rgba(0,0,0,0.58) 42%,
+        rgba(0,0,0,0.22) 72%,
+        rgba(0,0,0,0.08) 100%);
     }
 
     .hero-content {
@@ -260,7 +335,9 @@
     }
 
     .gevoel-text blockquote {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Noe Display', Georgia, serif;
+      font-weight: 400;
+      font-style: italic;
       font-size: 1.5rem;
       color: var(--teal-dark);
       border-left: 4px solid var(--teal);
@@ -392,8 +469,8 @@
 
     .woningen-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
     }
 
     .woning-card {
@@ -402,7 +479,30 @@
       overflow: hidden;
       border: 1px solid var(--border);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
     }
+
+    /* ── BESCHIKBAARHEID PER TYPE ── */
+    .woning-status {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 6px 12px;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+    }
+
+    .woning-status.laatste     { background: #C2410C; color: var(--white); }
+    .woning-status.beschikbaar { background: rgba(255,255,255,0.92); color: var(--teal-dark); }
+    .woning-status.uitverkocht { background: rgba(25,25,25,0.85); color: rgba(255,255,255,0.92); }
+
+    .woning-card.is-uitverkocht img { filter: grayscale(0.45) brightness(0.92); }
+    .woning-card.is-uitverkocht:hover { transform: none; box-shadow: none; }
 
     .woning-card:hover {
       transform: translateY(-4px);
@@ -529,6 +629,146 @@
       margin-bottom: 20px;
     }
 
+    /* ── CTA MIDDEN IN DE PAGINA ── */
+    .cta-blok {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .cta-blok-tekst {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-right: 4px;
+    }
+
+    /* ── STICKY CTA-BALK (mobiel) ── */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border);
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      gap: 10px;
+    }
+
+    .sticky-cta .btn {
+      flex: 1;
+      padding: 12px 8px;
+      font-size: 0.85rem;
+    }
+
+    /* ── INTERIEUR / FACILITEITEN ── */
+    .interieur-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .interieur-item.groot { grid-column: span 2; }
+
+    .interieur-foto {
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--cream);
+    }
+
+    .interieur-foto img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .interieur-item.groot .interieur-foto img { aspect-ratio: 16/9; }
+    .interieur-item:hover .interieur-foto img { transform: scale(1.04); }
+
+    .interieur-cap { padding: 14px 2px 0; }
+
+    .interieur-cap h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .interieur-cap p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── FAQ SECTIE ── */
+    .faq-list {
+      margin-top: 8px;
+      max-width: 780px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+      padding: 20px 0;
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      list-style: none;
+      transition: color 0.2s ease;
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-item summary::after {
+      content: '+';
+      color: var(--teal);
+      font-size: 1.6rem;
+      font-weight: 300;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .faq-item[open] summary::after { content: '–'; }
+    .faq-item summary:hover { color: var(--teal); }
+
+    .faq-answer {
+      padding: 0 0 22px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-size: 0.95rem;
+      max-width: 92%;
+    }
+
+    /* ── AFM DISCLAIMER ── */
+    .afm-note {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      max-width: 780px;
+      margin: 40px auto 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .afm-note strong { color: var(--text); }
+
     /* ── VERKOOPWEEKEND SECTIE ── */
     .verkoopweekend {
       background: var(--cream);
@@ -596,7 +836,7 @@
     }
 
     .vw-card .datum-groot {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Noe Display', Georgia, serif;
       font-size: 2.2rem;
       font-weight: 700;
       color: var(--text);
@@ -678,6 +918,10 @@
       /* Woningen: 2 kolommen */
       .woningen-grid { grid-template-columns: 1fr 1fr; }
 
+      /* Interieur: 2 kolommen, grote foto over volle breedte */
+      .interieur-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .interieur-item.groot { grid-column: span 2; }
+
       /* Ontzorgd: 1 kolom */
       .ontzorgd-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
 
@@ -687,6 +931,18 @@
 
     /* ── RESPONSIVE: MOBIEL (≤600px) ── */
     @media (max-width: 600px) {
+      /* Sticky CTA-balk: de pagina is 12 schermen lang, actie moet altijd bereikbaar zijn */
+      .sticky-cta { display: flex; }
+      body { padding-bottom: 66px; }
+
+      /* Header is hier 72px i.p.v. 84px */
+      #verkoopweekend, #aanmelden, #brochure { scroll-margin-top: 84px; }
+
+      /* CTA-blokken midden op de pagina: onder elkaar */
+      .cta-blok { flex-direction: column; gap: 10px; }
+      .cta-blok .btn { width: 100%; max-width: 320px; }
+      .cta-blok-tekst { text-align: center; margin: 0 0 4px; }
+
       /* Header */
       .site-header { height: 72px; padding: 0 16px; }
       .site-header img.logo { height: 52px; }
@@ -699,6 +955,13 @@
 
       /* Hero */
       .hero { min-height: 80vh; }
+      /* Tekst staat hier over de volle breedte: verticaal verlopen i.p.v. diagonaal */
+      .hero-bg::after {
+        background: linear-gradient(180deg,
+          rgba(0,0,0,0.45) 0%,
+          rgba(0,0,0,0.60) 45%,
+          rgba(0,0,0,0.78) 100%);
+      }
       .hero-content { padding: 48px 20px 40px; }
       .hero h1 { font-size: 2rem; }
       .hero p { font-size: 1rem; }
@@ -725,6 +988,11 @@
 
       /* Woningen */
       .woningen-grid { grid-template-columns: 1fr; }
+
+      /* Interieur: 1 kolom */
+      .interieur-grid { grid-template-columns: 1fr; gap: 28px; }
+      .interieur-item.groot { grid-column: span 1; }
+      .interieur-item.groot .interieur-foto img { aspect-ratio: 4/3; }
 
       /* Rendement */
       .rendement-grid { gap: 24px; }
@@ -755,16 +1023,17 @@
          alt="De Wielsche Dreef" />
     <div class="header-ctas">
       <a href="#brochure" class="btn btn-outline btn-sm">Brochure aanvragen</a>
-      <a href="#aanmelden" class="btn btn-primary btn-sm">Aanmelden verkoopweekend</a>
+      <a href="#verkoopweekend" class="btn btn-primary btn-sm">Aanmelden verkoopweekend</a>
     </div>
   </header>
 
-  <!-- ── VERKOOPWEEKEND DATUM BANNER ── -->
+  <!-- ── VERKOOPWEEKEND DATUM BANNER ──
+       DATUM AANPASSEN: hier én bij #vw-datum-card verderop (aanmeldkaart). -->
   <div class="vw-banner">
     Volgend verkoopweekend:
-    <span class="vw-date" id="vw-datum">5 &amp; 6 juli 2026</span>
-    — Kom langs en ontdek uw woning
-    <a href="#aanmelden" style="color:var(--white);margin-left:12px;font-weight:700;text-decoration:underline;">Aanmelden &rarr;</a>
+    <span class="vw-date" id="vw-datum">7 &amp; 8 augustus 2026</span>
+    — Kom langs en ontdek je woning
+    <a href="#verkoopweekend" style="color:var(--white);margin-left:12px;font-weight:700;text-decoration:underline;">Aanmelden &rarr;</a>
   </div>
 
   <!-- ── HERO ── -->
@@ -772,11 +1041,11 @@
     <div class="hero-bg"></div>
     <div class="hero-content">
       <span class="hero-eyebrow">Fase 1 &bull; 39 woningen &bull; Oplevering 31 juli 2026</span>
-      <h1>Eindelijk een plek<br/>die echt van u is</h1>
-      <p>Een luxe recreatiewoning aan de rand van de Utrechtse Heuvelrug. Bossen, heide en de Nederrijn om de hoek. Volledig verzorgd verhuurd als u er niet bent — en elke keer thuiskomen als u er wel bent.</p>
+      <h1>Eindelijk een plek<br/>die echt van jou is</h1>
+      <p>Een luxe recreatiewoning aan de rand van de Utrechtse Heuvelrug. Bossen, heide en de Nederrijn om de hoek. Volledig verzorgd verhuurd als je er niet bent — en elke keer thuiskomen als je er wel bent.</p>
 
       <div class="hero-ctas">
-        <a href="#aanmelden" class="btn btn-primary">Aanmelden verkoopweekend</a>
+        <a href="#verkoopweekend" class="btn btn-primary">Aanmelden verkoopweekend</a>
         <a href="#brochure" class="btn btn-outline-white">Brochure aanvragen</a>
       </div>
     </div>
@@ -787,15 +1056,15 @@
     <div class="container">
       <div class="gevoel-grid">
         <div class="gevoel-image">
-          <img src="https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-6p-L-scaled.jpg"
-               alt="Sfeer De Wielsche Dreef" loading="lazy" />
+          <img src="images/terras-wijn.jpg"
+               alt="Glas wijn op het terras met uitzicht over de vijver" loading="lazy" />
         </div>
         <div class="gevoel-text">
           <p class="section-label">Het gevoel</p>
           <h2 class="section-title">Niet huren.<br/>Niet ergens logeren.<br/>Thuiskomen.</h2>
-          <blockquote>"Uw plek, uw stoel op het terras — en als u er niet bent, geniet een ander ervan."</blockquote>
-          <p>De Wielsche Dreef ligt aan de rand van de Utrechtse Heuvelrug — waar de bossen beginnen, de heide openligt en de Nederrijn vlak om de hoek stroomt. Niet een willekeurige locatie. Een plek die u bijblijft.</p>
-          <p>En als u er niet bent? Dan geniet een ander ervan, en betaalt Landal u daarvoor. Elke maand. Zonder gedoe.</p>
+          <blockquote>"Jouw plek, je stoel op het terras — en als je er niet bent, geniet een ander ervan."</blockquote>
+          <p>De Wielsche Dreef ligt aan de rand van de Utrechtse Heuvelrug — waar de bossen beginnen, de heide openligt en de Nederrijn vlak om de hoek stroomt. Niet een willekeurige locatie. Een plek die je bijblijft.</p>
+          <p>En als je er niet bent? Dan geniet een ander ervan, en betaalt Landal je daarvoor. Elke maand. Zonder gedoe.</p>
         </div>
       </div>
     </div>
@@ -805,8 +1074,8 @@
   <section>
     <div class="container">
       <p class="section-label" style="text-align:center;">Hoe het werkt</p>
-      <h2 class="section-title" style="text-align:center;margin:0 auto 16px;">U geniet.<br/>De rest regelen wij.</h2>
-      <p class="section-sub" style="margin:0 auto 0;text-align:center;">Landal — de grootste vakantieaanbieder van Nederland — regelt alles. Marketing, boeking, beheer, schoonmaak. U ziet elke maand wat het oplevert.</p>
+      <h2 class="section-title" style="text-align:center;margin:0 auto 16px;">Je geniet.<br/>De rest regelen wij.</h2>
+      <p class="section-sub" style="margin:0 auto 0;text-align:center;">Landal — de grootste vakantieaanbieder van Nederland — regelt alles. Marketing, boeking, beheer, schoonmaak. Je ziet elke maand wat het oplevert.</p>
 
       <div class="ontzorgd-grid">
         <div class="ontzorgd-card">
@@ -814,14 +1083,14 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
           </div>
           <h3>Eigen woning, eigen plek</h3>
-          <p>Tot 90 dagen per jaar gebruikt u de woning zelf. Uw eigen meubels, uw eigen tuin, uw eigen terras aan de vijver.</p>
+          <p>Tot 90 dagen per jaar gebruik je de woning zelf. Je eigen meubels, je eigen tuin, je eigen terras aan de vijver.</p>
         </div>
         <div class="ontzorgd-card">
           <div class="ontzorgd-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6M9 16h4"/></svg>
           </div>
           <h3>Landal regelt de verhuur</h3>
-          <p>Boekingen, gasten, schoonmaak, beheer — Landal neemt het volledig over. U ontvangt maandelijks uw aandeel uit de verhuurpool.</p>
+          <p>Boekingen, gasten, schoonmaak, beheer — Landal neemt het volledig over. Je ontvangt maandelijks je aandeel uit de verhuurpool.</p>
         </div>
         <div class="ontzorgd-card">
           <div class="ontzorgd-icon">
@@ -841,7 +1110,7 @@
         <div>
           <p class="section-label">Het park</p>
           <h2 class="section-title" style="color:var(--white);">Aan de rand van de<br/>Utrechtse Heuvelrug</h2>
-          <p class="section-sub">Bossen, heide en de Nederrijn — dit is het groene hart van Nederland op zijn mooiste. De stilte die u vergeten was dat ze bestond.</p>
+          <p class="section-sub">Bossen, heide en de Nederrijn — dit is het groene hart van Nederland op zijn mooiste. De stilte die je vergeten was dat ze bestond.</p>
 
           <div class="park-kenmerken">
             <div class="park-kenmerk">
@@ -877,7 +1146,7 @@
               </span>
               <div>
                 <h4>Eigen grond</h4>
-                <p>Geen erfpacht. U koopt de woning én de grond. Volledig eigendom.</p>
+                <p>Geen erfpacht. Je koopt de woning én de grond. Volledig eigendom.</p>
               </div>
             </div>
             <div class="park-kenmerk">
@@ -904,11 +1173,17 @@
         <div class="park-images">
           <img src="https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-4p-ELW-scaled.jpg"
                alt="Luxe recreatiewoning De Wielsche Dreef" loading="lazy" />
-          <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/drone-DeWielscheDreef-25-scaled.jpg"
-               alt="Omgeving De Wielsche Dreef" loading="lazy" />
+          <img src="images/park-drone.jpg"
+               alt="Het park vanuit de lucht met de vijver en de woningen" loading="lazy" />
           <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/2persoons-DeWielscheDreef-45-scaled.jpg"
                alt="Interieur recreatiewoning" loading="lazy" />
         </div>
+      </div>
+
+      <div class="cta-blok" style="margin-top:44px;">
+        <span class="cta-blok-tekst" style="color:rgba(255,255,255,0.75);">Een plek als deze beoordeel je niet van een scherm.</span>
+        <a href="#verkoopweekend" class="btn btn-sm" style="background:var(--white);color:var(--teal-dark);">Kom langs op 7 &amp; 8 augustus</a>
+        <a href="#brochure" class="btn btn-outline-white btn-sm">Brochure aanvragen</a>
       </div>
     </div>
   </section>
@@ -917,11 +1192,12 @@
   <section class="woningen">
     <div class="container">
       <p class="section-label">De woningen</p>
-      <h2 class="section-title">Drie typen, één gevoel</h2>
-      <p class="section-sub">Er zijn drie woningtypen: <strong>Wellness</strong>, <strong>Luxe</strong> en <strong>Extra Luxe</strong> — van 2 tot 12 personen. Hieronder een greep uit het aanbod. Alle woningen worden turnkey opgeleverd, inclusief interieur, tuin en privé parkeerplaats.</p>
+      <h2 class="section-title">Tien typen, één gevoel</h2>
+      <p class="section-sub">Tien woningtypen, verdeeld over vier lijnen: <strong>Comfort</strong>, <strong>Luxe</strong>, <strong>Extra Luxe Wellness</strong> en <strong>Extra Luxe Culinair</strong> — van 2 tot 12 personen. Hieronder een greep uit het aanbod. Alle woningen worden opgeleverd met tuin en eigen parkeerplaats.</p>
 
       <div class="woningen-grid">
         <div class="woning-card">
+          <span class="woning-status laatste">Nog 1 beschikbaar</span>
           <img src="https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-2p-ELW-scaled.jpg"
                alt="2-persoons Extra Luxe Wellness" loading="lazy" />
           <div class="woning-card-body">
@@ -937,6 +1213,7 @@
         </div>
 
         <div class="woning-card">
+          <span class="woning-status beschikbaar">6 beschikbaar</span>
           <img src="https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-4p-L-scaled.jpg"
                alt="4-persoons Luxe" loading="lazy" />
           <div class="woning-card-body">
@@ -951,12 +1228,29 @@
         </div>
 
         <div class="woning-card">
+          <span class="woning-status beschikbaar">2 beschikbaar</span>
+          <img src="https://dewielschedreef.nl/wp-content/uploads/2024/11/10ELW_EXT-dwd.jpg"
+               alt="10-persoons Extra Luxe Wellness" loading="lazy" />
+          <div class="woning-card-body">
+            <p class="woning-type">Extra Luxe Wellness</p>
+            <h3>10-persoons</h3>
+            <p class="woning-prijs">Vanaf <strong>€ 517.500</strong> <span style="font-size:0.82rem;">(excl. btw)</span></p>
+            <div class="woning-tags">
+              <span class="woning-tag">Bubbelbad</span>
+              <span class="woning-tag">Regendouche</span>
+              <span class="woning-tag">Ruime kavel</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="woning-card is-uitverkocht">
+          <span class="woning-status uitverkocht">Uitverkocht</span>
           <img src="https://dewielschedreef.nl/wp-content/uploads/2024/11/12ELF_EXT-dwd.jpg"
                alt="12-persoons Extra Luxe Culinair" loading="lazy" />
           <div class="woning-card-body">
             <p class="woning-type">Extra Luxe Culinair</p>
             <h3>12-persoons</h3>
-            <p class="woning-prijs">Vanaf <strong>€ 558.000</strong> <span style="font-size:0.82rem;">(excl. btw)</span></p>
+            <p class="woning-prijs">Beide woningen van dit type zijn verkocht</p>
             <div class="woning-tags">
               <span class="woning-tag">Buitenkeuken</span>
               <span class="woning-tag">Wijnklimaatkast</span>
@@ -966,9 +1260,120 @@
         </div>
       </div>
 
-      <p style="margin-top:24px;font-size:0.9rem;color:var(--text-muted);text-align:center;">
-        Wilt u een volledig overzicht van alle typen en prijzen? Vraag de brochure aan.
+      <div class="cta-blok">
+        <span class="cta-blok-tekst">Wil je een volledig overzicht van alle typen en prijzen?</span>
+        <a href="#brochure" class="btn btn-outline btn-sm">Brochure aanvragen</a>
+        <a href="#aanmelden" class="btn btn-primary btn-sm">Kom kijken op 7 &amp; 8 augustus</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VAN BINNEN / FACILITEITEN ── -->
+  <section class="interieur">
+    <div class="container">
+      <p class="section-label">Van binnen</p>
+      <h2 class="section-title">Afgewerkt zoals je het<br/>zelf zou doen</h2>
+      <p class="section-sub">Geen standaard vakantiehuis-afwerking. Marmerlook tegelwerk, vrijstaande baden, een eigen sauna en volledig uitgeruste keukens — tot in het detail doordacht.</p>
+
+      <div class="interieur-grid">
+        <div class="interieur-item groot">
+          <div class="interieur-foto">
+            <img src="images/badkamer-ensuite.jpg"
+                 alt="En-suite badkamer met verlichte spiegel en doorkijk naar de slaapkamer" loading="lazy" />
+          </div>
+          <div class="interieur-cap">
+            <h4>En-suite badkamer</h4>
+            <p>Verlichte spiegel, dubbele wastafel en handdoekradiator — met de slaapkamer direct ernaast.</p>
+          </div>
+        </div>
+
+        <div class="interieur-item">
+          <div class="interieur-foto">
+            <img src="images/bad-vrijstaand.jpg"
+                 alt="Vrijstaand bad tegen marmerlook tegelwand" loading="lazy" />
+          </div>
+          <div class="interieur-cap">
+            <h4>Het bad</h4>
+            <p>Vrijstaand bad tegen een wand van marmerlook tegels. Zicht op het groen, gordijn dicht.</p>
+          </div>
+        </div>
+
+        <div class="interieur-item">
+          <div class="interieur-foto">
+            <img src="images/sauna.jpg"
+                 alt="Sauna met houten banken en saunakachel" loading="lazy" />
+          </div>
+          <div class="interieur-cap">
+            <h4>Eigen sauna</h4>
+            <p>Warm hout, zacht licht en stilte. Beschikbaar in verschillende woningtypen.</p>
+          </div>
+        </div>
+
+        <div class="interieur-item">
+          <div class="interieur-foto">
+            <img src="images/sauna2.jpg"
+                 alt="Saunabanken met sfeerverlichting" loading="lazy" />
+          </div>
+          <div class="interieur-cap">
+            <h4>Ruimte voor twee</h4>
+            <p>Twee niveaus, sfeerverlichting onder de banken. Opwarmen terwijl het buiten regent.</p>
+          </div>
+        </div>
+
+        <div class="interieur-item">
+          <div class="interieur-foto">
+            <img src="images/wastafel.jpg"
+                 alt="Dubbele wastafel met ronde verlichte spiegel" loading="lazy" />
+          </div>
+          <div class="interieur-cap">
+            <h4>Sanitair</h4>
+            <p>Dubbele wastafel met ronde verlichte spiegel — 's ochtends geen wachten op elkaar.</p>
+          </div>
+        </div>
+
+        <div class="interieur-item">
+          <div class="interieur-foto">
+            <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/2persoons-DeWielscheDreef-48-scaled.jpg"
+                 alt="Keuken met inbouwapparatuur" loading="lazy" />
+          </div>
+          <div class="interieur-cap">
+            <h4>De keuken</h4>
+            <p>Inbouwoven, inductiekookplaat en RVS afzuigkap, met zicht op de eettafel.</p>
+          </div>
+        </div>
+
+        <div class="interieur-item">
+          <div class="interieur-foto">
+            <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/2persoons-DeWielscheDreef-47-scaled.jpg"
+                 alt="Woonkamer met schuifpui naar het terras" loading="lazy" />
+          </div>
+          <div class="interieur-cap">
+            <h4>De woonkamer</h4>
+            <p>Ruime zithoek met schuifpui — binnen en buiten lopen in elkaar over.</p>
+          </div>
+        </div>
+
+        <div class="interieur-item">
+          <div class="interieur-foto">
+            <img src="images/slaapkamer.jpg"
+                 alt="Slaapkamer met boxspring, wandlamp en nachtkastje" loading="lazy" />
+          </div>
+          <div class="interieur-cap">
+            <h4>De slaapkamer</h4>
+            <p>Boxspring met leeslampje binnen handbereik. Zacht licht, warme tinten, geen scherm te bekennen.</p>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top:32px;font-size:0.9rem;color:var(--text-muted);text-align:center;">
+        Afwerking verschilt per woningtype. Vraag de brochure aan voor de complete interieur- en sanitairlijst per type.
       </p>
+
+      <div class="cta-blok" style="margin-top:24px;">
+        <span class="cta-blok-tekst">Dit wil je met eigen ogen zien.</span>
+        <a href="#aanmelden" class="btn btn-primary btn-sm">Aanmelden verkoopweekend</a>
+        <a href="#brochure" class="btn btn-outline btn-sm">Brochure aanvragen</a>
+      </div>
     </div>
   </section>
 
@@ -979,35 +1384,42 @@
         <div>
           <p class="section-label">Het rendement</p>
           <h2 class="section-title">Eerlijk gezegd:<br/>het klopt gewoon.</h2>
-          <p style="color:var(--text-muted);line-height:1.8;margin:16px 0 8px;">We beloven geen wonderen. Maar we beloven wel dat alles op zijn plek valt — en dat de woning zichzelf terugverdient terwijl u geniet.</p>
+          <p style="color:var(--text-muted);line-height:1.8;margin:16px 0 8px;">We beloven geen wonderen. Maar we beloven wel dat alles op zijn plek valt — en dat de woning zichzelf terugverdient terwijl je geniet.</p>
 
           <ul class="rendement-punten">
             <li>
               <span class="rp-check">✓</span>
               <div class="rp-text">
+                <strong>Vast rendement mogelijk: 4,5% tot 6,5%</strong>
+                <span>Op verschillende woningen is een vast rendement mogelijk van 4,5% tot 6,5% (excl. btw), voor 5 jaar vast. Vraag naar de voorwaarden bij de makelaar.</span>
+              </div>
+            </li>
+            <li>
+              <span class="rp-check">✓</span>
+              <div class="rp-text">
                 <strong>BTW-voordeel op de aankoop</strong>
-                <span>Als verhuurder kunt u de btw op de woning en inrichting terugvragen. Dat scheelt direct een fors bedrag.</span>
+                <span>Als verhuurder kun je de btw op de woning en inrichting terugvragen. Dat scheelt direct een fors bedrag.</span>
               </div>
             </li>
             <li>
               <span class="rp-check">✓</span>
               <div class="rp-text">
                 <strong>Maandelijkse verhuurinkomsten</strong>
-                <span>Via de verhuurpool van Landal ontvangt u elke maand een eerlijk aandeel — ongeacht de bezetting van uw woning.</span>
+                <span>Via de verhuurpool van Landal ontvang je elke maand een eerlijk aandeel — ongeacht de bezetting van je woning.</span>
               </div>
             </li>
             <li>
               <span class="rp-check">✓</span>
               <div class="rp-text">
                 <strong>Vrijstelling overdrachtsbelasting</strong>
-                <span>Op nieuwbouw betaalt u geen overdrachtsbelasting. Voordeel direct bij aankoop.</span>
+                <span>Op nieuwbouw betaal je geen overdrachtsbelasting. Voordeel direct bij aankoop.</span>
               </div>
             </li>
             <li>
               <span class="rp-check">✓</span>
               <div class="rp-text">
                 <strong>Eigen grond = eigen vermogen</strong>
-                <span>De woning staat op grond die van u is. Geen erfpacht, geen verrassingen. Gewoon bezit.</span>
+                <span>De woning staat op grond die van jou is. Geen erfpacht, geen verrassingen. Gewoon bezit.</span>
               </div>
             </li>
           </ul>
@@ -1015,37 +1427,87 @@
 
         <div class="rendement-aside">
           <h3>Geen gedoe, wel opbrengst</h3>
-          <p>Veel vakantiewoningen kosten u geld en tijd. De Wielsche Dreef is anders: Landal neemt alles over — van marketing tot schoonmaak — en u ontvangt elke maand uw aandeel.</p>
-          <p>Geen verhuurstress, geen lege kalenders, geen facturen die u zelf moet uitsturen.</p>
-          <p style="font-weight:600;color:var(--teal-dark);">Wilt u de exacte cijfers zien? Vraag de brochure aan of kom naar het verkoopweekend.</p>
+          <p>Veel vakantiewoningen kosten je geld en tijd. De Wielsche Dreef is anders: Landal neemt alles over — van marketing tot schoonmaak — en je ontvangt elke maand je aandeel.</p>
+          <p>Geen verhuurstress, geen lege kalenders, geen facturen die je zelf moet uitsturen.</p>
+          <p style="font-weight:600;color:var(--teal-dark);">Wil je de exacte cijfers zien? Vraag de brochure aan of kom naar het verkoopweekend.</p>
           <a href="#brochure" class="btn btn-primary" style="margin-top:8px;">Brochure aanvragen</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ── VEELGESTELDE VRAGEN ── -->
+  <section class="faq">
+    <div class="container">
+      <p class="section-label">Veelgestelde vragen</p>
+      <h2 class="section-title">Alles wat je wilt weten</h2>
+      <p class="section-sub">Nog een vraag die er niet bij staat? Stel hem tijdens het verkoopweekend — of vraag de brochure aan.</p>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Hoeveel mag ik de woning zelf gebruiken?</summary>
+          <p class="faq-answer">Tot 90 dagen per jaar gebruik je de woning zelf. De rest van het jaar wordt hij via Landal verhuurd.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Koop ik ook de grond?</summary>
+          <p class="faq-answer">Ja. Je koopt de woning én de grond — geen erfpacht, geen verrassingen. Volledig eigendom.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Wie regelt de verhuur?</summary>
+          <p class="faq-answer">Landal neemt boekingen, gasten, schoonmaak en beheer volledig over. Je ontvangt maandelijks je aandeel uit de verhuurpool — ongeacht de bezetting van je eigen woning.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is het interieur bij de koopsom inbegrepen?</summary>
+          <p class="faq-answer">Nee. De genoemde koopsommen zijn exclusief btw en exclusief het inventarispakket. Bij verhuur is afname van het inventarispakket verplicht; de kosten verschillen per woningtype. Vraag de brochure of prijslijst aan voor de exacte bedragen.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Kan ik de btw terugvragen?</summary>
+          <p class="faq-answer">Als verhuurder kun je de btw op de woning en de inrichting terugvragen. Dat scheelt direct een fors bedrag bij de aankoop.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Betaal ik overdrachtsbelasting?</summary>
+          <p class="faq-answer">Nee. Op nieuwbouw betaal je geen overdrachtsbelasting — voordeel direct bij aankoop.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Moet ik tijdens het verkoopweekend beslissen?</summary>
+          <p class="faq-answer">Nee. Je gaat naar huis met alle informatie en beslist op je eigen moment. Geen verplichtingen.</p>
+        </details>
+      </div>
+
+      <p class="afm-note">
+        <strong>Let op! U belegt buiten AFM-toezicht.</strong> Geen vergunningplicht voor deze activiteit.
+      </p>
+    </div>
+  </section>
+
   <!-- ── VERKOOPWEEKEND ── -->
-  <section class="verkoopweekend" id="aanmelden">
+  <section class="verkoopweekend" id="verkoopweekend">
     <div class="container">
       <div class="vw-grid">
         <div>
           <p class="section-label">Verkoopweekend</p>
           <h2 class="section-title">Kom kijken,<br/>om te kunnen beslissen.</h2>
-          <p style="color:var(--text-muted);line-height:1.8;margin:16px 0 24px;">Elke drie weken organiseren we een verkoopweekend op het park. Geen verkooppraatje — gewoon rondlopen, zien, voelen. Alle woningtypes zijn open.</p>
+          <p style="color:var(--text-muted);line-height:1.8;margin:16px 0 24px;">Regelmatig organiseren we een verkoopweekend op het park. Geen verkooppraatje — gewoon rondlopen, zien, voelen.</p>
 
           <ul class="vw-stappen">
             <li class="vw-stap">
               <span class="vw-stap-nr">1</span>
               <div class="vw-stap-text">
                 <h4>Welkom op het park</h4>
-                <p>U wordt ontvangen en krijgt een overzicht van het programma voor die dag.</p>
+                <p>Je wordt ontvangen en krijgt een overzicht van het programma voor die dag.</p>
               </div>
             </li>
             <li class="vw-stap">
               <span class="vw-stap-nr">2</span>
               <div class="vw-stap-text">
-                <h4>Rondleiding door alle typen</h4>
-                <p>Van 2-persoons tot 12-persoons, Comfort tot Extra Luxe — u ziet ze allemaal van binnen.</p>
+                <h4>Rondleiding door de modelwoningen</h4>
+                <p>Je loopt door de ingerichte woningen en ziet met eigen ogen hoe het afwerkingsniveau is.</p>
               </div>
             </li>
             <li class="vw-stap">
@@ -1059,7 +1521,7 @@
               <span class="vw-stap-nr">4</span>
               <div class="vw-stap-text">
                 <h4>Geen verplichtingen</h4>
-                <p>U gaat naar huis met een goed gevoel en alle informatie. Beslissen doet u zelf, op uw moment.</p>
+                <p>Je gaat naar huis met een goed gevoel en alle informatie. Beslissen doe je zelf, op je eigen moment.</p>
               </div>
             </li>
           </ul>
@@ -1067,24 +1529,25 @@
 
         <div class="vw-card">
           <p class="datum-label">Volgend verkoopweekend</p>
-          <p class="datum-groot" id="vw-datum-card">5 &amp; 6 juli 2026</p>
-          <p class="datum-sub">Eck en Wiel, Gelderland<br/>Aanvang: 10:00 – 17:00 uur</p>
+          <!-- DATUM AANPASSEN: hier én in de banner bovenaan (#vw-datum). -->
+          <p class="datum-groot" id="vw-datum-card">7 &amp; 8 augustus 2026</p>
+          <p class="datum-sub">Vrijdag &amp; zaterdag &bull; 10:00 – 16:00 uur<br/>Eck en Wiel, Gelderland</p>
           <div class="vw-card-ctas">
-            <a href="#ghl-aanmelden" class="btn btn-primary">Ja, ik meld me aan</a>
+            <a href="#aanmelden" class="btn btn-primary">Ja, ik meld me aan *</a>
             <a href="#brochure" class="btn btn-outline">Liever eerst de brochure</a>
           </div>
-          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:16px;">Elke 3 weken een nieuw weekend. Kan dit weekend niet? Dan is er snel een volgende.</p>
+          <p style="font-size:0.78rem;color:var(--text-muted);margin-top:16px;line-height:1.6;">* Een adviseur belt je op om de afspraak in te plannen.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ── GHL FORMULIEREN PLACEHOLDER ── -->
-  <section id="ghl-aanmelden" style="background:var(--white);padding:60px 24px;">
+  <section id="aanmelden" style="background:var(--white);padding:60px 24px;">
     <div class="container" style="max-width:700px;text-align:center;">
       <p class="section-label">Aanmelden</p>
       <h2 class="section-title">Aanmelden verkoopweekend</h2>
-      <p class="section-sub" style="margin:16px auto 32px;">Vul uw gegevens in en we bevestigen uw plek.</p>
+      <p class="section-sub" style="margin:16px auto 32px;">Vul je gegevens in en we bevestigen je plek.</p>
       <!-- GHL FORMULIER AANMELDEN HIER INSLUITEN -->
       <div style="background:var(--teal-light);border-radius:12px;padding:48px;color:var(--text-muted);font-size:0.95rem;">
         [GHL formulier aanmelden verkoopweekend]
@@ -1096,7 +1559,7 @@
     <div class="container" style="max-width:700px;text-align:center;">
       <p class="section-label">Brochure</p>
       <h2 class="section-title">Brochure aanvragen</h2>
-      <p class="section-sub" style="margin:16px auto 32px;">Ontvang alle informatie — woningtypes, prijzen, rendement en het verhuurmodel — direct in uw mailbox.</p>
+      <p class="section-sub" style="margin:16px auto 32px;">Ontvang alle informatie — woningtypes, prijzen, rendement en het verhuurmodel — direct in je mailbox.</p>
       <!-- GHL FORMULIER BROCHURE HIER INSLUITEN -->
       <div style="background:var(--teal-light);border-radius:12px;padding:48px;color:var(--text-muted);font-size:0.95rem;">
         [GHL formulier brochure aanvragen]
@@ -1107,7 +1570,7 @@
   <!-- ── FOOTER CTA ── -->
   <section class="footer-cta">
     <div class="container">
-      <h2>Uw plek wacht.</h2>
+      <h2>Jouw plek wacht.</h2>
       <p>39 woningen, fase 1. Kom kijken tijdens het verkoopweekend — of begin met de brochure.</p>
       <div class="footer-cta-btns">
         <a href="#aanmelden" class="btn btn-outline-white">Aanmelden verkoopweekend</a>
@@ -1116,13 +1579,18 @@
     </div>
   </section>
 
+  <!-- ── STICKY CTA (alleen mobiel) ── -->
+  <div class="sticky-cta">
+    <a href="#verkoopweekend" class="btn btn-primary">Aanmelden verkoopweekend</a>
+    <a href="#brochure" class="btn btn-outline">Brochure</a>
+  </div>
+
   <!-- ── FOOTER ── -->
   <footer>
     <p>
       &copy; 2026 De Wielsche Dreef &nbsp;|&nbsp;
       <a href="https://dewielschedreef.nl">dewielschedreef.nl</a> &nbsp;|&nbsp;
-      Recravas: <a href="tel:0853032844">085-30 32 844</a> &nbsp;|&nbsp;
-      Landal Makelaardij: <a href="tel:0882059777">088-20 59 777</a>
+      Recravas: <a href="tel:0853032844">085-30 32 844</a>
     </p>
   </footer>
 
