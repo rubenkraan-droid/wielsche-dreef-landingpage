@@ -459,7 +459,9 @@
 
     .park-images img:first-child {
       grid-column: span 2;
-      aspect-ratio: 16/7;
+      /* 16/9 = exact de ratio van de foto, dus geen crop en het dak blijft heel.
+         Bij 16/7 sneuvelde 34% van de hoogte, inclusief het dakpunt. */
+      aspect-ratio: 16/9;
     }
 
     /* ── WONINGEN SECTIE ── */
@@ -1171,8 +1173,8 @@
         </div>
 
         <div class="park-images">
-          <img src="https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-4p-ELW-scaled.jpg"
-               alt="Luxe recreatiewoning De Wielsche Dreef" loading="lazy" />
+          <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/6persoonsC-DeWielscheDreef-57-scaled.jpg"
+               alt="Recreatiewoningen aan de vijver op De Wielsche Dreef" loading="lazy" />
           <img src="images/park-drone.jpg"
                alt="Het park vanuit de lucht met de vijver en de woningen" loading="lazy" />
           <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/2persoons-DeWielscheDreef-45-scaled.jpg"
