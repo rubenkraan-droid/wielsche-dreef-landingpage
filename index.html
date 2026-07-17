@@ -153,6 +153,13 @@
       font-size: 1rem;
     }
 
+    .vw-banner-link {
+      color: var(--white);
+      margin-left: 12px;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
     /* ── BUTTONS ── */
     .btn {
       display: inline-block;
@@ -1035,9 +1042,11 @@
       .header-ctas .btn-outline { display: none; }
       .header-ctas .btn-primary { padding: 10px 16px; font-size: 0.82rem; }
 
-      /* Banner */
-      .vw-banner { font-size: 0.82rem; padding: 10px 16px; line-height: 1.6; }
-      .vw-banner .vw-date { display: block; margin: 6px auto 2px; width: fit-content; }
+      /* Banner: één smalle regel. Aanmeldlink weg — de sticky CTA onderaan
+         en de knop in de header dekken die actie al. */
+      .vw-banner { font-size: 0.75rem; padding: 7px 12px; line-height: 1.4; white-space: nowrap; }
+      .vw-banner .vw-date { font-size: 0.78rem; padding: 1px 7px; margin: 0 4px; }
+      .vw-banner-link { display: none; }
 
       /* Hero */
       .hero { min-height: 80vh; }
@@ -1127,8 +1136,7 @@
   <div class="vw-banner">
     Volgend verkoopweekend:
     <span class="vw-date" id="vw-datum">7 &amp; 8 augustus 2026</span>
-    — Kom langs en ontdek je woning
-    <a href="#verkoopweekend" style="color:var(--white);margin-left:12px;font-weight:700;text-decoration:underline;">Aanmelden &rarr;</a>
+    <a href="#verkoopweekend" class="vw-banner-link">Aanmelden &rarr;</a>
   </div>
 
   <!-- ── HERO ── -->
@@ -1157,7 +1165,7 @@
         <div class="gevoel-text">
           <p class="section-label">Het gevoel</p>
           <h2 class="section-title">Niet huren.<br/>Niet ergens logeren.<br/>Thuiskomen.</h2>
-          <blockquote>"Jouw plek, je stoel op het terras — en als je er niet bent, geniet een ander ervan."</blockquote>
+          <blockquote>"Jouw plek, je stoel op het terras — en als je er niet bent, verdien je eraan."</blockquote>
           <p>De Wielsche Dreef ligt aan de rand van de Utrechtse Heuvelrug — waar de bossen beginnen, de heide openligt en de Nederrijn vlak om de hoek stroomt. Niet een willekeurige locatie. Een plek die je bijblijft.</p>
           <p>En als je er niet bent? Dan geniet een ander ervan, en betaalt Landal je daarvoor. Elke maand. Zonder gedoe.</p>
         </div>
@@ -1421,61 +1429,61 @@
     <div class="container">
       <p class="section-label">Van binnen</p>
       <h2 class="section-title">Afgewerkt zoals je het<br/>zelf zou doen</h2>
-      <p class="section-sub">Geen standaard vakantiehuis-afwerking. Marmerlook tegelwerk, vrijstaande baden, een eigen sauna en volledig uitgeruste keukens — tot in het detail doordacht.</p>
+      <p class="section-sub">Geen standaard vakantiehuis-afwerking. Marmerlook tegelwerk, vrijstaande baden, sauna&#39;s en volledig uitgeruste keukens. Welke voorzieningen je krijgt, verschilt per woningtype.</p>
 
       <div class="fac-grid">
         <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
-                data-groot="images/badkamer-ensuite.jpg" data-titel="En-suite badkamer — Verlichte spiegel, dubbele wastafel en handdoekradiator — met de slaapkamer direct ernaast.">
+                data-groot="images/badkamer-ensuite.jpg" data-titel="En-suite badkamer — Verlichte spiegel, dubbele wastafel en handdoekradiator, met de slaapkamer ernaast. Beschikbaar in verschillende typen.">
           <img src="images/badkamer-ensuite.jpg" alt="En-suite badkamer met verlichte spiegel en doorkijk naar de slaapkamer" loading="lazy" />
           <figcaption>En-suite badkamer</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
-                data-groot="images/bad-vrijstaand.jpg" data-titel="Het bad — Vrijstaand bad tegen een wand van marmerlook tegels. Zicht op het groen, gordijn dicht.">
+                data-groot="images/bad-vrijstaand.jpg" data-titel="Vrijstaand bad — Tegen een wand van marmerlook tegelwerk. Beschikbaar in verschillende typen.">
           <img src="images/bad-vrijstaand.jpg" alt="Vrijstaand bad tegen marmerlook tegelwand" loading="lazy" />
-          <figcaption>Het bad</figcaption>
+          <figcaption>Vrijstaand bad</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
-                data-groot="images/sauna.jpg" data-titel="Eigen sauna — Warm hout, zacht licht en stilte. Beschikbaar in verschillende woningtypen.">
+                data-groot="images/sauna.jpg" data-titel="Sauna — Warm hout, zacht licht en stilte. Beschikbaar in verschillende woningtypen.">
           <img src="images/sauna.jpg" alt="Sauna met houten banken en saunakachel" loading="lazy" />
-          <figcaption>Eigen sauna</figcaption>
+          <figcaption>Sauna</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
-                data-groot="images/buitenterras.jpg" data-titel="Het buitenterras — Loungebank, vuurschaal en ruimte om met z'n allen te eten. De zomeravonden duren hier langer.">
-          <img src="images/buitenterras.jpg" alt="Terras met loungebank, vuurschaal en eettafel in de avond" loading="lazy" />
-          <figcaption>Het buitenterras</figcaption>
+                data-groot="images/buitenterras.jpg" data-titel="Buitenterras — Ruimte om buiten te eten en te zitten. De zomeravonden duren hier langer.">
+          <img src="images/buitenterras.jpg" alt="Buitenterras van een recreatiewoning in de avond" loading="lazy" />
+          <figcaption>Buitenterras</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
-                data-groot="images/wastafel.jpg" data-titel="Sanitair — Dubbele wastafel met ronde verlichte spiegel — 's ochtends geen wachten op elkaar.">
+                data-groot="images/wastafel.jpg" data-titel="Sanitair — Dubbele wastafel met verlichte spiegel, zodat je &#39;s ochtends niet op elkaar hoeft te wachten.">
           <img src="images/wastafel.jpg" alt="Dubbele wastafel met ronde verlichte spiegel" loading="lazy" />
           <figcaption>Sanitair</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
-                data-groot="https://dewielschedreef.nl/wp-content/uploads/2025/05/2persoons-DeWielscheDreef-48-scaled.jpg" data-titel="De keuken — Inbouwoven, inductiekookplaat en RVS afzuigkap, met zicht op de eettafel.">
+                data-groot="https://dewielschedreef.nl/wp-content/uploads/2025/05/2persoons-DeWielscheDreef-48-scaled.jpg" data-titel="Keuken — Inbouwapparatuur en zicht op de eettafel. Uitvoering verschilt per type.">
           <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/2persoons-DeWielscheDreef-48-scaled.jpg" alt="Keuken met inbouwapparatuur" loading="lazy" />
-          <figcaption>De keuken</figcaption>
+          <figcaption>Keuken</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
-                data-groot="https://dewielschedreef.nl/wp-content/uploads/2025/05/6persoonsC-DeWielscheDreef-69-scaled.jpg" data-titel="De woonkamer — Eettafel, zithoek en keuken in één ruimte — met de schuifpui open loopt de tuin zo naar binnen.">
+                data-groot="https://dewielschedreef.nl/wp-content/uploads/2025/05/6persoonsC-DeWielscheDreef-69-scaled.jpg" data-titel="Woonkamer — Eettafel, zithoek en keuken in één ruimte. Met de schuifpui open loopt de tuin zo naar binnen.">
           <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/6persoonsC-DeWielscheDreef-69-scaled.jpg" alt="Woonkamer met eethoek, zithoek en schuifpui naar de tuin" loading="lazy" />
-          <figcaption>De woonkamer</figcaption>
+          <figcaption>Woonkamer</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
-                data-groot="images/slaapkamer.jpg" data-titel="De slaapkamer — Boxspring met leeslampje binnen handbereik. Zacht licht, warme tinten, geen scherm te bekennen.">
+                data-groot="images/slaapkamer.jpg" data-titel="Slaapkamer — Boxspring met leeslampje binnen handbereik. Zacht licht, warme tinten.">
           <img src="images/slaapkamer.jpg" alt="Slaapkamer met boxspring, wandlamp en nachtkastje" loading="lazy" />
-          <figcaption>De slaapkamer</figcaption>
+          <figcaption>Slaapkamer</figcaption>
         </figure>
 
       </div>
 
       <p style="margin-top:32px;font-size:0.9rem;color:var(--text-muted);text-align:center;">
-        Afwerking verschilt per woningtype. Vraag de brochure aan voor de complete interieur- en sanitairlijst per type.
+        <strong>Voorzieningen en afwerking verschillen per woningtype</strong> — niet elke woning heeft een sauna of vrijstaand bad, en meubels op de foto&#39;s kunnen optioneel zijn. Vraag de brochure aan voor de complete interieur- en sanitairlijst per type.
       </p>
 
       <div class="cta-blok" style="margin-top:24px;">
