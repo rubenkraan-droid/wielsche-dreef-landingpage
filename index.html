@@ -102,11 +102,28 @@
       line-height: 1.2;
     }
 
-    /* ── STICKY KOP: header + datumbalk bewegen als één blok ── */
+    /* ── KOP ──
+       Bij het laden staat de kop gewoon in de pagina: de hero krijgt het scherm.
+       Zodra je voorbij de hero scrolt wordt hij fixed en schuift hij in.
+       body.kop-vast vangt de sprong op die ontstaat als de kop uit de flow gaat. */
     .site-top {
-      position: sticky;
-      top: 0;
+      position: relative;
       z-index: 100;
+    }
+
+    .site-top.is-sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      animation: kop-in 0.25s ease;
+    }
+
+    body.kop-vast { padding-top: var(--kop-hoogte, 103px); }
+
+    @keyframes kop-in {
+      from { transform: translateY(-100%); }
+      to   { transform: translateY(0); }
     }
 
     .site-header {
@@ -213,6 +230,9 @@
       padding: 10px 20px;
       font-size: 0.875rem;
     }
+
+    /* Korte knoplabels verschijnen alleen op mobiel */
+    .lbl-kort { display: none; }
 
     /* Knoppen in de sticky kop: compacter, die staat altijd in beeld */
     .site-top .btn-sm {
@@ -1071,14 +1091,12 @@
       /* Sticky kop is hier 72px header + 33px datumbalk = 105px */
       #verkoopweekend, #aanmelden, #brochure { scroll-margin-top: 88px; }
 
-      /* Beide knoppen in de header: de balk onderaan is daarmee overbodig.
-         Korte labels, anders passen ze niet naast het logo op 375px. */
-      .header-ctas .btn { padding: 9px 10px; font-size: 0.72rem; }
+      /* Beide knoppen in de header. Korte labels via <span>, niet via
+         ::after-content: dat verdubbelde de tekst en screenreaders lazen beide. */
+      .header-ctas .btn { padding: 9px 11px; font-size: 0.72rem; }
       .header-ctas .btn-outline { display: inline-block; }
-      .header-ctas .btn-outline::after { content: 'Brochure'; }
-      .header-ctas .btn-primary::after { content: 'Aanmelden'; }
-      .header-ctas .btn { font-size: 0; }
-      .header-ctas .btn::after { font-size: 0.72rem; }
+      .lbl-lang { display: none; }
+      .lbl-kort { display: inline; }
 
       /* CTA-blokken midden op de pagina: onder elkaar */
       .cta-blok { flex-direction: column; gap: 10px; }
@@ -1176,10 +1194,10 @@
          src="https://dewielschedreef.nl/wp-content/uploads/2024/09/Frame-13.svg"
          alt="De Wielsche Dreef" />
     <div class="header-ctas">
-      <a href="#brochure" class="btn btn-outline btn-sm">Brochure aanvragen</a>
+      <a href="#brochure" class="btn btn-outline btn-sm"><span class="lbl-lang">Brochure aanvragen</span><span class="lbl-kort">Brochure</span></a>
       <!-- Sticky knop: wordt geklikt door wie al gescrold heeft en nú wil handelen.
            Daarom direct het formulier in, niet eerst de uitleg. -->
-      <a href="#aanmelden" class="btn btn-primary btn-sm">Aanmelden verkoopweekend</a>
+      <a href="#aanmelden" class="btn btn-primary btn-sm"><span class="lbl-lang">Aanmelden verkoopweekend</span><span class="lbl-kort">Aanmelden</span></a>
     </div>
   </header>
 
@@ -1806,6 +1824,32 @@
 
 
   <script>
+    // Kop plakt pas zodra je voorbij de hero bent. Bij het laden staat hij
+    // gewoon in de pagina, zodat het beeld het hele scherm krijgt.
+    (function () {
+      var kop = document.querySelector('.site-top');
+      if (!kop) return;
+      var vast = false;
+
+      function meet() {
+        if (!vast) document.body.style.setProperty('--kop-hoogte', kop.offsetHeight + 'px');
+      }
+
+      function check() {
+        var drempel = kop.offsetHeight + 40;
+        var moet = window.scrollY > drempel;
+        if (moet === vast) return;
+        vast = moet;
+        kop.classList.toggle('is-sticky', vast);
+        document.body.classList.toggle('kop-vast', vast);
+      }
+
+      meet();
+      window.addEventListener('scroll', check, { passive: true });
+      window.addEventListener('resize', function () { meet(); check(); }, { passive: true });
+      check();
+    })();
+
     // Lightbox: klik of Enter op een beeld opent het groot, met pijltjes door de reeks.
     (function () {
       var lb   = document.getElementById('lightbox');
