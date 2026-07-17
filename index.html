@@ -277,6 +277,27 @@
       line-height: 1.7;
     }
 
+    /* Bouwstatus: staat los van de belofte-tekst, iets steviger dan de body */
+    .hero-bouwstatus {
+      font-size: 1rem !important;
+      font-weight: 500;
+      opacity: 1 !important;
+      margin-bottom: 32px !important;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .hero-bouwstatus::before {
+      content: '';
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #7ED957;
+      box-shadow: 0 0 0 3px rgba(126,217,87,0.28);
+      flex-shrink: 0;
+    }
+
     .hero-ctas {
       display: flex;
       gap: 16px;
@@ -1143,9 +1164,10 @@
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <span class="hero-eyebrow">Fase 1 &bull; 54 woningen &bull; Oplevering 31 juli 2026</span>
+      <span class="hero-eyebrow">Fase 1 &bull; 54 woningen &bull; Nu in aanbouw</span>
       <h1>Eindelijk een plek<br/>die echt van jou is</h1>
       <p>Een luxe recreatiewoning aan de rand van de Utrechtse Heuvelrug. Bossen, heide en de Nederrijn om de hoek. Volledig verzorgd verhuurd als je er niet bent — en elke keer thuiskomen als je er wel bent.</p>
+      <p class="hero-bouwstatus">De bouw is in volle gang — bij een deel van de woningen kun je er snel in.</p>
 
       <div class="hero-ctas">
         <a href="#verkoopweekend" class="btn btn-primary">Aanmelden verkoopweekend</a>
@@ -1561,6 +1583,11 @@
       <p class="section-sub">Nog een vraag die er niet bij staat? Stel hem tijdens het verkoopweekend — of vraag de brochure aan.</p>
 
       <div class="faq-list">
+        <details class="faq-item">
+          <summary>Wanneer kan ik de woning in gebruik nemen?</summary>
+          <p class="faq-answer">De woningen van fase 1 worden op dit moment gebouwd. Bij een deel van de woningen is oplevering op korte termijn mogelijk; bij andere duurt het langer. Vraag naar de actuele planning per woning — die verschilt per kavel.</p>
+        </details>
+
         <details class="faq-item">
           <summary>Hoeveel mag ik de woning zelf gebruiken?</summary>
           <p class="faq-answer">Tot 90 dagen per jaar gebruik je de woning zelf. De rest van het jaar wordt hij via Landal verhuurd.</p>
