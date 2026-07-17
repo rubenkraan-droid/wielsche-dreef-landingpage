@@ -668,48 +668,133 @@
       font-size: 0.85rem;
     }
 
-    /* ── INTERIEUR / FACILITEITEN ── */
-    .interieur-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 40px;
-    }
-
-    .interieur-item.groot { grid-column: span 2; }
-
-    .interieur-foto {
-      border-radius: 12px;
-      overflow: hidden;
+    /* ── PARKFACILITEITEN (compact, klikbaar) ── */
+    .faciliteiten {
       background: var(--cream);
     }
 
-    .interieur-foto img {
+    .fac-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .fac-item {
+      position: relative;
+      border: 0;
+      padding: 0;
+      background: none;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: zoom-in;
+      display: block;
       width: 100%;
-      aspect-ratio: 4/3;
+    }
+
+    .fac-item img {
+      width: 100%;
+      aspect-ratio: 3/2;
       object-fit: cover;
       display: block;
-      transition: transform 0.5s ease;
+      transition: transform 0.4s ease;
     }
 
-    .interieur-item.groot .interieur-foto img { aspect-ratio: 16/9; }
-    .interieur-item:hover .interieur-foto img { transform: scale(1.04); }
+    .fac-item:hover img { transform: scale(1.05); }
 
-    .interieur-cap { padding: 14px 2px 0; }
-
-    .interieur-cap h4 {
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 4px;
-      color: var(--text);
-    }
-
-    .interieur-cap p {
+    .fac-item figcaption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 22px 12px 10px;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.72) 100%);
+      color: var(--white);
       font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.6;
+      font-weight: 600;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
     }
+
+    .fac-item figcaption::after {
+      content: '⤢';
+      font-weight: 400;
+      opacity: 0.75;
+      flex-shrink: 0;
+    }
+
+    .fac-item:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+
+    /* ── IMPRESSIE-DISCLAIMER ── */
+    .impressie-note {
+      max-width: 780px;
+      margin: 28px auto 0;
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--white);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      text-align: center;
+    }
+
+    .impressie-note strong { color: var(--text); }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: rgba(12,12,12,0.94);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .lightbox[open] { display: flex; }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 82vh;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .lb-bijschrift {
+      position: absolute;
+      bottom: 22px;
+      left: 0; right: 0;
+      text-align: center;
+      color: rgba(255,255,255,0.9);
+      font-size: 0.9rem;
+      padding: 0 60px;
+    }
+
+    .lb-sluit, .lb-vorige, .lb-volgende {
+      position: absolute;
+      background: rgba(255,255,255,0.12);
+      border: 0;
+      color: var(--white);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.4rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+
+    .lb-sluit:hover, .lb-vorige:hover, .lb-volgende:hover { background: rgba(255,255,255,0.28); }
+
+    .lb-sluit    { top: 20px; right: 20px; }
+    .lb-vorige   { left: 20px;  top: 50%; transform: translateY(-50%); }
+    .lb-volgende { right: 20px; top: 50%; transform: translateY(-50%); }
 
     /* ── FAQ SECTIE ── */
     .faq-list {
@@ -920,9 +1005,8 @@
       /* Woningen: 2 kolommen */
       .woningen-grid { grid-template-columns: 1fr 1fr; }
 
-      /* Interieur: 2 kolommen, grote foto over volle breedte */
-      .interieur-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
-      .interieur-item.groot { grid-column: span 2; }
+      /* Faciliteiten: 2 kolommen */
+      .fac-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
 
       /* Ontzorgd: 1 kolom */
       .ontzorgd-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
@@ -991,10 +1075,12 @@
       /* Woningen */
       .woningen-grid { grid-template-columns: 1fr; }
 
-      /* Interieur: 1 kolom */
-      .interieur-grid { grid-template-columns: 1fr; gap: 28px; }
-      .interieur-item.groot { grid-column: span 1; }
-      .interieur-item.groot .interieur-foto img { aspect-ratio: 4/3; }
+      /* Faciliteiten: 2 kolommen blijft — thumbnails, tikken opent groot */
+      .fac-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .fac-item figcaption { font-size: 0.72rem; padding: 18px 8px 7px; }
+      .lb-vorige, .lb-volgende { width: 40px; height: 40px; }
+      .lb-vorige { left: 8px; } .lb-volgende { right: 8px; }
+      .lb-bijschrift { padding: 0 18px; font-size: 0.8rem; }
 
       /* Rendement */
       .rendement-grid { gap: 24px; }
@@ -1190,6 +1276,58 @@
     </div>
   </section>
 
+  <!-- ── PARKFACILITEITEN ── -->
+  <section class="faciliteiten">
+    <div class="container">
+      <p class="section-label">Het parkgebouw</p>
+      <h2 class="section-title">Alles wat je nodig hebt,<br/>op loopafstand</h2>
+      <p class="section-sub">Binnenzwembad, restaurant, grab &amp; go en een terras onder de pergola's — allemaal in het centrale parkgebouw. Klik op een beeld om het groot te bekijken.</p>
+
+      <div class="fac-grid">
+        <figure class="fac-item" tabindex="0" role="button" data-groep="park"
+                data-groot="images/park-zwembad.jpg" data-titel="Het binnenzwembad met bubbelbad en zicht op het groen">
+          <img src="images/park-zwembad.jpg" alt="Binnenzwembad met bubbelbad" loading="lazy" />
+          <figcaption>Binnenzwembad</figcaption>
+        </figure>
+
+        <figure class="fac-item" tabindex="0" role="button" data-groep="park"
+                data-groot="images/park-restaurant.jpg" data-titel="Het restaurant met open haard en bomen onder de kap">
+          <img src="images/park-restaurant.jpg" alt="Restaurant met open haard" loading="lazy" />
+          <figcaption>Het restaurant</figcaption>
+        </figure>
+
+        <figure class="fac-item" tabindex="0" role="button" data-groep="park"
+                data-groot="images/park-terras.jpg" data-titel="Het terras met pergola's, loungebanken en picknicktafels">
+          <img src="images/park-terras.jpg" alt="Terras met pergola's en loungebanken" loading="lazy" />
+          <figcaption>Het terras</figcaption>
+        </figure>
+
+        <figure class="fac-item" tabindex="0" role="button" data-groep="park"
+                data-groot="images/park-grabgo.jpg" data-titel="Grab &amp; go: koffie, ijs en een hapje tussendoor">
+          <img src="images/park-grabgo.jpg" alt="Grab and go met zitplekken" loading="lazy" />
+          <figcaption>Grab &amp; go</figcaption>
+        </figure>
+
+        <figure class="fac-item" tabindex="0" role="button" data-groep="park"
+                data-groot="images/park-receptie.jpg" data-titel="De receptie in het hoofdgebouw">
+          <img src="images/park-receptie.jpg" alt="Receptie in het hoofdgebouw" loading="lazy" />
+          <figcaption>De receptie</figcaption>
+        </figure>
+
+        <figure class="fac-item" tabindex="0" role="button" data-groep="park"
+                data-groot="images/park-hoofdgebouw.jpg" data-titel="Het hoofdgebouw met het buitenterras">
+          <img src="images/park-hoofdgebouw.jpg" alt="Hoofdgebouw met buitenterras" loading="lazy" />
+          <figcaption>Het hoofdgebouw</figcaption>
+        </figure>
+      </div>
+
+      <p class="impressie-note">
+        <strong>Let op: dit zijn impressies.</strong> Indelingen, kleuren en interieurs kunnen nog wijzigen.
+        Aan deze afbeeldingen kunnen geen rechten worden ontleend.
+      </p>
+    </div>
+  </section>
+
   <!-- ── DE WONINGEN ── -->
   <section class="woningen">
     <div class="container">
@@ -1277,94 +1415,55 @@
       <h2 class="section-title">Afgewerkt zoals je het<br/>zelf zou doen</h2>
       <p class="section-sub">Geen standaard vakantiehuis-afwerking. Marmerlook tegelwerk, vrijstaande baden, een eigen sauna en volledig uitgeruste keukens — tot in het detail doordacht.</p>
 
-      <div class="interieur-grid">
-        <div class="interieur-item groot">
-          <div class="interieur-foto">
-            <img src="images/badkamer-ensuite.jpg"
-                 alt="En-suite badkamer met verlichte spiegel en doorkijk naar de slaapkamer" loading="lazy" />
-          </div>
-          <div class="interieur-cap">
-            <h4>En-suite badkamer</h4>
-            <p>Verlichte spiegel, dubbele wastafel en handdoekradiator — met de slaapkamer direct ernaast.</p>
-          </div>
-        </div>
+      <div class="fac-grid">
+        <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
+                data-groot="images/badkamer-ensuite.jpg" data-titel="En-suite badkamer — Verlichte spiegel, dubbele wastafel en handdoekradiator — met de slaapkamer direct ernaast.">
+          <img src="images/badkamer-ensuite.jpg" alt="En-suite badkamer met verlichte spiegel en doorkijk naar de slaapkamer" loading="lazy" />
+          <figcaption>En-suite badkamer</figcaption>
+        </figure>
 
-        <div class="interieur-item">
-          <div class="interieur-foto">
-            <img src="images/bad-vrijstaand.jpg"
-                 alt="Vrijstaand bad tegen marmerlook tegelwand" loading="lazy" />
-          </div>
-          <div class="interieur-cap">
-            <h4>Het bad</h4>
-            <p>Vrijstaand bad tegen een wand van marmerlook tegels. Zicht op het groen, gordijn dicht.</p>
-          </div>
-        </div>
+        <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
+                data-groot="images/bad-vrijstaand.jpg" data-titel="Het bad — Vrijstaand bad tegen een wand van marmerlook tegels. Zicht op het groen, gordijn dicht.">
+          <img src="images/bad-vrijstaand.jpg" alt="Vrijstaand bad tegen marmerlook tegelwand" loading="lazy" />
+          <figcaption>Het bad</figcaption>
+        </figure>
 
-        <div class="interieur-item">
-          <div class="interieur-foto">
-            <img src="images/sauna.jpg"
-                 alt="Sauna met houten banken en saunakachel" loading="lazy" />
-          </div>
-          <div class="interieur-cap">
-            <h4>Eigen sauna</h4>
-            <p>Warm hout, zacht licht en stilte. Beschikbaar in verschillende woningtypen.</p>
-          </div>
-        </div>
+        <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
+                data-groot="images/sauna.jpg" data-titel="Eigen sauna — Warm hout, zacht licht en stilte. Beschikbaar in verschillende woningtypen.">
+          <img src="images/sauna.jpg" alt="Sauna met houten banken en saunakachel" loading="lazy" />
+          <figcaption>Eigen sauna</figcaption>
+        </figure>
 
-        <div class="interieur-item">
-          <div class="interieur-foto">
-            <img src="images/buitenterras.jpg"
-                 alt="Terras met loungebank, vuurschaal en eettafel in de avond" loading="lazy" />
-          </div>
-          <div class="interieur-cap">
-            <h4>Het buitenterras</h4>
-            <p>Loungebank, vuurschaal en ruimte om met z'n allen te eten. De zomeravonden duren hier langer.</p>
-          </div>
-        </div>
+        <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
+                data-groot="images/buitenterras.jpg" data-titel="Het buitenterras — Loungebank, vuurschaal en ruimte om met z'n allen te eten. De zomeravonden duren hier langer.">
+          <img src="images/buitenterras.jpg" alt="Terras met loungebank, vuurschaal en eettafel in de avond" loading="lazy" />
+          <figcaption>Het buitenterras</figcaption>
+        </figure>
 
-        <div class="interieur-item">
-          <div class="interieur-foto">
-            <img src="images/wastafel.jpg"
-                 alt="Dubbele wastafel met ronde verlichte spiegel" loading="lazy" />
-          </div>
-          <div class="interieur-cap">
-            <h4>Sanitair</h4>
-            <p>Dubbele wastafel met ronde verlichte spiegel — 's ochtends geen wachten op elkaar.</p>
-          </div>
-        </div>
+        <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
+                data-groot="images/wastafel.jpg" data-titel="Sanitair — Dubbele wastafel met ronde verlichte spiegel — 's ochtends geen wachten op elkaar.">
+          <img src="images/wastafel.jpg" alt="Dubbele wastafel met ronde verlichte spiegel" loading="lazy" />
+          <figcaption>Sanitair</figcaption>
+        </figure>
 
-        <div class="interieur-item">
-          <div class="interieur-foto">
-            <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/2persoons-DeWielscheDreef-48-scaled.jpg"
-                 alt="Keuken met inbouwapparatuur" loading="lazy" />
-          </div>
-          <div class="interieur-cap">
-            <h4>De keuken</h4>
-            <p>Inbouwoven, inductiekookplaat en RVS afzuigkap, met zicht op de eettafel.</p>
-          </div>
-        </div>
+        <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
+                data-groot="https://dewielschedreef.nl/wp-content/uploads/2025/05/2persoons-DeWielscheDreef-48-scaled.jpg" data-titel="De keuken — Inbouwoven, inductiekookplaat en RVS afzuigkap, met zicht op de eettafel.">
+          <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/2persoons-DeWielscheDreef-48-scaled.jpg" alt="Keuken met inbouwapparatuur" loading="lazy" />
+          <figcaption>De keuken</figcaption>
+        </figure>
 
-        <div class="interieur-item">
-          <div class="interieur-foto">
-            <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/6persoonsC-DeWielscheDreef-69-scaled.jpg"
-                 alt="Woonkamer met eethoek, zithoek en schuifpui naar de tuin" loading="lazy" />
-          </div>
-          <div class="interieur-cap">
-            <h4>De woonkamer</h4>
-            <p>Eettafel, zithoek en keuken in één ruimte — met de schuifpui open loopt de tuin zo naar binnen.</p>
-          </div>
-        </div>
+        <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
+                data-groot="https://dewielschedreef.nl/wp-content/uploads/2025/05/6persoonsC-DeWielscheDreef-69-scaled.jpg" data-titel="De woonkamer — Eettafel, zithoek en keuken in één ruimte — met de schuifpui open loopt de tuin zo naar binnen.">
+          <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/6persoonsC-DeWielscheDreef-69-scaled.jpg" alt="Woonkamer met eethoek, zithoek en schuifpui naar de tuin" loading="lazy" />
+          <figcaption>De woonkamer</figcaption>
+        </figure>
 
-        <div class="interieur-item">
-          <div class="interieur-foto">
-            <img src="images/slaapkamer.jpg"
-                 alt="Slaapkamer met boxspring, wandlamp en nachtkastje" loading="lazy" />
-          </div>
-          <div class="interieur-cap">
-            <h4>De slaapkamer</h4>
-            <p>Boxspring met leeslampje binnen handbereik. Zacht licht, warme tinten, geen scherm te bekennen.</p>
-          </div>
-        </div>
+        <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
+                data-groot="images/slaapkamer.jpg" data-titel="De slaapkamer — Boxspring met leeslampje binnen handbereik. Zacht licht, warme tinten, geen scherm te bekennen.">
+          <img src="images/slaapkamer.jpg" alt="Slaapkamer met boxspring, wandlamp en nachtkastje" loading="lazy" />
+          <figcaption>De slaapkamer</figcaption>
+        </figure>
+
       </div>
 
       <p style="margin-top:32px;font-size:0.9rem;color:var(--text-muted);text-align:center;">
@@ -1581,11 +1680,72 @@
     </div>
   </section>
 
+  <!-- ── LIGHTBOX ── -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Vergrote weergave">
+    <button class="lb-sluit" aria-label="Sluiten">&times;</button>
+    <button class="lb-vorige" aria-label="Vorige">&#8249;</button>
+    <button class="lb-volgende" aria-label="Volgende">&#8250;</button>
+    <img src="" alt="" />
+    <p class="lb-bijschrift"></p>
+  </div>
+
   <!-- ── STICKY CTA (alleen mobiel) ── -->
   <div class="sticky-cta">
     <a href="#verkoopweekend" class="btn btn-primary">Aanmelden verkoopweekend</a>
     <a href="#brochure" class="btn btn-outline">Brochure</a>
   </div>
+
+  <script>
+    // Lightbox: klik of Enter op een beeld opent het groot, met pijltjes door de reeks.
+    (function () {
+      var lb   = document.getElementById('lightbox');
+      var img  = lb.querySelector('img');
+      var cap  = lb.querySelector('.lb-bijschrift');
+      var reeks = [], index = 0, herkomst = null;
+
+      function toon(i) {
+        index = (i + reeks.length) % reeks.length;
+        var el = reeks[index];
+        img.src = el.dataset.groot;
+        img.alt = el.querySelector('img').alt;
+        cap.textContent = el.dataset.titel;
+      }
+
+      function open(groep, el) {
+        reeks = [].slice.call(document.querySelectorAll('.fac-item[data-groep="' + groep + '"]'));
+        herkomst = el;
+        toon(reeks.indexOf(el));
+        lb.setAttribute('open', '');
+        document.body.style.overflow = 'hidden';
+        lb.querySelector('.lb-sluit').focus();
+      }
+
+      function sluit() {
+        lb.removeAttribute('open');
+        document.body.style.overflow = '';
+        if (herkomst) herkomst.focus();
+      }
+
+      document.querySelectorAll('.fac-item').forEach(function (el) {
+        el.addEventListener('click', function () { open(el.dataset.groep, el); });
+        el.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(el.dataset.groep, el); }
+        });
+      });
+
+      lb.querySelector('.lb-sluit').addEventListener('click', sluit);
+      lb.querySelector('.lb-vorige').addEventListener('click', function (e) { e.stopPropagation(); toon(index - 1); });
+      lb.querySelector('.lb-volgende').addEventListener('click', function (e) { e.stopPropagation(); toon(index + 1); });
+      lb.addEventListener('click', function (e) { if (e.target === lb) sluit(); });
+
+      document.addEventListener('keydown', function (e) {
+        if (!lb.hasAttribute('open')) return;
+        if (e.key === 'Escape')     sluit();
+        if (e.key === 'ArrowLeft')  toon(index - 1);
+        if (e.key === 'ArrowRight') toon(index + 1);
+      });
+    })();
+  </script>
 
   <!-- ── FOOTER ── -->
   <footer>
