@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bedankt – Landal De Wielsche Dreef</title>
+  <!-- Bedankpagina hoort niet in Google: bereikbaar na een formulier, niet via zoeken -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="https://dewielschedreef.nl/wp-content/uploads/2024/09/Frame-13.svg" />
+
+  <style>
+    /* ── HUISSTIJLFONT ── */
+    @font-face {
+      font-family: 'Noe Display';
+      src: url('fonts/noe-display-bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Noe Display';
+      src: url('fonts/noe-display-italic.woff2') format('woff2');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:       #00857A;
+      --teal-dark:  #006059;
+      --teal-light: #E6F4F3;
+      --cream:      #FAF8F4;
+      --text:       #1A1A1A;
+      --text-muted: #6B6B6B;
+      --white:      #FFFFFF;
+      --border:     #E0DAD0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Noe Display', Georgia, serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+    }
+
+    .site-header img.logo { height: 42px; }
+
+    /* ── BEVESTIGING ── */
+    .bevestiging {
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 64px 24px 40px;
+      text-align: center;
+    }
+
+    .vinkje {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .bevestiging h1 {
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      margin-bottom: 14px;
+    }
+
+    .bevestiging > p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ── WAT NU ── */
+    .wat-nu {
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 8px 24px 24px;
+    }
+
+    .wat-nu-kaart {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 30px;
+    }
+
+    .wat-nu-kaart h2 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .stap {
+      display: flex;
+      gap: 16px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stap:last-child { border-bottom: none; }
+
+    .stap-nr {
+      width: 30px;
+      height: 30px;
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .stap h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.97rem;
+      margin-bottom: 3px;
+    }
+
+    .stap p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── TIPS ── */
+    .tips {
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 16px 24px;
+    }
+
+    .tips h2 {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+    .tips > p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+    }
+
+    .tip-lijst {
+      display: grid;
+      gap: 12px;
+    }
+
+    .tip {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+    }
+
+    .tip-icoon {
+      color: var(--teal);
+      flex-shrink: 0;
+      margin-top: 2px;
+      display: flex;
+    }
+
+    .tip strong {
+      display: block;
+      font-size: 0.93rem;
+      margin-bottom: 2px;
+    }
+
+    .tip span {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── DOORVERWIJZING ── */
+    .verder {
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 16px 24px 64px;
+      text-align: center;
+    }
+
+    .verder-kaart {
+      background: var(--teal);
+      color: var(--white);
+      border-radius: 16px;
+      padding: 36px 30px;
+    }
+
+    .verder-kaart h2 {
+      color: var(--white);
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .verder-kaart p {
+      opacity: 0.88;
+      font-size: 0.95rem;
+      max-width: 440px;
+      margin: 0 auto 22px;
+      line-height: 1.7;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 26px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+    }
+
+    .btn-wit {
+      background: var(--white);
+      color: var(--teal-dark);
+    }
+
+    .btn-wit:hover { background: var(--teal-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.82rem;
+    }
+
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    @media (max-width: 600px) {
+      .bevestiging { padding: 44px 18px 30px; }
+      .wat-nu, .tips { padding-left: 16px; padding-right: 16px; }
+      .wat-nu-kaart { padding: 24px 20px; }
+      .verder { padding: 12px 16px 48px; }
+      .verder-kaart { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <img class="logo"
+         src="https://dewielschedreef.nl/wp-content/uploads/2024/09/Frame-13.svg"
+         alt="De Wielsche Dreef" />
+  </header>
+
+  <!-- ── BEVESTIGING ── -->
+  <section class="bevestiging">
+    <div class="vinkje">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
+    </div>
+    <h1>Gelukt — je aanvraag is binnen</h1>
+    <p>Bedankt voor je interesse in Landal De Wielsche Dreef. We hebben je gegevens goed ontvangen en gaan er direct mee aan de slag.</p>
+  </section>
+
+  <!-- ── WAT NU ── -->
+  <section class="wat-nu">
+    <div class="wat-nu-kaart">
+      <h2>Wat gebeurt er nu?</h2>
+
+      <div class="stap">
+        <span class="stap-nr">1</span>
+        <div>
+          <h3>Je ontvangt een bevestiging per e-mail</h3>
+          <p>Check ook even je spam- of reclamemap — soms belandt hij daar.</p>
+        </div>
+      </div>
+
+      <div class="stap">
+        <span class="stap-nr">2</span>
+        <div>
+          <h3>Een adviseur belt je op</h3>
+          <p>Binnen één à twee werkdagen, om je vragen te beantwoorden en — als je je hebt aangemeld voor het verkoopweekend — de afspraak in te plannen.</p>
+        </div>
+      </div>
+
+      <div class="stap">
+        <span class="stap-nr">3</span>
+        <div>
+          <h3>Kom kijken op het park</h3>
+          <p>Het volgende verkoopweekend is <strong>7 &amp; 8 augustus 2026</strong>, vrijdag &amp; zaterdag van 10:00 tot 16:00 uur in Eck en Wiel. Je loopt door de ingerichte modelwoningen en krijgt alles uitgelegd — zonder verplichtingen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TIPS ── -->
+  <section class="tips">
+    <h2>Alvast een paar tips</h2>
+    <p>Zo haal je het meeste uit je bezoek — of uit de brochure.</p>
+
+    <div class="tip-lijst">
+      <div class="tip">
+        <span class="tip-icoon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        </span>
+        <div>
+          <strong>Maak er een dagje van</strong>
+          <span>Combineer je bezoek met de omgeving: de heide van de Utrechtse Heuvelrug, het pontje over de Nederrijn of Ouwehands Dierenpark in Rhenen — alles ligt op een kwartier.</span>
+        </div>
+      </div>
+
+      <div class="tip">
+        <span class="tip-icoon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M9 12h6M9 16h4"/></svg>
+        </span>
+        <div>
+          <strong>Zet je vragen alvast op een rij</strong>
+          <span>Denk aan het verhuurmodel, het btw-voordeel, eigen gebruik (tot 90 dagen per jaar) en de opleverplanning per kavel. Geen vraag is te klein — daar is het weekend voor.</span>
+        </div>
+      </div>
+
+      <div class="tip">
+        <span class="tip-icoon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
+        </span>
+        <div>
+          <strong>Bekijk de woningtypen van tevoren</strong>
+          <span>Er zijn tien typen, van 2- tot 12-persoons. Weet je alvast welke je van binnen wilt zien, dan haal je meer uit de rondleiding.</span>
+        </div>
+      </div>
+
+      <div class="tip">
+        <span class="tip-icoon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </span>
+        <div>
+          <strong>Nog even geduld? Hoeft niet</strong>
+          <span>Wil je eerder langskomen of heb je een dringende vraag? Bel Recravas op <a href="tel:0853032844" style="color:var(--teal);font-weight:600;text-decoration:none;">085-30 32 844</a>.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DOORVERWIJZING ── -->
+  <section class="verder">
+    <div class="verder-kaart">
+      <h2>Alvast verder kijken?</h2>
+      <p>Op de website van De Wielsche Dreef vind je alle woningtypen, het parkontwerp en het laatste nieuws over de bouw.</p>
+      <a class="btn btn-wit" href="https://dewielschedreef.nl" rel="noopener">Naar dewielschedreef.nl &rarr;</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      &copy; 2026 De Wielsche Dreef &nbsp;|&nbsp;
+      <a href="https://dewielschedreef.nl">dewielschedreef.nl</a> &nbsp;|&nbsp;
+      Recravas: <a href="tel:0853032844">085-30 32 844</a>
+    </p>
+  </footer>
+
+</body>
+</html>
