@@ -1072,8 +1072,15 @@
       .park-images img:first-child { grid-column: span 1; aspect-ratio: 16/9; }
       .park-images img { aspect-ratio: 4/3; }
 
-      /* Woningen */
-      .woningen-grid { grid-template-columns: 1fr; }
+      /* Woningen: compacter zodat je er sneller doorheen scrolt.
+         Foto van staand 3/4 naar liggend 4/3 scheelt ~200px per kaart. */
+      .woningen-grid { grid-template-columns: 1fr; gap: 16px; }
+      .woning-card img { aspect-ratio: 4/3; }
+      .woning-card-body { padding: 14px 16px 16px; }
+      .woning-card h3 { font-size: 1rem; margin-bottom: 5px; }
+      .woning-prijs { font-size: 0.85rem; margin-bottom: 9px; }
+      .woning-tag { font-size: 0.72rem; padding: 2px 8px; }
+      .woning-status { font-size: 0.66rem; padding: 5px 10px; top: 10px; left: 10px; }
 
       /* Faciliteiten: 2 kolommen blijft — thumbnails, tikken opent groot */
       .fac-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -1322,7 +1329,8 @@
       </div>
 
       <p class="impressie-note">
-        <strong>Let op: dit zijn impressies.</strong> Indelingen, kleuren en interieurs kunnen nog wijzigen.
+        <strong>De bouw van het parkgebouw start naar verwachting medio 2027.</strong><br/>
+        Dit zijn impressies: indelingen, kleuren en interieurs kunnen nog wijzigen.
         Aan deze afbeeldingen kunnen geen rechten worden ontleend.
       </p>
     </div>
