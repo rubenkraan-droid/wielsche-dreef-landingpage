@@ -102,6 +102,48 @@
       margin: 0 auto;
     }
 
+    /* ── SFEERBEELD ── */
+    .sfeer {
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 0 24px 24px;
+    }
+
+    .sfeer img {
+      width: 100%;
+      aspect-ratio: 16/8;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
+    }
+
+    /* ── FOTOSTROOK OMGEVING ── */
+    .foto-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .foto-strip figure {
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .foto-strip img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .foto-strip figcaption {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-align: center;
+      padding-top: 5px;
+    }
+
     /* ── WAT NU ── */
     .wat-nu {
       max-width: 660px;
@@ -271,6 +313,8 @@
 
     @media (max-width: 600px) {
       .bevestiging { padding: 44px 18px 30px; }
+      .sfeer { padding: 0 16px 20px; }
+      .foto-strip { grid-template-columns: 1fr 1fr; }
       .wat-nu, .tips { padding-left: 16px; padding-right: 16px; }
       .wat-nu-kaart { padding: 24px 20px; }
       .verder { padding: 12px 16px 48px; }
@@ -293,6 +337,11 @@
     </div>
     <h1>Gelukt — je aanvraag is binnen</h1>
     <p>Bedankt voor je interesse in Landal De Wielsche Dreef. We hebben je gegevens goed ontvangen en gaan er direct mee aan de slag.</p>
+  </section>
+
+  <!-- ── SFEERBEELD ── -->
+  <section class="sfeer">
+    <img src="images/terras-wijn.jpg" alt="Glas wijn op het terras met uitzicht over de vijver" />
   </section>
 
   <!-- ── WAT NU ── -->
@@ -338,7 +387,7 @@
         </span>
         <div>
           <strong>Maak er een dagje van</strong>
-          <span>Combineer je bezoek met de omgeving: de heide van de Utrechtse Heuvelrug, het pontje over de Nederrijn of Ouwehands Dierenpark in Rhenen — alles ligt op een kwartier.</span>
+          <span>Combineer je bezoek met de omgeving: de heide van de Utrechtse Heuvelrug, het pontje over de Nederrijn of Ouwehands Dierenpark in Rhenen — alles ligt op een halfuur.</span>
         </div>
       </div>
 
@@ -371,6 +420,25 @@
           <span>Wil je eerder langskomen of heb je een dringende vraag? Bel Recravas op <a href="tel:0853032844" style="color:var(--teal);font-weight:600;text-decoration:none;">085-30 32 844</a>.</span>
         </div>
       </div>
+    </div>
+
+    <div class="foto-strip">
+      <figure>
+        <img src="images/omgeving/heide.jpg" alt="Bloeiende heide op de Utrechtse Heuvelrug" loading="lazy" />
+        <figcaption>Utrechtse Heuvelrug</figcaption>
+      </figure>
+      <figure>
+        <img src="images/omgeving/nederrijn.jpg" alt="De Nederrijn met veerpont bij zonsopgang" loading="lazy" />
+        <figcaption>De Nederrijn</figcaption>
+      </figure>
+      <figure>
+        <img src="images/omgeving/fruit.jpg" alt="Appel aan de boom in een Betuwse boomgaard" loading="lazy" />
+        <figcaption>De Betuwe</figcaption>
+      </figure>
+      <figure>
+        <img src="images/omgeving/ouwehands.jpg" alt="Panda in Ouwehands Dierenpark" loading="lazy" />
+        <figcaption>Ouwehands Dierenpark</figcaption>
+      </figure>
     </div>
   </section>
 
