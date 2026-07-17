@@ -796,6 +796,24 @@
     .fac-grid-4 .fac-item img { aspect-ratio: 4/3; }
     .fac-grid-4 .fac-item figcaption { font-size: 0.78rem; padding: 18px 10px 8px; }
 
+    /* ── FORMULIERKOP ──
+       Staat als eigen blok bóven de GHL-formuliersectie. De padding-bottom
+       zorgt dat het formulier er niet tegenaan plakt; de GHL-sectie zet
+       daar zijn eigen padding nog bovenop. */
+    .form-kop {
+      padding: 64px 24px 8px;
+      text-align: center;
+    }
+
+    .form-kop .container { max-width: 700px; }
+    .form-kop .section-sub { margin: 16px auto 0; }
+    .form-kop.op-wit { background: var(--white); }
+    .form-kop.op-cream { background: var(--cream); }
+
+    @media (max-width: 600px) {
+      .form-kop { padding: 44px 16px 4px; }
+    }
+
     /* ── IMPRESSIE-DISCLAIMER ── */
     .impressie-note {
       max-width: 780px;
