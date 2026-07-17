@@ -1201,6 +1201,22 @@
       /* Footer */
       footer { font-size: 0.78rem; line-height: 1.8; }
     }
+
+    /* ══════════════════════════════════════════════════════════════
+       GoHighLevel: onze secties volle breedte maken.
+       GHL stopt de custom code in een container met max-breedte en padding,
+       waardoor de hero en de gekleurde secties niet tot de rand lopen
+       (witruimte links/rechts). Deze regels strekken alléén de GHL-wrappers
+       rond ONZE code tot volle breedte; de formuliersecties blijven ongemoeid.
+       Op GitHub Pages bestaan deze .c-* classes niet, dus daar doen ze niets. */
+    .c-section:has(.c-custom-code) > .inner { max-width: none !important; }
+    .c-section:has(.c-custom-code) { padding-left: 0 !important; padding-right: 0 !important; }
+    .c-row:has(.c-custom-code) { padding-left: 0 !important; padding-right: 0 !important; }
+    .c-row:has(.c-custom-code) > .inner { max-width: none !important; }
+    .c-column:has(.c-custom-code) { padding-left: 0 !important; padding-right: 0 !important; }
+    .custom-code-container,
+    .c-custom-code:has(.site-top),
+    .c-custom-code:has(.hero) { width: 100% !important; }
   </style>
 </head>
 <body>
