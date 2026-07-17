@@ -512,6 +512,31 @@
       position: relative;
     }
 
+    /* Klikbare kaart: hint rechtsonder op de foto */
+    .woning-card[data-fotos] { cursor: zoom-in; }
+
+    .woning-card[data-fotos] .foto-hint {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      z-index: 2;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(4px);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 5px 9px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      pointer-events: none;
+      transition: background 0.2s ease;
+    }
+
+    .woning-card[data-fotos]:hover .foto-hint { background: rgba(0,133,122,0.9); }
+    .woning-card[data-fotos]:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+
     /* ── BESCHIKBAARHEID PER TYPE ── */
     .woning-status {
       position: absolute;
@@ -1374,7 +1399,8 @@
       <p class="section-sub">Tien woningtypen, verdeeld over vier lijnen: <strong>Comfort</strong>, <strong>Luxe</strong>, <strong>Extra Luxe Wellness</strong> en <strong>Extra Luxe Culinair</strong> — van 2 tot 12 personen. Hieronder een greep uit het aanbod. Alle woningen worden opgeleverd met tuin en eigen parkeerplaats.</p>
 
       <div class="woningen-grid">
-        <div class="woning-card">
+        <div class="woning-card" data-fotos="[{&quot;src&quot;: &quot;https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-2p-ELW-scaled.jpg&quot;, &quot;titel&quot;: &quot;2-persoons Extra Luxe Wellness — exterieur&quot;}, {&quot;src&quot;: &quot;images/typen/2elw-woonkamer.jpg&quot;, &quot;titel&quot;: &quot;Woonkamer — 2-persoons Extra Luxe Wellness&quot;}, {&quot;src&quot;: &quot;images/typen/2elw-badkamer.jpg&quot;, &quot;titel&quot;: &quot;Badkamer — 2-persoons Extra Luxe Wellness&quot;}, {&quot;src&quot;: &quot;images/typen/2elw-slaapkamer.jpg&quot;, &quot;titel&quot;: &quot;Slaapkamer — 2-persoons Extra Luxe Wellness&quot;}, {&quot;src&quot;: &quot;images/typen/2elw-plattegrond.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond — 2-persoons Extra Luxe Wellness (62 m², terras 16 m²)&quot;}]" tabindex="0" role="button" aria-label="Bekijk 2-persoons — 5 beelden">
+          <span class="foto-hint">&#10530; 5 beelden</span>
           <span class="woning-status laatste">Nog 1 beschikbaar</span>
           <img src="https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-2p-ELW-scaled.jpg"
                alt="2-persoons Extra Luxe Wellness" loading="lazy" />
@@ -1390,7 +1416,8 @@
           </div>
         </div>
 
-        <div class="woning-card">
+        <div class="woning-card" data-fotos="[{&quot;src&quot;: &quot;https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-6p-L-scaled.jpg&quot;, &quot;titel&quot;: &quot;6-persoons Luxe — exterieur&quot;}, {&quot;src&quot;: &quot;images/typen/6l-woonkamer.jpg&quot;, &quot;titel&quot;: &quot;Woonkamer — 6-persoons Luxe&quot;}, {&quot;src&quot;: &quot;images/typen/6l-plattegrond-bg.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond begane grond — 6-persoons Luxe (86 m², terras 23 m²)&quot;}, {&quot;src&quot;: &quot;images/typen/6l-plattegrond-1e.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond eerste verdieping — 6-persoons Luxe&quot;}]" tabindex="0" role="button" aria-label="Bekijk 6-persoons — 4 beelden">
+          <span class="foto-hint">&#10530; 4 beelden</span>
           <span class="woning-status beschikbaar">4 beschikbaar</span>
           <img src="https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-6p-L-scaled.jpg"
                alt="6-persoons Luxe" loading="lazy" />
@@ -1406,7 +1433,8 @@
           </div>
         </div>
 
-        <div class="woning-card">
+        <div class="woning-card" data-fotos="[{&quot;src&quot;: &quot;https://dewielschedreef.nl/wp-content/uploads/2024/11/10ELW_EXT-dwd.jpg&quot;, &quot;titel&quot;: &quot;10-persoons Extra Luxe Wellness — exterieur&quot;}, {&quot;src&quot;: &quot;images/typen/10elw-woonkamer.jpg&quot;, &quot;titel&quot;: &quot;Woonkamer — 10-persoons Extra Luxe Wellness&quot;}, {&quot;src&quot;: &quot;images/typen/10elw-plattegrond-bg.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond begane grond — 10-persoons Extra Luxe Wellness (147 m², terras 38 m²)&quot;}, {&quot;src&quot;: &quot;images/typen/10elw-plattegrond-1e.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond eerste verdieping — 10-persoons Extra Luxe Wellness&quot;}]" tabindex="0" role="button" aria-label="Bekijk 10-persoons — 4 beelden">
+          <span class="foto-hint">&#10530; 4 beelden</span>
           <span class="woning-status beschikbaar">2 beschikbaar</span>
           <img src="https://dewielschedreef.nl/wp-content/uploads/2024/11/10ELW_EXT-dwd.jpg"
                alt="10-persoons Extra Luxe Wellness" loading="lazy" />
@@ -1422,7 +1450,8 @@
           </div>
         </div>
 
-        <div class="woning-card">
+        <div class="woning-card" data-fotos="[{&quot;src&quot;: &quot;https://dewielschedreef.nl/wp-content/uploads/2024/11/12ELF_EXT-dwd.jpg&quot;, &quot;titel&quot;: &quot;12-persoons Extra Luxe Culinair — exterieur&quot;}, {&quot;src&quot;: &quot;images/typen/12elc-plattegrond-bg.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond begane grond — 12-persoons Extra Luxe Culinair (179 m², terras 43 m²)&quot;}, {&quot;src&quot;: &quot;images/typen/12elc-plattegrond-1e.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond eerste verdieping — 12-persoons Extra Luxe Culinair&quot;}]" tabindex="0" role="button" aria-label="Bekijk 12-persoons — 3 beelden">
+          <span class="foto-hint">&#10530; 3 beelden</span>
           <span class="woning-status laatste">Nog 1 beschikbaar</span>
           <img src="https://dewielschedreef.nl/wp-content/uploads/2024/11/12ELF_EXT-dwd.jpg"
                alt="12-persoons Extra Luxe Culinair" loading="lazy" />
@@ -1749,19 +1778,26 @@
 
       function toon(i) {
         index = (i + reeks.length) % reeks.length;
-        var el = reeks[index];
-        img.src = el.dataset.groot;
-        img.alt = el.querySelector('img').alt;
-        cap.textContent = el.dataset.titel;
+        img.src = reeks[index].src;
+        img.alt = reeks[index].titel;
+        cap.textContent = reeks[index].titel;
       }
 
-      function open(groep, el) {
-        reeks = [].slice.call(document.querySelectorAll('.fac-item[data-groep="' + groep + '"]'));
-        herkomst = el;
-        toon(reeks.indexOf(el));
+      // reeks = [{src, titel}, …]
+      function openReeks(items, start, bron) {
+        reeks = items;
+        herkomst = bron;
+        toon(start);
         lb.setAttribute('open', '');
         document.body.style.overflow = 'hidden';
         lb.querySelector('.lb-sluit').focus();
+      }
+
+      function open(groep, el) {
+        var items = [].slice.call(document.querySelectorAll('.fac-item[data-groep="' + groep + '"]'))
+          .map(function (f) { return { src: f.dataset.groot, titel: f.dataset.titel }; });
+        var i = [].slice.call(document.querySelectorAll('.fac-item[data-groep="' + groep + '"]')).indexOf(el);
+        openReeks(items, i, el);
       }
 
       function sluit() {
@@ -1774,6 +1810,17 @@
         el.addEventListener('click', function () { open(el.dataset.groep, el); });
         el.addEventListener('keydown', function (e) {
           if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(el.dataset.groep, el); }
+        });
+      });
+
+      // Woningkaarten: elke kaart heeft een eigen reeks in data-fotos
+      document.querySelectorAll('.woning-card[data-fotos]').forEach(function (kaart) {
+        var start = function () {
+          openReeks(JSON.parse(kaart.dataset.fotos), 0, kaart);
+        };
+        kaart.addEventListener('click', start);
+        kaart.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); start(); }
         });
       });
 
