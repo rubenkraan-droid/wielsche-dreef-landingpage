@@ -87,7 +87,7 @@
 
     /* Ankerdoelen: de sticky header (84px) mag de kop niet bedekken bij het scrollen.
        Ook nodig als de formuliersecties straks GHL-secties met hetzelfde id worden. */
-    #verkoopweekend, #aanmelden, #brochure { scroll-margin-top: 96px; }
+    #verkoopweekend, #aanmelden, #brochure { scroll-margin-top: 154px; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -102,11 +102,14 @@
       line-height: 1.2;
     }
 
-    /* ── STICKY HEADER ── */
-    .site-header {
+    /* ── STICKY KOP: header + datumbalk bewegen als één blok ── */
+    .site-top {
       position: sticky;
       top: 0;
       z-index: 100;
+    }
+
+    .site-header {
       background: rgba(255,255,255,0.97);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
@@ -700,26 +703,6 @@
       margin-right: 4px;
     }
 
-    /* ── STICKY CTA-BALK (mobiel) ── */
-    .sticky-cta {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 200;
-      background: rgba(255,255,255,0.97);
-      backdrop-filter: blur(10px);
-      border-top: 1px solid var(--border);
-      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
-      gap: 10px;
-    }
-
-    .sticky-cta .btn {
-      flex: 1;
-      padding: 12px 8px;
-      font-size: 0.85rem;
-    }
 
     /* ── PARKFACILITEITEN (compact, klikbaar) ── */
     .faciliteiten {
@@ -1078,12 +1061,17 @@
 
     /* ── RESPONSIVE: MOBIEL (≤600px) ── */
     @media (max-width: 600px) {
-      /* Sticky CTA-balk: de pagina is 12 schermen lang, actie moet altijd bereikbaar zijn */
-      .sticky-cta { display: flex; }
-      body { padding-bottom: 66px; }
+      /* Sticky kop is hier 72px header + 33px datumbalk = 105px */
+      #verkoopweekend, #aanmelden, #brochure { scroll-margin-top: 112px; }
 
-      /* Header is hier 72px i.p.v. 84px */
-      #verkoopweekend, #aanmelden, #brochure { scroll-margin-top: 84px; }
+      /* Beide knoppen in de header: de balk onderaan is daarmee overbodig.
+         Korte labels, anders passen ze niet naast het logo op 375px. */
+      .header-ctas .btn { padding: 9px 10px; font-size: 0.72rem; }
+      .header-ctas .btn-outline { display: inline-block; }
+      .header-ctas .btn-outline::after { content: 'Brochure'; }
+      .header-ctas .btn-primary::after { content: 'Aanmelden'; }
+      .header-ctas .btn { font-size: 0; }
+      .header-ctas .btn::after { font-size: 0.72rem; }
 
       /* CTA-blokken midden op de pagina: onder elkaar */
       .cta-blok { flex-direction: column; gap: 10px; }
@@ -1091,10 +1079,9 @@
       .cta-blok-tekst { text-align: center; margin: 0 0 4px; }
 
       /* Header */
-      .site-header { height: 72px; padding: 0 16px; }
-      .site-header img.logo { height: 52px; }
-      .header-ctas .btn-outline { display: none; }
-      .header-ctas .btn-primary { padding: 10px 16px; font-size: 0.82rem; }
+      .site-header { height: 72px; padding: 0 12px; }
+      .site-header img.logo { height: 46px; }
+      .header-ctas { gap: 7px; }
 
       /* Banner: één smalle regel. Aanmeldlink weg — de sticky CTA onderaan
          en de knop in de header dekken die actie al. */
@@ -1174,7 +1161,8 @@
 </head>
 <body>
 
-  <!-- ── STICKY HEADER ── -->
+  <!-- ── STICKY KOP: header + datumbalk als één blok ── -->
+  <div class="site-top">
   <header class="site-header">
     <img class="logo"
          src="https://dewielschedreef.nl/wp-content/uploads/2024/09/Frame-13.svg"
@@ -1192,6 +1180,7 @@
     <span class="vw-date" id="vw-datum">7 &amp; 8 augustus 2026</span>
     <a href="#verkoopweekend" class="vw-banner-link">Aanmelden &rarr;</a>
   </div>
+  </div><!-- /site-top -->
 
   <!-- ── HERO ── -->
   <section class="hero">
@@ -1805,11 +1794,6 @@
     <p class="lb-bijschrift"></p>
   </div>
 
-  <!-- ── STICKY CTA (alleen mobiel) ── -->
-  <div class="sticky-cta">
-    <a href="#verkoopweekend" class="btn btn-primary">Aanmelden verkoopweekend</a>
-    <a href="#brochure" class="btn btn-outline">Brochure</a>
-  </div>
 
   <script>
     // Lightbox: klik of Enter op een beeld opent het groot, met pijltjes door de reeks.
