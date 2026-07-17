@@ -779,6 +779,13 @@
 
     .fac-item:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
 
+    /* ── OMGEVING: vier kleinere kaarten ── */
+    .omgeving { background: var(--white); }
+
+    .fac-grid-4 { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .fac-grid-4 .fac-item img { aspect-ratio: 4/3; }
+    .fac-grid-4 .fac-item figcaption { font-size: 0.78rem; padding: 18px 10px 8px; }
+
     /* ── IMPRESSIE-DISCLAIMER ── */
     .impressie-note {
       max-width: 780px;
@@ -1060,6 +1067,7 @@
 
       /* Faciliteiten: 2 kolommen */
       .fac-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+      .fac-grid-4 { grid-template-columns: repeat(4, 1fr); gap: 10px; }
 
       /* Ontzorgd: 1 kolom */
       .ontzorgd-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
@@ -1138,7 +1146,7 @@
       .woning-status { font-size: 0.66rem; padding: 5px 10px; top: 10px; left: 10px; }
 
       /* Faciliteiten: 2 kolommen blijft — thumbnails, tikken opent groot */
-      .fac-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .fac-grid, .fac-grid-4 { grid-template-columns: 1fr 1fr; gap: 10px; }
       .fac-item figcaption { font-size: 0.72rem; padding: 18px 8px 7px; }
       .lb-vorige, .lb-volgende { width: 40px; height: 40px; }
       .lb-vorige { left: 8px; } .lb-volgende { right: 8px; }
@@ -1192,7 +1200,7 @@
       <span class="hero-eyebrow">Fase 1 &bull; 54 woningen &bull; Nu in aanbouw</span>
       <h1>Eindelijk een plek<br/>die echt van jou is</h1>
       <p>Een luxe recreatiewoning aan de rand van de Utrechtse Heuvelrug. Bossen, heide en de Nederrijn om de hoek. Volledig verzorgd verhuurd als je er niet bent — en elke keer thuiskomen als je er wel bent.</p>
-      <p class="hero-bouwstatus">De bouw is in volle gang — bij een deel van de woningen kun je er snel in.</p>
+      <p class="hero-bouwstatus">De bouw is in volle gang — bij een deel van de woningen is er snelle oplevering mogelijk.</p>
 
       <div class="hero-ctas">
         <a href="#verkoopweekend" class="btn btn-primary">Aanmelden verkoopweekend</a>
@@ -1542,6 +1550,41 @@
         <span class="cta-blok-tekst">Dit wil je met eigen ogen zien.</span>
         <a href="#aanmelden" class="btn btn-primary btn-sm">Aanmelden verkoopweekend</a>
         <a href="#brochure" class="btn btn-outline btn-sm">Brochure aanvragen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DE OMGEVING ── -->
+  <section class="omgeving">
+    <div class="container">
+      <p class="section-label">De omgeving</p>
+      <h2 class="section-title">Om de hoek begint<br/>het echte werk</h2>
+      <p class="section-sub">Heide en bos van de Utrechtse Heuvelrug, de Nederrijn met het pontje, de boomgaarden van de Betuwe — en Ouwehands voor de kleinkinderen. Klik op een beeld om het groot te bekijken.</p>
+
+      <div class="fac-grid fac-grid-4">
+        <figure class="fac-item" tabindex="0" role="button" data-groep="omgeving"
+                data-groot="images/omgeving/heide.jpg" data-titel="De heide van de Utrechtse Heuvelrug — bossen, heide en glooiende landschappen om de hoek">
+          <img src="images/omgeving/heide.jpg" alt="Bloeiende heide met bos op de Utrechtse Heuvelrug" loading="lazy" />
+          <figcaption>Utrechtse Heuvelrug</figcaption>
+        </figure>
+
+        <figure class="fac-item" tabindex="0" role="button" data-groep="omgeving"
+                data-groot="images/omgeving/nederrijn.jpg" data-titel="De Nederrijn bij zonsopgang — het pontje brengt je zo de overkant op">
+          <img src="images/omgeving/nederrijn.jpg" alt="De Nederrijn met veerpont bij zonsopgang" loading="lazy" />
+          <figcaption>De Nederrijn</figcaption>
+        </figure>
+
+        <figure class="fac-item" tabindex="0" role="button" data-groep="omgeving"
+                data-groot="images/omgeving/fruit.jpg" data-titel="De Betuwe: boomgaarden zover je kijkt, bloesem in het voorjaar en fruit in het najaar">
+          <img src="images/omgeving/fruit.jpg" alt="Appel aan de boom in een Betuwse boomgaard" loading="lazy" />
+          <figcaption>De Betuwe</figcaption>
+        </figure>
+
+        <figure class="fac-item" tabindex="0" role="button" data-groep="omgeving"
+                data-groot="images/omgeving/ouwehands.jpg" data-titel="Ouwehands Dierenpark in Rhenen — de reden dat de kleinkinderen graag mee gaan">
+          <img src="images/omgeving/ouwehands.jpg" alt="Panda in Ouwehands Dierenpark" loading="lazy" />
+          <figcaption>Ouwehands Dierenpark</figcaption>
+        </figure>
       </div>
     </div>
   </section>
