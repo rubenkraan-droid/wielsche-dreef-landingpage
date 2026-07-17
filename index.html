@@ -181,7 +181,7 @@
     }
 
     /* ── BUTTONS ── */
-    .btn {
+    .wd-btn {
       display: inline-block;
       padding: 14px 28px;
       border-radius: 6px;
@@ -195,38 +195,38 @@
       text-align: center;
     }
 
-    .btn-primary {
+    .wd-btn-primary {
       background: var(--teal);
       color: var(--white);
       border-color: var(--teal);
     }
 
-    .btn-primary:hover {
+    .wd-btn-primary:hover {
       background: var(--teal-dark);
       border-color: var(--teal-dark);
     }
 
-    .btn-outline {
+    .wd-btn-outline {
       background: transparent;
       color: var(--teal);
       border-color: var(--teal);
     }
 
-    .btn-outline:hover {
+    .wd-btn-outline:hover {
       background: var(--teal-light);
     }
 
-    .btn-outline-white {
+    .wd-btn-outline-white {
       background: transparent;
       color: var(--white);
       border-color: var(--white);
     }
 
-    .btn-outline-white:hover {
+    .wd-btn-outline-white:hover {
       background: rgba(255,255,255,0.15);
     }
 
-    .btn-sm {
+    .wd-btn-sm {
       padding: 10px 20px;
       font-size: 0.875rem;
     }
@@ -235,7 +235,7 @@
     .lbl-kort { display: none; }
 
     /* Knoppen in de sticky kop: compacter, die staat altijd in beeld */
-    .site-top .btn-sm {
+    .site-top .wd-btn-sm {
       padding: 7px 14px;
       font-size: 0.8rem;
       border-width: 1.5px;
@@ -1111,20 +1111,20 @@
 
       /* Beide knoppen in de header. Korte labels via <span>, niet via
          ::after-content: dat verdubbelde de tekst en screenreaders lazen beide. */
-      .header-ctas .btn { padding: 9px 11px; font-size: 0.72rem; }
-      .header-ctas .btn-outline { display: inline-block; }
+      .header-ctas .wd-btn { padding: 9px 11px; font-size: 0.72rem; }
+      .header-ctas .wd-btn-outline { display: inline-block; }
       .lbl-lang { display: none; }
       .lbl-kort { display: inline; }
 
       /* CTA-blokken midden op de pagina: onder elkaar */
       .cta-blok { flex-direction: column; gap: 10px; }
-      .cta-blok .btn { width: 100%; max-width: 320px; }
+      .cta-blok .wd-btn { width: 100%; max-width: 320px; }
       .cta-blok-tekst { text-align: center; margin: 0 0 4px; }
 
       /* Header */
       .site-header { height: 54px; padding: 0 12px; }
       .site-header img.logo { height: 34px; }
-      .site-top .btn-sm { padding: 6px 10px; font-size: 0.72rem; }
+      .site-top .wd-btn-sm { padding: 6px 10px; font-size: 0.72rem; }
       .header-ctas { gap: 7px; }
 
       /* Banner: één smalle regel. Aanmeldlink weg — de sticky CTA onderaan
@@ -1146,7 +1146,7 @@
       .hero h1 { font-size: 2rem; }
       .hero p { font-size: 1rem; }
       .hero-ctas { flex-direction: column; gap: 12px; }
-      .hero-ctas .btn { width: 100%; text-align: center; }
+      .hero-ctas .wd-btn { width: 100%; text-align: center; }
 
       /* Secties */
       section { padding: 48px 16px; }
@@ -1191,12 +1191,12 @@
       .vw-grid { gap: 32px; }
       .vw-card { padding: 28px 20px; }
       .vw-card .datum-groot { font-size: 1.7rem; }
-      .vw-card-ctas .btn { padding: 13px 20px; font-size: 0.9rem; }
+      .vw-card-ctas .wd-btn { padding: 13px 20px; font-size: 0.9rem; }
 
       /* Footer CTA */
       .footer-cta { padding: 56px 20px; }
       .footer-cta-btns { flex-direction: column; align-items: center; }
-      .footer-cta-btns .btn { width: 100%; max-width: 320px; }
+      .footer-cta-btns .wd-btn { width: 100%; max-width: 320px; }
 
       /* Footer */
       footer { font-size: 0.78rem; line-height: 1.8; }
@@ -1228,10 +1228,10 @@
          src="https://dewielschedreef.nl/wp-content/uploads/2024/09/Frame-13.svg"
          alt="De Wielsche Dreef" />
     <div class="header-ctas">
-      <a href="#brochure" class="btn btn-outline btn-sm"><span class="lbl-lang">Brochure aanvragen</span><span class="lbl-kort">Brochure</span></a>
+      <a href="#brochure" class="wd-btn wd-btn-outline wd-btn-sm"><span class="lbl-lang">Brochure aanvragen</span><span class="lbl-kort">Brochure</span></a>
       <!-- Sticky knop: wordt geklikt door wie al gescrold heeft en nú wil handelen.
            Daarom direct het formulier in, niet eerst de uitleg. -->
-      <a href="#aanmelden" class="btn btn-primary btn-sm"><span class="lbl-lang">Aanmelden verkoopweekend</span><span class="lbl-kort">Aanmelden</span></a>
+      <a href="#aanmelden" class="wd-btn wd-btn-primary wd-btn-sm"><span class="lbl-lang">Aanmelden verkoopweekend</span><span class="lbl-kort">Aanmelden</span></a>
     </div>
   </header>
 
@@ -1254,8 +1254,8 @@
       <p class="hero-bouwstatus">De bouw is in volle gang — bij een deel van de woningen is er snelle oplevering mogelijk.</p>
 
       <div class="hero-ctas">
-        <a href="#verkoopweekend" class="btn btn-primary">Aanmelden verkoopweekend</a>
-        <a href="#brochure" class="btn btn-outline-white">Brochure aanvragen</a>
+        <a href="#verkoopweekend" class="wd-btn wd-btn-primary">Aanmelden verkoopweekend</a>
+        <a href="#brochure" class="wd-btn wd-btn-outline-white">Brochure aanvragen</a>
       </div>
     </div>
   </section>
@@ -1391,8 +1391,8 @@
 
       <div class="cta-blok" style="margin-top:44px;">
         <span class="cta-blok-tekst" style="color:rgba(255,255,255,0.75);">Een plek als deze beoordeel je niet van een scherm.</span>
-        <a href="#verkoopweekend" class="btn btn-sm" style="background:var(--white);color:var(--teal-dark);">Kom langs op 7 &amp; 8 augustus</a>
-        <a href="#brochure" class="btn btn-outline-white btn-sm">Brochure aanvragen</a>
+        <a href="#verkoopweekend" class="wd-btn wd-btn-sm" style="background:var(--white);color:var(--teal-dark);">Kom langs op 7 &amp; 8 augustus</a>
+        <a href="#brochure" class="wd-btn wd-btn-outline-white wd-btn-sm">Brochure aanvragen</a>
       </div>
     </div>
   </section>
@@ -1529,8 +1529,8 @@
 
       <div class="cta-blok">
         <span class="cta-blok-tekst">Wil je een volledig overzicht van alle typen en prijzen?</span>
-        <a href="#brochure" class="btn btn-outline btn-sm">Brochure aanvragen</a>
-        <a href="#aanmelden" class="btn btn-primary btn-sm">Kom kijken op 7 &amp; 8 augustus</a>
+        <a href="#brochure" class="wd-btn wd-btn-outline wd-btn-sm">Brochure aanvragen</a>
+        <a href="#aanmelden" class="wd-btn wd-btn-primary wd-btn-sm">Kom kijken op 7 &amp; 8 augustus</a>
       </div>
     </div>
   </section>
@@ -1599,8 +1599,8 @@
 
       <div class="cta-blok" style="margin-top:24px;">
         <span class="cta-blok-tekst">Dit wil je met eigen ogen zien.</span>
-        <a href="#aanmelden" class="btn btn-primary btn-sm">Aanmelden verkoopweekend</a>
-        <a href="#brochure" class="btn btn-outline btn-sm">Brochure aanvragen</a>
+        <a href="#aanmelden" class="wd-btn wd-btn-primary wd-btn-sm">Aanmelden verkoopweekend</a>
+        <a href="#brochure" class="wd-btn wd-btn-outline wd-btn-sm">Brochure aanvragen</a>
       </div>
     </div>
   </section>
@@ -1693,7 +1693,7 @@
           <p>Veel vakantiewoningen kosten je geld en tijd. De Wielsche Dreef is anders: Landal neemt alles over — van marketing tot schoonmaak — en je ontvangt elke maand je aandeel.</p>
           <p>Geen verhuurstress, geen lege kalenders, geen facturen die je zelf moet uitsturen.</p>
           <p style="font-weight:600;color:var(--teal-dark);">Wil je de exacte cijfers zien? Vraag de brochure aan of kom naar het verkoopweekend.</p>
-          <a href="#brochure" class="btn btn-primary" style="margin-top:8px;">Brochure aanvragen</a>
+          <a href="#brochure" class="wd-btn wd-btn-primary" style="margin-top:8px;">Brochure aanvragen</a>
         </div>
       </div>
     </div>
@@ -1801,8 +1801,8 @@
           <p class="datum-groot" id="vw-datum-card">7 &amp; 8 augustus 2026</p>
           <p class="datum-sub">Vrijdag &amp; zaterdag &bull; 10:00 – 16:00 uur<br/>Eck en Wiel, Gelderland</p>
           <div class="vw-card-ctas">
-            <a href="#aanmelden" class="btn btn-primary">Ja, ik meld me aan *</a>
-            <a href="#brochure" class="btn btn-outline">Liever eerst de brochure</a>
+            <a href="#aanmelden" class="wd-btn wd-btn-primary">Ja, ik meld me aan *</a>
+            <a href="#brochure" class="wd-btn wd-btn-outline">Liever eerst de brochure</a>
           </div>
           <p style="font-size:0.78rem;color:var(--text-muted);margin-top:16px;line-height:1.6;">* Een adviseur belt je op om de afspraak in te plannen.</p>
         </div>
@@ -1841,8 +1841,8 @@
       <h2>Jouw plek wacht.</h2>
       <p>54 woningen, fase 1. Kom kijken tijdens het verkoopweekend — of begin met de brochure.</p>
       <div class="footer-cta-btns">
-        <a href="#aanmelden" class="btn btn-outline-white">Aanmelden verkoopweekend</a>
-        <a href="#brochure" class="btn" style="background:var(--white);color:var(--teal);">Brochure aanvragen</a>
+        <a href="#aanmelden" class="wd-btn wd-btn-outline-white">Aanmelden verkoopweekend</a>
+        <a href="#brochure" class="wd-btn" style="background:var(--white);color:var(--teal);">Brochure aanvragen</a>
       </div>
     </div>
   </section>
