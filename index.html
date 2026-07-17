@@ -1217,6 +1217,16 @@
     .custom-code-container,
     .c-custom-code:has(.site-top),
     .c-custom-code:has(.hero) { width: 100% !important; }
+
+    /* Ruimte tussen een titel-sectie en de formuliersectie eronder verkleinen.
+       De titel-sectie (zonder invoerveld) verliest zijn padding-bottom, de
+       formuliersectie (mét invoerveld) zijn padding-top. Zo staat het formulier
+       dichter onder de titel, maar blijft de ruimte BOVEN de titel intact.
+       Werkt op GHL-secties met Custom Class 'aanmelden' of 'brochure'. */
+    .c-section.aanmelden:not(:has(input)):not(:has(textarea)),
+    .c-section.brochure:not(:has(input)):not(:has(textarea)) { padding-bottom: 8px !important; }
+    .c-section.aanmelden:has(input), .c-section.aanmelden:has(textarea),
+    .c-section.brochure:has(input), .c-section.brochure:has(textarea) { padding-top: 8px !important; }
   </style>
 </head>
 <body>
