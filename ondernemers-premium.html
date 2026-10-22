@@ -166,7 +166,10 @@
     .pijler .proof strong { color: var(--pine); }
 
     /* paneel zonder beeld (zakelijk) */
-    .paneel { background: var(--pine); color: #EDEAE0; border-radius: 2px; padding: 46px 40px; margin-top: 64px; }
+    .paneel { background: var(--pine); color: #EDEAE0; border-radius: 2px; margin-top: 64px; display: flex; flex-wrap: wrap; align-items: stretch; overflow: hidden; }
+    .paneel-foto { margin: 0; flex: 1 1 320px; min-height: 300px; }
+    .paneel-foto img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .paneel-body { flex: 1 1 400px; padding: 46px 40px; }
     .paneel h3 { color: #FBFAF4; font-size: 2rem; margin-bottom: 14px; }
     .paneel p { color: #DCE0D5; }
     .paneel .proof { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line-dk); font-size: 0.9rem; color: #C3C9BB; }
@@ -374,11 +377,14 @@
         </div>
       </div>
 
-      <!-- Pijler 4: zakelijk (paneel, zonder beeld) -->
+      <!-- Pijler 4: zakelijk (paneel met beeld) -->
       <div class="paneel">
-        <h3>Zakelijk te verantwoorden</h3>
-        <p>De btw is bij verhuur terugvorderbaar, pro rata bij eigen gebruik en met een herzieningstermijn van tien jaar. Bij nieuwbouw betaalt u geen overdrachtsbelasting. Afschrijven op het gebouw is mogelijk. Wat voor uw situatie geldt, hangt af van hoe en vanuit welke vennootschap u koopt.</p>
-        <div class="proof">Op de verkoopdag krijgt u alle cijfers en documenten mee. De fiscale doorrekening maakt u met uw eigen fiscalist.<!-- BEWIJS NODIG: fiscale punten (btw pro rata, herziening 10 jr, geen overdrachtsbelasting nieuwbouw, afschrijving) laten toetsen door fiscalist vóór publicatie. GEEN KIA-claim. --></div>
+        <figure class="paneel-foto"><img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/adviesgesprek-park.jpg" alt="Kopers bespreken de cijfers met de verkoopadviseur op het park" loading="lazy" /></figure>
+        <div class="paneel-body">
+          <h3>Zakelijk te verantwoorden</h3>
+          <p>De btw is bij verhuur terugvorderbaar, pro rata bij eigen gebruik en met een herzieningstermijn van tien jaar. Bij nieuwbouw betaalt u geen overdrachtsbelasting. Afschrijven op het gebouw is mogelijk. Wat voor uw situatie geldt, hangt af van hoe en vanuit welke vennootschap u koopt.</p>
+          <div class="proof">Op de verkoopdag krijgt u alle cijfers en documenten mee. De fiscale doorrekening maakt u met uw eigen fiscalist.<!-- BEWIJS NODIG: fiscale punten (btw pro rata, herziening 10 jr, geen overdrachtsbelasting nieuwbouw, afschrijving) laten toetsen door fiscalist vóór publicatie. GEEN KIA-claim. --></div>
+        </div>
       </div>
     </div>
   </section>
