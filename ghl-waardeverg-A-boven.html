@@ -1,0 +1,1354 @@
+<!-- WAARDEVERGELIJKING - BLOK A (boven): styling + sticky kop + hero + aanmeld-anker.
+     Sleep je GHL-aanmeldformulier direct ONDER dit blok. -->
+  <style>
+    /* ── HUISSTIJLFONT ── */
+    @font-face {
+      font-family: 'Noe Display';
+      src: url('https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/fonts/noe-display-bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Noe Display';
+      src: url('https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/fonts/noe-display-italic.woff2') format('woff2');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:       #00857A;
+      --teal-dark:  #006059;
+      --teal-light: #E6F4F3;
+      --cream:      #FAF8F4;
+      --brown:      #5C4A32;
+      --text:       #1A1A1A;
+      --text-muted: #6B6B6B;
+      --white:      #FFFFFF;
+      --border:     #E0DAD0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    /* Ankerdoelen: de sticky header (84px) mag de kop niet bedekken bij het scrollen.
+       Ook nodig als de formuliersecties straks GHL-secties met hetzelfde id worden. */
+    #verkoopweekend, #aanmelden, #brochure { scroll-margin-top: 112px; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Noe Display', Georgia, serif;
+      font-weight: 700;   /* enige beschikbare Noe Display-gewicht; voorkomt synthetic bold */
+      line-height: 1.2;
+    }
+
+    /* ── KOP ──
+       Bij het laden staat de kop gewoon in de pagina: de hero krijgt het scherm.
+       Zodra je voorbij de hero scrolt wordt hij fixed en schuift hij in.
+       body.kop-vast vangt de sprong op die ontstaat als de kop uit de flow gaat. */
+    .site-top {
+      position: relative;
+      z-index: 100;
+    }
+
+    .site-top.is-sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      animation: kop-in 0.25s ease;
+    }
+
+    body.kop-vast { padding-top: var(--kop-hoogte, 103px); }
+
+    @keyframes kop-in {
+      from { transform: translateY(-100%); }
+      to   { transform: translateY(0); }
+    }
+
+    .site-header {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 62px;
+    }
+
+    .site-header img.logo {
+      height: 42px;
+    }
+
+    .header-ctas {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    /* ── VERKOOPWEEKEND BANNER ── */
+    .vw-banner {
+      background: var(--teal);
+      color: var(--white);
+      text-align: center;
+      padding: 8px 24px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .vw-banner strong {
+      font-weight: 700;
+    }
+
+    .vw-banner .vw-date {
+      display: inline-block;
+      background: var(--white);
+      color: var(--teal);
+      font-weight: 700;
+      border-radius: 4px;
+      padding: 1px 9px;
+      margin: 0 6px;
+      font-size: 0.88rem;
+    }
+
+    .vw-banner-link {
+      color: var(--white);
+      margin-left: 12px;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    /* ── BUTTONS ── */
+    .wd-btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+      text-align: center;
+    }
+
+    .wd-btn-primary {
+      background: var(--teal);
+      color: var(--white);
+      border-color: var(--teal);
+    }
+
+    .wd-btn-primary:hover {
+      background: var(--teal-dark);
+      border-color: var(--teal-dark);
+    }
+
+    .wd-btn-outline {
+      background: transparent;
+      color: var(--teal);
+      border-color: var(--teal);
+    }
+
+    .wd-btn-outline:hover {
+      background: var(--teal-light);
+    }
+
+    .wd-btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      border-color: var(--white);
+    }
+
+    .wd-btn-outline-white:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    .wd-btn-sm {
+      padding: 10px 20px;
+      font-size: 0.875rem;
+    }
+
+    /* Korte knoplabels verschijnen alleen op mobiel */
+    .lbl-kort { display: none; }
+
+    /* Knoppen in de sticky kop: compacter, die staat altijd in beeld */
+    .site-top .wd-btn-sm {
+      padding: 7px 14px;
+      font-size: 0.8rem;
+      border-width: 1.5px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/hero-vijver.jpg');
+      background-size: cover;
+      background-position: center center;
+    }
+
+    /* Leesbaarheidslaag: donker aan de tekstzijde, helder waar het park in beeld is */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(100deg,
+        rgba(0,0,0,0.78) 0%,
+        rgba(0,0,0,0.58) 42%,
+        rgba(0,0,0,0.22) 72%,
+        rgba(0,0,0,0.08) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      padding: 80px 48px;
+      color: var(--white);
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.92;
+      max-width: 560px;
+      margin-bottom: 36px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* Bouwstatus: staat los van de belofte-tekst, iets steviger dan de body */
+    .hero-bouwstatus {
+      font-size: 1rem !important;
+      font-weight: 500;
+      opacity: 1 !important;
+      margin-bottom: 32px !important;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .hero-bouwstatus::before {
+      content: '';
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #7ED957;
+      box-shadow: 0 0 0 3px rgba(126,217,87,0.28);
+      flex-shrink: 0;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: 80px 24px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    /* ── GEVOEL SECTIE ── */
+    .gevoel {
+      background: var(--cream);
+    }
+
+    .gevoel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .gevoel-image {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .gevoel-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gevoel-text blockquote {
+      font-family: 'Noe Display', Georgia, serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--teal-dark);
+      border-left: 4px solid var(--teal);
+      padding-left: 20px;
+      margin: 24px 0;
+      line-height: 1.5;
+    }
+
+    .gevoel-text p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    /* ── ONTZORGD SECTIE ── */
+    .ontzorgd-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .ontzorgd-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 28px;
+      text-align: center;
+    }
+
+    .ontzorgd-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--teal-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: var(--teal);
+    }
+
+    .ontzorgd-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .ontzorgd-card p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── PARK SECTIE ── */
+    .park {
+      background: var(--teal-dark);
+      color: var(--white);
+    }
+
+    .park .section-label { color: rgba(255,255,255,0.6); }
+    .park .section-title { color: var(--white); }
+    .park .section-sub   { color: rgba(255,255,255,0.75); }
+
+    .park-kenmerken {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .park-kenmerk {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .park-kenmerk-icon {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: rgba(255,255,255,0.85);
+      display: flex;
+    }
+
+    .park-kenmerk h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      color: var(--white);
+    }
+
+    .park-kenmerk p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    .park-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .park-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .park-images img {
+      width: 100%;
+      border-radius: 8px;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .park-images img:first-child {
+      grid-column: span 2;
+      /* 16/9 = exact de ratio van de foto, dus geen crop en het dak blijft heel.
+         Bij 16/7 sneuvelde 34% van de hoogte, inclusief het dakpunt. */
+      aspect-ratio: 16/9;
+    }
+
+    /* ── WONINGEN SECTIE ── */
+    .woningen {
+      background: var(--cream);
+    }
+
+    .woningen-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .woning-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+
+    /* Klikbare kaart: hint rechtsonder op de foto */
+    .woning-card[data-fotos] { cursor: zoom-in; }
+
+    .woning-card[data-fotos] .foto-hint {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      z-index: 2;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(4px);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 5px 9px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      pointer-events: none;
+      transition: background 0.2s ease;
+    }
+
+    .woning-card[data-fotos]:hover .foto-hint { background: rgba(0,133,122,0.9); }
+    .woning-card[data-fotos]:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+
+    /* ── BESCHIKBAARHEID PER TYPE ── */
+    .woning-status {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      z-index: 2;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 6px 12px;
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+    }
+
+    .woning-status.laatste     { background: #C2410C; color: var(--white); }
+    .woning-status.beschikbaar { background: rgba(255,255,255,0.92); color: var(--teal-dark); }
+    .woning-status.uitverkocht { background: rgba(25,25,25,0.85); color: rgba(255,255,255,0.92); }
+
+    .woning-card.is-uitverkocht img { filter: grayscale(0.45) brightness(0.92); }
+    .woning-card.is-uitverkocht:hover { transform: none; box-shadow: none; }
+
+    .woning-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+    }
+
+    .woning-card img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+    }
+
+    .woning-card-body {
+      padding: 20px;
+    }
+
+    .woning-type {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .woning-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .woning-prijs {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .woning-prijs strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .woning-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .woning-tag {
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── RENDEMENT SECTIE ── */
+    .rendement-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .rendement-punten {
+      list-style: none;
+      margin-top: 24px;
+    }
+
+    .rendement-punten li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .rendement-punten li:last-child {
+      border-bottom: none;
+    }
+
+    .rp-check {
+      width: 24px;
+      height: 24px;
+      background: var(--teal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 0.75rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .rp-text strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .rp-text span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .rendement-aside {
+      background: var(--teal-light);
+      border-radius: 16px;
+      padding: 40px 36px;
+    }
+
+    .rendement-aside h3 {
+      font-size: 1.4rem;
+      color: var(--teal-dark);
+      margin-bottom: 16px;
+    }
+
+    .rendement-aside p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* ── CTA MIDDEN IN DE PAGINA ── */
+    .cta-blok {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .cta-blok-tekst {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-right: 4px;
+    }
+
+    /* ── PARKFACILITEITEN (compact, klikbaar) ── */
+    .faciliteiten {
+      background: var(--cream);
+    }
+
+    .fac-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .fac-item {
+      position: relative;
+      border: 0;
+      padding: 0;
+      background: none;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: zoom-in;
+      display: block;
+      width: 100%;
+    }
+
+    .fac-item img {
+      width: 100%;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .fac-item:hover img { transform: scale(1.05); }
+
+    .fac-item figcaption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 22px 12px 10px;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.72) 100%);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .fac-item figcaption::after {
+      content: '⤢';
+      font-weight: 400;
+      opacity: 0.75;
+      flex-shrink: 0;
+    }
+
+    .fac-item:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+
+    /* ── OMGEVING: vier kleinere kaarten ── */
+    .omgeving { background: var(--white); }
+
+    .fac-grid-4 { grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .fac-grid-4 .fac-item img { aspect-ratio: 4/3; }
+    .fac-grid-4 .fac-item figcaption { font-size: 0.78rem; padding: 18px 10px 8px; }
+
+    /* ── FORMULIERKOP ──
+       Staat als eigen blok bóven de GHL-formuliersectie. De padding-bottom
+       zorgt dat het formulier er niet tegenaan plakt; de GHL-sectie zet
+       daar zijn eigen padding nog bovenop. */
+    .form-kop {
+      padding: 64px 24px 8px;
+      text-align: center;
+    }
+
+    .form-kop .container { max-width: 700px; }
+    .form-kop .section-sub { margin: 16px auto 0; }
+    .form-kop.op-wit { background: var(--white); }
+    .form-kop.op-cream { background: var(--cream); }
+
+    @media (max-width: 600px) {
+      .form-kop { padding: 44px 16px 4px; }
+    }
+
+    /* ── IMPRESSIE-DISCLAIMER ── */
+    .impressie-note {
+      max-width: 780px;
+      margin: 28px auto 0;
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--white);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      text-align: center;
+    }
+
+    .impressie-note strong { color: var(--text); }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: rgba(12,12,12,0.94);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .lightbox[open] { display: flex; }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 82vh;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .lb-bijschrift {
+      position: absolute;
+      bottom: 22px;
+      left: 0; right: 0;
+      text-align: center;
+      color: rgba(255,255,255,0.9);
+      font-size: 0.9rem;
+      padding: 0 60px;
+    }
+
+    .lb-sluit, .lb-vorige, .lb-volgende {
+      position: absolute;
+      background: rgba(255,255,255,0.12);
+      border: 0;
+      color: var(--white);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.4rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease;
+    }
+
+    .lb-sluit:hover, .lb-vorige:hover, .lb-volgende:hover { background: rgba(255,255,255,0.28); }
+
+    .lb-sluit    { top: 20px; right: 20px; }
+    .lb-vorige   { left: 20px;  top: 50%; transform: translateY(-50%); }
+    .lb-volgende { right: 20px; top: 50%; transform: translateY(-50%); }
+
+    /* ── FAQ SECTIE ── */
+    .faq-list {
+      margin-top: 8px;
+      max-width: 780px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+      padding: 20px 0;
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      list-style: none;
+      transition: color 0.2s ease;
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-item summary::after {
+      content: '+';
+      color: var(--teal);
+      font-size: 1.6rem;
+      font-weight: 300;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .faq-item[open] summary::after { content: '–'; }
+    .faq-item summary:hover { color: var(--teal); }
+
+    .faq-answer {
+      padding: 0 0 22px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-size: 0.95rem;
+      max-width: 92%;
+    }
+
+    /* ── AFM DISCLAIMER ── */
+    .afm-note {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      max-width: 780px;
+      margin: 40px auto 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .afm-note strong { color: var(--text); }
+
+    /* ── VERKOOPWEEKEND SECTIE ── */
+    .verkoopweekend {
+      background: var(--cream);
+    }
+
+    .vw-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .vw-stappen {
+      list-style: none;
+      margin-top: 24px;
+    }
+
+    .vw-stap {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .vw-stap-nr {
+      width: 36px;
+      height: 36px;
+      background: var(--teal);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .vw-stap-text h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .vw-stap-text p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .vw-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 36px;
+      text-align: center;
+    }
+
+    .vw-card .datum-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+
+    .vw-card .datum-groot {
+      font-family: 'Noe Display', Georgia, serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .vw-card .datum-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .vw-card-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* ── FOOTER CTA ── */
+    .footer-cta {
+      background: var(--teal);
+      color: var(--white);
+      text-align: center;
+      padding: 80px 24px;
+    }
+
+    .footer-cta h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+
+    .footer-cta p {
+      font-size: 1.05rem;
+      opacity: 0.85;
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .footer-cta-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 24px;
+      font-size: 0.85rem;
+    }
+
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    /* ── RESPONSIVE: TABLET (≤900px) ── */
+    @media (max-width: 900px) {
+      section { padding: 60px 20px; }
+
+      .gevoel-grid,
+      .park-grid,
+      .rendement-grid,
+      .vw-grid { grid-template-columns: 1fr; gap: 36px; }
+
+      /* Gevoel: afbeelding boven tekst */
+      .gevoel-grid { direction: ltr; }
+
+      /* Park: kenmerken 2 kolommen blijft leesbaar op tablet */
+      .park-kenmerken { grid-template-columns: 1fr 1fr; gap: 16px; }
+
+      /* Park foto's: 2 kolommen */
+      .park-images { grid-template-columns: 1fr 1fr; }
+      .park-images img:first-child { grid-column: span 2; }
+
+      /* Woningen: 2 kolommen */
+      .woningen-grid { grid-template-columns: 1fr 1fr; }
+
+      /* Faciliteiten: 2 kolommen */
+      .fac-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+      .fac-grid-4 { grid-template-columns: repeat(4, 1fr); gap: 10px; }
+
+      /* Ontzorgd: 1 kolom */
+      .ontzorgd-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+      /* Rendement aside: vol breedte */
+      .rendement-aside { padding: 28px 24px; }
+    }
+
+    /* ── RESPONSIVE: MOBIEL (≤600px) ── */
+    @media (max-width: 600px) {
+      /* Sticky kop is hier 72px header + 33px datumbalk = 105px */
+      #verkoopweekend, #aanmelden, #brochure { scroll-margin-top: 88px; }
+
+      /* Beide knoppen in de header. Korte labels via <span>, niet via
+         ::after-content: dat verdubbelde de tekst en screenreaders lazen beide. */
+      .header-ctas .wd-btn { padding: 9px 11px; font-size: 0.72rem; }
+      .header-ctas .wd-btn-outline { display: inline-block; }
+      .lbl-lang { display: none; }
+      .lbl-kort { display: inline; }
+
+      /* CTA-blokken midden op de pagina: onder elkaar */
+      .cta-blok { flex-direction: column; gap: 10px; }
+      .cta-blok .wd-btn { width: 100%; max-width: 320px; }
+      .cta-blok-tekst { text-align: center; margin: 0 0 4px; }
+
+      /* Header */
+      .site-header { height: 54px; padding: 0 12px; }
+      .site-header img.logo { height: 34px; }
+      .site-top .wd-btn-sm { padding: 6px 10px; font-size: 0.72rem; }
+      .header-ctas { gap: 7px; }
+
+      /* Banner: één smalle regel. Aanmeldlink weg: de sticky CTA onderaan
+         en de knop in de header dekken die actie al. */
+      .vw-banner { font-size: 0.7rem; padding: 5px 10px; line-height: 1.3; white-space: nowrap; }
+      .vw-banner .vw-date { font-size: 0.78rem; padding: 1px 7px; margin: 0 4px; }
+      .vw-banner-link { display: none; }
+
+      /* Hero */
+      .hero { min-height: 80vh; }
+      /* Tekst staat hier over de volle breedte: verticaal verlopen i.p.v. diagonaal */
+      .hero-bg::after {
+        background: linear-gradient(180deg,
+          rgba(0,0,0,0.45) 0%,
+          rgba(0,0,0,0.60) 45%,
+          rgba(0,0,0,0.78) 100%);
+      }
+      .hero-content { padding: 48px 20px 40px; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .hero-ctas { flex-direction: column; gap: 12px; }
+      .hero-ctas .wd-btn { width: 100%; text-align: center; }
+
+      /* Secties */
+      section { padding: 48px 16px; }
+      .section-title { font-size: 1.7rem; }
+
+      /* Gevoel */
+      .gevoel-image { aspect-ratio: 16/9; }
+      .gevoel-text blockquote { font-size: 1.2rem; }
+
+      /* Ontzorgd */
+      .ontzorgd-grid { grid-template-columns: 1fr; max-width: 100%; }
+      .ontzorgd-card { padding: 24px 20px; }
+
+      /* Park */
+      .park-kenmerken { grid-template-columns: 1fr; gap: 16px; }
+      .park-images { grid-template-columns: 1fr; }
+      .park-images img:first-child { grid-column: span 1; aspect-ratio: 16/9; }
+      .park-images img { aspect-ratio: 4/3; }
+
+      /* Woningen: compacter zodat je er sneller doorheen scrolt.
+         Foto van staand 3/4 naar liggend 4/3 scheelt ~200px per kaart. */
+      .woningen-grid { grid-template-columns: 1fr; gap: 16px; }
+      .woning-card img { aspect-ratio: 4/3; }
+      .woning-card-body { padding: 14px 16px 16px; }
+      .woning-card h3 { font-size: 1rem; margin-bottom: 5px; }
+      .woning-prijs { font-size: 0.85rem; margin-bottom: 9px; }
+      .woning-tag { font-size: 0.72rem; padding: 2px 8px; }
+      .woning-status { font-size: 0.66rem; padding: 5px 10px; top: 10px; left: 10px; }
+
+      /* Faciliteiten: 2 kolommen blijft: thumbnails, tikken opent groot */
+      .fac-grid, .fac-grid-4 { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .fac-item figcaption { font-size: 0.72rem; padding: 18px 8px 7px; }
+      .lb-vorige, .lb-volgende { width: 40px; height: 40px; }
+      .lb-vorige { left: 8px; } .lb-volgende { right: 8px; }
+      .lb-bijschrift { padding: 0 18px; font-size: 0.8rem; }
+
+      /* Rendement */
+      .rendement-grid { gap: 24px; }
+      .rendement-aside { padding: 24px 20px; }
+
+      /* Verkoopweekend */
+      .vw-grid { gap: 32px; }
+      .vw-card { padding: 28px 20px; }
+      .vw-card .datum-groot { font-size: 1.7rem; }
+      .vw-card-ctas .wd-btn { padding: 13px 20px; font-size: 0.9rem; }
+
+      /* Footer CTA */
+      .footer-cta { padding: 56px 20px; }
+      .footer-cta-btns { flex-direction: column; align-items: center; }
+      .footer-cta-btns .wd-btn { width: 100%; max-width: 320px; }
+
+      /* Footer */
+      footer { font-size: 0.78rem; line-height: 1.8; }
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       GoHighLevel: onze secties volle breedte maken.
+       GHL stopt de custom code in een container met max-breedte en padding,
+       waardoor de hero en de gekleurde secties niet tot de rand lopen
+       (witruimte links/rechts). Deze regels strekken alléén de GHL-wrappers
+       rond ONZE code tot volle breedte; de formuliersecties blijven ongemoeid.
+       Op GitHub Pages bestaan deze .c-* classes niet, dus daar doen ze niets. */
+    .c-section:has(.c-custom-code) > .inner { max-width: none !important; }
+    .c-section:has(.c-custom-code) { padding-left: 0 !important; padding-right: 0 !important; }
+    .c-row:has(.c-custom-code) { padding-left: 0 !important; padding-right: 0 !important; }
+    .c-row:has(.c-custom-code) > .inner { max-width: none !important; }
+    .c-column:has(.c-custom-code) { padding-left: 0 !important; padding-right: 0 !important; }
+    .custom-code-container,
+    .c-custom-code:has(.site-top),
+    .c-custom-code:has(.hero) { width: 100% !important; }
+
+    /* Ruimte tussen een titel-sectie en de formuliersectie eronder verkleinen.
+       De titel-sectie (zonder invoerveld) verliest zijn padding-bottom, de
+       formuliersectie (mét invoerveld) zijn padding-top. Zo staat het formulier
+       dichter onder de titel, maar blijft de ruimte BOVEN de titel intact.
+       Werkt op GHL-secties met Custom Class 'aanmelden' of 'brochure'. */
+    .c-section.aanmelden:not(:has(input)):not(:has(textarea)),
+    .c-section.brochure:not(:has(input)):not(:has(textarea)) { padding-bottom: 8px !important; }
+    .c-section.aanmelden:has(input), .c-section.aanmelden:has(textarea),
+    .c-section.brochure:has(input), .c-section.brochure:has(textarea) { padding-top: 8px !important; }
+
+    /* ══════════════════════════════════════════════════════════════
+       VARIANT WAARDEVERGELIJKING: aanvullende stijlen
+       ══════════════════════════════════════════════════════════════ */
+
+    /* Placeholder voor bewijs dat nog aangeleverd moet worden. Niet live zetten zolang dit zichtbaar is. */
+    .bewijs-nodig {
+      background: #FFE58A;
+      color: #1A1A1A;
+      padding: 0 5px;
+      border-radius: 3px;
+      font-weight: 600;
+      outline: 1px dashed #B58900;
+    }
+
+    /* Hero: iets compactere kop, zodat de knoppen op mobiel eerder in beeld komen */
+    .hero h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); text-wrap: balance; }
+
+    /* Risico-omkering direct onder elke CTA */
+    .cta-garantie {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-top: 12px;
+    }
+    .cta-blok + .cta-garantie { text-align: center; }
+    .cta-garantie.op-donker { color: rgba(255,255,255,0.78); }
+    .hero p.cta-garantie {
+      font-size: 0.9rem;
+      font-weight: 400;
+      opacity: 1;
+      color: rgba(255,255,255,0.85);
+      margin: 14px 0 0;
+    }
+    .footer-cta p.cta-garantie { font-size: 0.9rem; margin: 16px auto 0; }
+
+    /* Hero: bewijsrij boven de vouw, tussen subkop en knoppen */
+    .hero-bewijs {
+      list-style: none;
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 10px 28px;
+      margin: -12px 0 30px;
+      font-size: 0.95rem;
+      max-width: 640px;
+    }
+    .hero-bewijs li { display: flex; align-items: center; gap: 9px; }
+    .hero-bewijs li::before { content: '✓'; color: #7ED957; font-weight: 700; flex-shrink: 0; }
+    .hero-bewijs li.bouw::before {
+      content: '';
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #7ED957;
+      box-shadow: 0 0 0 3px rgba(126,217,87,0.28);
+      margin: 0 2px;
+    }
+    .hero-bewijs strong { font-weight: 600; }
+
+    /* Concept-kaarten: eigen bewijsregel per claim */
+    .kaart-bewijs {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--teal-dark);
+      line-height: 1.6;
+    }
+
+    /* Rendement-aside: bewijs en twee CTA's */
+    .aside-bewijs { font-weight: 500; color: var(--teal-dark) !important; }
+    .aside-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
+
+    /* Kopers aan het woord: alles zichtbaar, geen carrousel */
+    .kopers { background: var(--cream); }
+    .kopers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .koper-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+    }
+    .koper-card blockquote {
+      font-family: 'Noe Display', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.1rem;
+      line-height: 1.55;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .koper-card figcaption { font-size: 0.85rem; color: var(--text-muted); }
+
+    @media (max-width: 900px) {
+      .kopers-grid { grid-template-columns: 1fr; max-width: 560px; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.75rem; margin-bottom: 14px; }
+      .hero p { margin-bottom: 24px; }
+      .hero p.cta-garantie { font-size: 0.82rem; margin-top: 12px; }
+      .hero-bewijs { grid-template-columns: 1fr; gap: 6px; font-size: 0.86rem; margin: -8px 0 22px; }
+      .cta-garantie { font-size: 0.8rem; }
+      .aside-ctas .wd-btn { width: 100%; }
+    }
+  </style>
+
+  <!-- ── STICKY KOP: header + datumbalk als één blok ── -->
+  <div class="site-top">
+  <header class="site-header">
+    <img class="logo"
+         src="https://dewielschedreef.nl/wp-content/uploads/2024/09/Frame-13.svg"
+         alt="De Wielsche Dreef" />
+    <div class="header-ctas">
+      <a href="#brochure" class="wd-btn wd-btn-outline wd-btn-sm"><span class="lbl-lang">Brochure aanvragen</span><span class="lbl-kort">Brochure</span></a>
+      <!-- Sticky knop: wordt geklikt door wie al gescrold heeft en nú wil handelen.
+           Daarom direct het formulier in, niet eerst de uitleg. -->
+      <a href="#aanmelden" class="wd-btn wd-btn-primary wd-btn-sm"><span class="lbl-lang">Plan uw rondleiding</span><span class="lbl-kort">Rondleiding</span></a>
+    </div>
+  </header>
+
+  <!-- ── VERKOOPWEEKEND DATUM BANNER ──
+       Datum wordt automatisch gezet, zie het script onderaan de pagina. -->
+  <div class="vw-banner">
+    Volgend verkoopweekend:
+    <span class="vw-date" id="vw-datum">7 &amp; 8 augustus 2026</span>
+    <a href="#aanmelden" class="vw-banner-link">Rondleiding &rarr;</a>
+  </div>
+  </div><!-- /site-top -->
+
+  <!-- ── HERO ──
+       Variabelen: droomuitkomst (kop, subkop, beeld), kans van slagen (bewijsrij, Landal),
+       tijdsverloop (bouwstatus, reactietermijn), moeite en risico (regel onder de knoppen). -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <!-- Bron 54 villa’s fase 1: basispagina. -->
+      <span class="hero-eyebrow">Fase 1 &bull; 54 villa’s &bull; Nu in aanbouw</span>
+      <h1>Uw eigen villa aan de Nederrijn, verhuurd door Landal als u er niet bent</h1>
+      <!-- Bron 90 dagen en maandelijkse uitkering uit de verhuurpool: basispagina (FAQ en rendementsectie). -->
+      <p>Op eigen grond in de Betuwe. Tot 90 dagen per jaar geniet u er zelf van, de rest van het jaar ontvangt u maandelijks uw aandeel uit de verhuur.</p>
+
+      <ul class="hero-bewijs">
+        <!-- BEWIJS NODIG: aantal verkochte villa’s in fase 1, met datum van telling. Bron: verkoopoverzicht. -->
+        <li><span><strong><span class="bewijs-nodig">[AANTAL]</span> van 54 villa’s</strong> in fase 1 verkocht</span></li>
+        <!-- Bron: huur-doorverwijzingsstrip op de basispagina ("wordt al volop verhuurd via Landal"). -->
+        <li><span>Park al volop in verhuur via Landal</span></li>
+        <!-- Bron: woningkaart 2-persoons Extra Luxe Wellness. Controleer of dit de laagste koopsom van fase 1 is. -->
+        <li><span>Villa’s vanaf € 323.500 excl. btw</span></li>
+        <!-- Bron: bouwstatus basispagina. -->
+        <li class="bouw"><span>Bouw in volle gang, voor een aantal villa’s snelle oplevering</span></li>
+      </ul>
+
+      <div class="hero-ctas">
+        <a href="#aanmelden" class="wd-btn wd-btn-primary">Plan uw rondleiding</a>
+        <a href="#brochure" class="wd-btn wd-btn-outline-white">Brochure aanvragen</a>
+      </div>
+      <!-- Reactietermijn één werkdag: bevestigd door Ruben (sept 2026). -->
+      <p class="cta-garantie">Vrijblijvend, zonder verplichting tot aankoop. Een adviseur belt u binnen één werkdag.</p>
+    </div>
+  </section>
+
+
+  <!-- AANMELDEN (hoog) - sleep je GHL-aanmeldformulier direct onder dit blok -->
+  <section id="aanmelden" style="background:var(--white);padding:56px 24px 48px;">
+    <div class="container" style="max-width:700px;text-align:center;">
+      <p class="section-label">Rondleiding</p>
+      <h2 class="section-title">Plan uw persoonlijke rondleiding</h2>
+      <p class="section-sub" style="margin:16px auto 32px;">Laat uw gegevens achter. Een adviseur neemt contact op om uw rondleiding in te plannen.</p>
+      <!-- GHL AANMELDFORMULIER HIER -->
+    </div>
+  </section>

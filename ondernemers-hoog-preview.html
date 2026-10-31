@@ -1,0 +1,562 @@
+<!DOCTYPE html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ondernemers - formulier hoog</title></head><body>
+<!-- ONDERNEMERS - BLOK A (boven): styling + hero + bewijs + aanmeld-anker.
+     Sleep je GHL-aanmeldformulier direct ONDER dit blok. -->
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Huisstijlkleuren overgenomen uit Landingpage/index.html */
+      --teal:       #00857A;
+      --teal-dark:  #006059;
+      --teal-light: #E6F4F3;
+      --cream:      #FAF8F4;
+      --brown:      #5C4A32;
+      --text:       #1A1A1A;
+      --text-muted: #5F5F5F;
+      --white:      #FFFFFF;
+      --border:     #E0DAD0;
+      --gold:       #B4894A;
+    }
+
+    html { scroll-behavior: smooth; }
+    #verkoopdag, #brochure { scroll-margin-top: 96px; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+      font-size: 17px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text);
+    }
+
+    p { margin: 0 0 1em; }
+    strong { font-weight: 600; }
+    img { max-width: 100%; display: block; }
+    a { color: var(--teal-dark); }
+
+    .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 22px; }
+    .narrow { max-width: 760px; }
+
+    section { padding: 56px 0; }
+    .section-label {
+      font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.8rem;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal);
+      margin-bottom: 12px;
+    }
+
+    /* ── KNOPPEN ── */
+    .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+    .wd-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1.02rem;
+      padding: 15px 26px; border-radius: 8px; text-decoration: none;
+      border: 2px solid transparent; cursor: pointer; text-align: center;
+      transition: transform .06s ease, background .15s ease;
+    }
+    .wd-btn:active { transform: translateY(1px); }
+    .wd-btn-primary { background: var(--teal); color: var(--white); box-shadow: 0 6px 18px rgba(0,96,89,0.22); }
+    .wd-btn-primary:hover { background: var(--teal-dark); }
+    .wd-btn-outline { background: transparent; color: var(--teal-dark); border-color: var(--teal); }
+    .wd-btn-outline:hover { background: var(--teal-light); }
+    .wd-btn-outline-white { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.8); }
+    .wd-btn-outline-white:hover { background: rgba(255,255,255,0.12); }
+    .cta-note { font-size: 0.86rem; color: var(--text-muted); margin: 12px 0 0; line-height: 1.5; }
+    .cta-note.on-dark { color: rgba(255,255,255,0.82); }
+
+    /* ── STICKY HEADER ── */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border);
+    }
+    .site-header .container { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; padding-bottom: 12px; gap: 12px; }
+    .logo { height: 42px; width: auto; }
+    .header-ctas { display: flex; gap: 10px; }
+    .header-ctas .wd-btn { padding: 10px 16px; font-size: 0.92rem; }
+    .lbl-kort { display: none; }
+
+    /* ── HERO ── */
+    .hero { background: var(--cream); padding: 40px 0 0; }
+    .hero-grid { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; }
+    .hero-eyebrow {
+      display: inline-block; background: var(--teal-light); color: var(--teal-dark);
+      font-weight: 600; font-size: 0.82rem; padding: 6px 12px; border-radius: 20px; margin-bottom: 16px;
+    }
+    .hero h1 { font-size: clamp(1.9rem, 6vw, 3.1rem); margin-bottom: 18px; }
+    .hero-sub { font-size: 1.12rem; color: #333; margin-bottom: 22px; max-width: 560px; }
+    .hero-img { border-radius: 12px; overflow: hidden; box-shadow: 0 18px 40px rgba(0,0,0,0.14); }
+    .hero-img img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; }
+    .filter-line {
+      margin-top: 18px; font-size: 0.92rem; color: var(--text-muted);
+      border-left: 3px solid var(--border); padding-left: 14px;
+    }
+    .filter-line a { color: var(--teal-dark); font-weight: 600; }
+
+    /* ── BEWIJSRIJ ── */
+    .bewijsrij { background: var(--teal-dark); color: var(--white); }
+    .bewijsrij .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 18px; padding: 30px 0; }
+    .bewijs-item strong { display: block; font-size: 1.5rem; font-family: 'Playfair Display', serif; color: var(--white); line-height: 1.1; margin-bottom: 4px; }
+    .bewijs-item span { font-size: 0.9rem; color: rgba(255,255,255,0.85); }
+
+    /* ── HERKENNING ── */
+    .herkenning { background: var(--white); }
+    .herkenning h2 { font-size: clamp(1.5rem, 4.5vw, 2.1rem); margin-bottom: 22px; }
+    .herken-list { list-style: none; display: grid; gap: 14px; }
+    .herken-list li { position: relative; padding-left: 30px; color: #333; }
+    .herken-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--gold); }
+
+    /* ── AANBOD (4 blokken) ── */
+    .aanbod { background: var(--cream); }
+    .aanbod h2 { font-size: clamp(1.5rem, 4.5vw, 2.1rem); margin-bottom: 8px; }
+    .aanbod-grid { display: grid; grid-template-columns: 1fr; gap: 22px; margin-top: 28px; }
+    .blok {
+      background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .blok img { width: 100%; height: 200px; object-fit: cover; }
+    .blok-body { padding: 22px 22px 24px; }
+    .blok h3 { font-size: 1.3rem; margin-bottom: 10px; }
+    .blok .bewijs { margin-top: 14px; font-size: 0.9rem; color: var(--teal-dark); background: var(--teal-light); border-radius: 8px; padding: 10px 12px; }
+    .blok .bewijs strong { color: var(--teal-dark); }
+
+    /* ── HOE HET WERKT ── */
+    .stappen { background: var(--white); }
+    .stappen h2 { font-size: clamp(1.5rem, 4.5vw, 2.1rem); margin-bottom: 26px; }
+    .stap-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
+    .stap { display: flex; gap: 16px; align-items: flex-start; }
+    .stap-nr { flex: none; width: 42px; height: 42px; border-radius: 50%; background: var(--teal); color: var(--white); font-family: 'Playfair Display', serif; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; }
+    .stap h4 { font-size: 1.12rem; margin-bottom: 3px; }
+    .stap .tijd { font-size: 0.85rem; color: var(--teal); font-weight: 600; }
+    .stap p { color: var(--text-muted); font-size: 0.96rem; margin: 4px 0 0; }
+
+    /* ── EIGENAARSVERHAAL ── */
+    .verhaal { background: var(--teal-dark); color: var(--white); }
+    .verhaal-grid { display: grid; grid-template-columns: 1fr; gap: 26px; align-items: center; }
+    .verhaal h2 { color: var(--white); font-size: clamp(1.5rem, 4.5vw, 2rem); margin-bottom: 18px; }
+    .verhaal blockquote { font-family: 'Playfair Display', serif; font-size: 1.28rem; line-height: 1.5; font-style: italic; margin: 0 0 16px; color: #fff; }
+    .verhaal .bron { font-size: 0.92rem; color: rgba(255,255,255,0.8); }
+    .verhaal img { border-radius: 12px; }
+
+    /* ── FAQ ── */
+    .faq { background: var(--cream); }
+    .faq h2 { font-size: clamp(1.5rem, 4.5vw, 2.1rem); margin-bottom: 22px; }
+    .faq-item { background: var(--white); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+    .faq-item summary { cursor: pointer; padding: 18px 20px; font-weight: 600; font-size: 1.05rem; list-style: none; position: relative; padding-right: 46px; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: "+"; position: absolute; right: 20px; top: 15px; font-size: 1.5rem; color: var(--teal); font-weight: 400; }
+    .faq-item[open] summary::after { content: "\2013"; }
+    .faq-answer { padding: 0 20px 20px; color: #333; }
+    .faq-answer p { margin-bottom: 10px; }
+
+    /* ── WIE WIJ ZIJN ── */
+    .wie { background: var(--white); }
+    .wie h2 { font-size: clamp(1.4rem, 4vw, 1.9rem); margin-bottom: 14px; }
+
+    /* ── SLOT-CTA ── */
+    .slot { background: var(--teal-dark); color: var(--white); text-align: center; }
+    .slot h2 { color: var(--white); font-size: clamp(1.6rem, 5vw, 2.3rem); margin-bottom: 14px; }
+    .slot p.lead { color: rgba(255,255,255,0.9); max-width: 620px; margin: 0 auto 24px; }
+    .slot .btns { justify-content: center; }
+
+    /* ── WAT GEBEURT ER NA AANMELDING ── */
+    .na-aanmelding { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px; margin-top: 26px; text-align: left; }
+    .na-aanmelding.on-dark { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+    .na-aanmelding h4 { font-size: 1.1rem; margin-bottom: 12px; }
+    .na-aanmelding.on-dark h4, .na-aanmelding.on-dark li { color: #fff; }
+    .na-aanmelding ol { margin: 0; padding-left: 20px; }
+    .na-aanmelding li { margin-bottom: 8px; }
+
+    /* ── FORMULIER ── */
+    .formsectie { background: var(--cream); }
+    .formsectie.alt { background: var(--white); }
+    .form-card { max-width: 720px; margin: 0 auto; text-align: center; }
+    .form-embed {
+      background: var(--white); border: 2px dashed var(--teal); border-radius: 12px;
+      padding: 40px 24px; color: var(--text-muted); margin-top: 20px; font-size: 0.95rem;
+    }
+    .formsectie.alt .form-embed { background: var(--cream); }
+
+    /* ── AFM ── */
+    .afm { background: var(--white); padding: 22px 0; }
+    .afm p { max-width: 900px; margin: 0 auto; text-align: center; font-size: 0.9rem; color: var(--text-muted); background: var(--cream); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; }
+    .afm strong { color: var(--text); }
+
+    /* ── FOOTER ── */
+    footer { background: #10231f; color: rgba(255,255,255,0.7); text-align: center; padding: 26px 0; font-size: 0.85rem; }
+    footer a { color: rgba(255,255,255,0.9); }
+
+    /* ── DESKTOP ── */
+    @media (min-width: 780px) {
+      .lbl-kort { display: none; }
+      .hero { padding: 56px 0 0; }
+      .hero-grid { grid-template-columns: 1.05fr 0.95fr; gap: 44px; padding-bottom: 56px; }
+      .bewijsrij .grid { grid-template-columns: repeat(4, 1fr); padding: 34px 0; }
+      .aanbod-grid { grid-template-columns: repeat(2, 1fr); }
+      .stap-grid { grid-template-columns: repeat(2, 1fr); gap: 26px 34px; }
+      .verhaal-grid { grid-template-columns: 0.85fr 1.15fr; }
+      .herken-list { grid-template-columns: 1fr 1fr; gap: 16px 30px; }
+    }
+    @media (max-width: 460px) {
+      .header-ctas .lbl-lang { display: none; }
+      .lbl-kort { display: inline; }
+    }
+  </style>
+
+  <header class="site-header">
+    <div class="container">
+      <img class="logo" src="https://dewielschedreef.nl/wp-content/uploads/2024/09/Frame-13.svg" alt="Landal De Wielsche Dreef" />
+      <div class="header-ctas">
+        <a href="#brochure" class="wd-btn wd-btn-outline"><span class="lbl-lang">Vraag de brochure aan</span><span class="lbl-kort">Brochure</span></a>
+        <a href="#aanmeldform" class="wd-btn wd-btn-primary"><span class="lbl-lang">Kom naar de verkoopdag</span><span class="lbl-kort">Verkoopdag</span></a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="hero-eyebrow">Voor ondernemers &amp; DGA&rsquo;s &bull; koop vanuit uw BV</span>
+          <!-- HEADLINE (live): uitkomst + bewijs. Twee alternatieven staan in de oplevering. -->
+          <h1>Dit bestaat: een stenen villa op eigen grond, die Landal al voor u verhuurt.</h1>
+          <p class="hero-sub">
+            Een recreatievilla in de Betuwe, aan de Nederrijn. Vanaf
+            <strong>&euro; 313.500 v.o.n. (excl. btw)</strong><!-- BRON: Prijslijst Wielsche Dreef, Recravas, 23-4-2026, laagste beschikbare kavel 104. LET OP: lijst geldig t/m 30-6-2026, actuele instapprijs bevestigen -->.
+            U koopt de villa <strong>en de grond</strong>, Landal verhuurt hem, en u gebruikt hem zelf tot
+            <strong>90 dagen per jaar</strong><!-- BEWIJS NODIG: 90 dagen eigen gebruik bevestigen in verhuurovereenkomst -->.
+            Zakelijk te kopen vanuit uw BV of holding.
+          </p>
+          <div class="btns">
+            <a href="#aanmeldform" class="wd-btn wd-btn-primary">Kom naar de verkoopdag</a>
+            <a href="#brochure" class="wd-btn wd-btn-outline">Vraag de brochure aan</a>
+          </div>
+          <p class="cta-note">Vrijblijvend. Geen presentatie of zaal. U bepaalt zelf hoe lang u blijft. Neem gerust uw partner en uw cijfers mee.</p>
+
+          <!-- SUB-SECTIE: Filter · moeite/risico (verkeerd publiek valt af vóór het formulier) -->
+          <p class="filter-line">
+            Dit is een <strong>koop</strong> vanaf &euro; 313.500, geen huur. Permanente bewoning is niet toegestaan en u regelt zelf geen gasten.
+            Zoekt u juist een verblijf om te <strong>huren</strong>? Dat kan rechtstreeks bij
+            <a href="https://www.landal.nl/parken/de-wielsche-dreef" target="_blank" rel="noopener">Landal &rarr;</a>
+          </p>
+        </div>
+
+        <div class="hero-img">
+          <!-- Echte foto: echtpaar (50-65) bij hun opgeleverde villa in avondlicht. Bron: Beeldbank/villa-avond-koppel.jpg, geoptimaliseerd naar Landingpage/images/. Live na commit+push. -->
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/villa-avond-koppel.jpg" alt="Een echtpaar bij hun opgeleverde recreatievilla op Landal De Wielsche Dreef in het avondlicht" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bewijsrij" style="padding:0;">
+    <div class="container">
+      <div class="grid">
+        <div class="bewijs-item">
+          <strong>54</strong><!-- BRON: aantal fase 1 door opdrachtgever bevestigd op 54 villa's (26-9-2026); komt overeen met eigenaren-PDF. Prijslijst 23-4-2026 enumereerde 39 op dat moment beschikbare kavels. -->
+          <span>villa&rsquo;s in fase 1</span>
+        </div>
+        <div class="bewijs-item">
+          <strong>Landal</strong>
+          <span>exploiteert en verhuurt het park</span>
+        </div>
+        <div class="bewijs-item">
+          <strong>Eigen grond</strong><!-- BEWIJS NODIG: eigendom via appartementsrecht; exacte juridische structuur bevestigen -->
+          <span>u koopt de villa en de grond</span>
+        </div>
+        <div class="bewijs-item">
+          <strong>BENG / A+++</strong><!-- BEWIJS NODIG: energiecertificering en label per woningtype bevestigen -->
+          <span>gasloos, nieuwbouw</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="formsectie" id="aanmeldform">
+    <div class="container">
+      <div class="form-card">
+        <p class="section-label">Aanmelden verkoopdag</p>
+        <h2>Meld u aan voor de verkoopdag</h2>
+        <p>Laat uw gegevens achter. Een makelaar neemt contact op om een tijd af te stemmen.</p>
+        <!--
+          GHL / LeadConnector FORMULIER-EMBED HIER INSLUITEN.
+          Velden: voornaam, achternaam, telefoon, e-mail, voorkeursdag (select), optioneel: "Zakelijk of privé kopen?" (radio: Zakelijk/BV | Privé).
+          Tag: WD-VD
+          Verborgen velden (auto-fill via URL-parameters, voor Pipedrive-attributie):
+            utm_source, utm_medium, utm_campaign, utm_content, utm_term
+        -->
+        <div class="form-embed">[ GHL-formulier: aanmelden verkoopdag &bull; tag WD-VD ]</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:40px 24px;text-align:center;">
+    <div style="max-width:560px;margin:0 auto;background:#fff;border:1px solid #ddd;border-radius:12px;padding:28px;">
+      <p style="color:#777;font-size:.9rem;margin:0 0 14px;">[ hier staat in GHL je echte aanmeldformulier ]</p>
+      <div style="display:flex;flex-direction:column;gap:10px;max-width:380px;margin:0 auto;">
+        <input placeholder="Voornaam" style="padding:11px;border:1px solid #ccc;border-radius:8px;">
+        <input placeholder="Telefoon" style="padding:11px;border:1px solid #ccc;border-radius:8px;">
+        <button type="button" style="padding:12px;border:0;border-radius:8px;background:#2f5d57;color:#fff;font-weight:600;">Aanmelden</button>
+      </div>
+    </div>
+  </section>
+
+<!-- ONDERNEMERS - BLOK B (onder het formulier): de rest + brochure.
+     Geen eigen <style> nodig: die staat in blok A. -->
+  <section class="herkenning">
+    <div class="container narrow">
+      <p class="section-label">U herkent dit misschien</p>
+      <h2>Het vermogen in uw BV doet niets, en elke optie voelt of niet klopt of te veel gedoe.</h2>
+      <ul class="herken-list">
+        <li>Geld op de zakelijke rekening wordt elk jaar minder waard.</li>
+        <li>Aandelen voelen als geen grip: u ziet de stenen niet.</li>
+        <li>Een tweede huis privé is door box 3 onaantrekkelijk geworden.</li>
+        <li>Zelf verhuren wilt u niet, dat wordt een tweede baan.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECTIE: Wat u koopt (4 blokken) · droomuitkomst + kans van slagen (bewijs per blok) -->
+  <section class="aanbod">
+    <div class="container">
+      <p class="section-label">Wat u koopt</p>
+      <h2>Echt vastgoed, dat er al staat en al draait. En dat zakelijk te verantwoorden is.</h2>
+      <div class="aanbod-grid">
+
+        <!-- Blok a: echt vastgoed -->
+        <div class="blok">
+          <!-- BEELDBRIEFING: villa-gevel-avondlicht.jpg of villa-donker-berken.jpg (close-up baksteen, dakpannen, triple glas). -->
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/buitenterras.jpg" alt="Gevel van een stenen recreatievilla, baksteen en dakpannen" />
+          <div class="blok-body">
+            <h3>Een stenen villa, geen chalet</h3>
+            <p>Gebouwd volgens het Bouwbesluit, met baksteen, dakpannen en triple glas. U ziet de bouwkwaliteit met eigen ogen. Kavels van circa 285 tot 580 m&sup2;.<!-- BRON: Prijslijst Recravas 23-4-2026, kavelgroottes 285-582 m² (kavel 127 = 285 m², kavel 115 = 582 m²) --></p>
+            <div class="bewijs"><strong>Bewijs:</strong> kom op de verkoopdag langs een opgeleverde villa en beoordeel de bouw zelf.</div>
+          </div>
+        </div>
+
+        <!-- Blok b: staat er al -->
+        <div class="blok">
+          <!-- BEELDBRIEFING: 01-contactvel-drone.jpg of park-luchtfoto-beek-A.jpg (opgeleverde villa's + waterloop, luchtfoto). -->
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/park-drone.jpg" alt="Luchtfoto van het opgeleverde park met villa's rond het water" />
+          <div class="blok-body">
+            <h3>Het staat er al en het draait</h3>
+            <p>Geen bouwtekening en geen belofte: de eerste villa's zijn opgeleverd en worden via Landal verhuurd. De receptie is open en gasten komen.</p>
+            <div class="bewijs"><strong>Bewijs:</strong> 31 villa's open sinds 31 juli 2026.<!-- BEWIJS NODIG: aantal opgeleverde/open villa's en openingsdatum bevestigen --></div>
+          </div>
+        </div>
+
+        <!-- Blok c: Landal regelt alles -->
+        <div class="blok">
+          <!-- BEELDBRIEFING: park-receptie.jpg of park-hoofdgebouw.jpg (receptie / exploitatie). -->
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/park-receptie.jpg" alt="Receptie van het park, exploitatie door Landal" />
+          <div class="blok-body">
+            <h3>Landal regelt alles, u wordt geen verhuurder</h3>
+            <p>Verhuur, boekingen, schoonmaak en beheer liggen bij Landal. U hoeft geen gasten te woord te staan, geen kalender bij te houden en geen sleutels over te dragen.</p>
+            <div class="bewijs"><strong>Bewijs:</strong> Landal exploiteert het park en verzorgt de volledige verhuur en het beheer.</div>
+          </div>
+        </div>
+
+        <!-- Blok d: zakelijk verstandig (het klapstuk, niet de opener) -->
+        <div class="blok">
+          <!-- BEELDBRIEFING: interieur-woonkamer.jpg (afwerkingsniveau) of masterplan-kaart-groot.jpg. -->
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/slaapkamer.jpg" alt="Interieur van een afgewerkte villa" />
+          <div class="blok-body">
+            <h3>Zakelijk te verantwoorden</h3>
+            <p>De btw is bij verhuur terugvorderbaar (pro rata bij eigen gebruik, met een herzieningstermijn van 10 jaar). Bij nieuwbouw betaalt u geen overdrachtsbelasting. Afschrijven op het gebouw is mogelijk. Laat uw situatie altijd door uw fiscalist toetsen.</p>
+            <div class="bewijs"><strong>Let op:</strong> de fiscale behandeling hangt af van uw situatie. Op de verkoopdag krijgt u alle informatie mee; de doorrekening maakt u met uw eigen fiscalist.<!-- BEWIJS NODIG: fiscale punten (btw pro rata, herziening 10 jr, geen overdrachtsbelasting nieuwbouw, afschrijving) laten toetsen door fiscalist voor publicatie. GEEN KIA-claim opnemen. --></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTIE: Hoe het werkt (4 stappen) · tijdsverloop + moeite/risico -->
+  <section class="stappen">
+    <div class="container">
+      <p class="section-label">Hoe het werkt</p>
+      <h2>Van aanmelding tot start verhuur, in vier stappen.</h2>
+      <div class="stap-grid">
+        <div class="stap">
+          <div class="stap-nr">1</div>
+          <div>
+            <h4>U meldt zich aan</h4>
+            <span class="tijd">1 minuut</span>
+            <p>Naam, telefoon en uw voorkeursdag. Meer niet.</p>
+          </div>
+        </div>
+        <div class="stap">
+          <div class="stap-nr">2</div>
+          <div>
+            <h4>Verkoopdag: de kavels en alle cijfers</h4>
+            <span class="tijd">circa 1 uur</span>
+            <p>U loopt de beschikbare kavels af, ziet de prijzen en krijgt alle documenten mee. De fiscale afweging (BV of privé, btw) maakt u daarna met uw eigen fiscalist.</p>
+          </div>
+        </div>
+        <div class="stap">
+          <div class="stap-nr">3</div>
+          <div>
+            <h4>Reservering en notaris</h4>
+            <span class="tijd">op uw tempo</span>
+            <p>Kiest u een kavel, dan reserveren we die en verzorgt de notaris de overdracht van villa en grond.</p>
+          </div>
+        </div>
+        <div class="stap">
+          <div class="stap-nr">4</div>
+          <div>
+            <h4>Oplevering en start verhuur</h4>
+            <span class="tijd">daarna</span>
+            <p>De villa wordt opgeleverd en Landal start de verhuur. U gebruikt hem zelf wanneer het u uitkomt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTIE: Eigenaarsverhaal · kans van slagen (herkenning in een echte koper) -->
+  <section class="verhaal">
+    <div class="container">
+      <div class="verhaal-grid">
+        <div>
+          <!-- BEELDBRIEFING: foto van het eigenaarsstel uit eigenaren-elke-dag-een-cadeautje.pdf (koppel voor de villa's). -->
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/terras-wijn.jpg" alt="Eigenaren genieten van hun plek aan het water" />
+        </div>
+        <div>
+          <p class="section-label" style="color:var(--teal-light);">Eigenaren aan het woord</p>
+          <h2>&ldquo;We hebben ook andere parken bekeken. Dit sprong er echt uit.&rdquo;</h2>
+          <blockquote>&ldquo;We hebben ook andere parken bekeken, in Nederland en Belgi&euml;, maar die spraken ons niet aan. Hier hebben de woningen met hun schuine daken echt een mooie, warme uitstraling. Het voelt gezellig en bijzonder.&rdquo;</blockquote>
+          <p class="bron">Eigenaren van een villa aan het water op De Wielsche Dreef.<!-- BEWIJS NODIG: schriftelijke toestemming eigenaar voor gebruik quote + foto op de landingspagina. Quote letterlijk uit eigenaren-elke-dag-een-cadeautje.pdf. Voorkeur: aanvullend een testimonial van een ondernemer die via zijn BV kocht. --></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTIE: FAQ / bezwaren · moeite/risico (de vragen uit de verkoopgesprekken) -->
+  <section class="faq">
+    <div class="container narrow">
+      <p class="section-label">Bezwaren en vragen</p>
+      <h2>Wat ondernemers ons het vaakst vragen.</h2>
+
+      <details class="faq-item">
+        <summary>Koop ik beter privé of via mijn BV?</summary>
+        <div class="faq-answer">
+          <p>Dat hangt af van waar uw vermogen zit en wat u met de villa wilt. Zit het geld in uw BV of holding en gaat het om verhuur, dan is aankoop vanuit de vennootschap vaak logisch: de btw is dan terugvorderbaar en u kunt op het gebouw afschrijven. Privé speelt box 3 mee.</p>
+          <p>Op de verkoopdag krijgt u alle cijfers en documenten mee om beide scenario's aan uw eigen fiscalist of accountant voor te leggen. Die maakt de doorrekening en bevestigt de keuze.<!-- BEWIJS NODIG: fiscale formulering laten toetsen --></p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Mag ik de villa zelf gebruiken als mijn BV eigenaar is?</summary>
+        <div class="faq-answer">
+          <p>Ja, eigen gebruik is mogelijk. Let wel: als de BV eigenaar is en u gebruikt de villa privé, dan kijkt de fiscus mee. Een te lage of geen vergoeding kan als verkapt dividend worden gezien, en het eigen gebruik heeft gevolgen voor de btw-teruggave (pro rata).</p>
+          <p>Dit is precies iets om vooraf met uw adviseur te regelen. Wij laten u zien hoe andere ondernemers dit hebben opgelost.<!-- BEWIJS NODIG: fiscale toetsing verkapt dividend + pro rata --></p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is de grond echt van mij?</summary>
+        <div class="faq-answer">
+          <p>U koopt de villa en de grond, geen erfpacht. Het eigendom is geregeld via een appartementsrecht, waarbij u een eigen aandeel heeft en meebeslist over het gezamenlijke parkbeheer.<!-- BEWIJS NODIG: exacte juridische structuur (appartementsrecht / VvE) bevestigen; formulering met notaris afstemmen --></p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Wat zijn de parkkosten en wat krijg ik ervoor?</summary>
+        <div class="faq-answer">
+          <p>De parkkosten verschillen per woningtype en dekken onder meer beheer en gemeenschappelijke voorzieningen. Bij verhuur is de afname van het inventarispakket verplicht; dat loopt van &euro; 17.500 tot &euro; 37.000 (excl. btw), afhankelijk van het type.<!-- BRON inventaris: Prijslijst Recravas 23-4-2026. BEWIJS NODIG: parkkosten/servicekosten per type aanleveren --></p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Wanneer komen het zwembad, restaurant en de overige faciliteiten?</summary>
+        <div class="faq-answer">
+          <p>Het centrale parkgebouw met zwembad en restaurant volgt in een latere fase.<!-- BEWIJS NODIG: planning faciliteiten / parkgebouw bevestigen (eerder communiceerde de consumentenpagina 'eind 2027') --></p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Kan ik later weer verkopen, en tot hoeveel kan ik financieren?</summary>
+        <div class="faq-answer">
+          <p>De villa is uw eigendom en u kunt hem weer verkopen. Financieren kan bancair tot circa 70% van de koopsom; de rest brengt u zelf in, bijvoorbeeld vanuit uw BV.<!-- BEWIJS NODIG: financieringspercentage (ca. 70%) en verkoopbaarheid bevestigen met financier --></p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- SECTIE: Wie wij zijn · kans van slagen (gezichten, bereikbaarheid) -->
+  <section class="wie">
+    <div class="container narrow">
+      <p class="section-label">Wie u treft</p>
+      <h2>Onze makelaars staan doordeweeks én in het weekend op het park.</h2>
+      <p>Op de verkoopdag spreekt u geen callcenter, maar de makelaar die u ook daarna begeleidt. Recravas is gespecialiseerd in recreatievastgoed en verkoopt uitsluitend op locatie, zodat u de villa en de kavels met eigen ogen ziet.</p>
+      <!-- BEELDBRIEFING: korte rij met gezichten van de makelaars op het park. BEWIJS NODIG: foto's + namen makelaars aanleveren. -->
+    </div>
+  </section>
+
+  <!-- SECTIE: Slot-CTA · moeite/risico (herhaalde risico-omkering + na-aanmelding) -->
+  <section class="slot" id="verkoopdag">
+    <div class="container">
+      <p class="section-label" style="color:var(--teal-light);">De verkoopdag</p>
+      <h2>Kom het zien, en leg het naast uw eigen situatie.</h2>
+      <p class="lead">Een villa als deze beoordeelt u niet vanaf een scherm. U loopt over het park, ziet de bouwkwaliteit, en krijgt alle cijfers en documenten mee om de aankoop met uw eigen adviseur te beoordelen.</p>
+
+      <!-- VERKOOPDAG DATUM: staat alleen op de pagina, niet in de advertenties. -->
+      <p class="lead" style="font-weight:600;">Volgende verkoopdag: [DATA EN TIJDEN INVULLEN]<!-- BEWIJS NODIG: verkoopdagdata en -tijden aanleveren. Optie: automatisch datumscript uit index.html hergebruiken. --></p>
+
+      <div class="btns">
+        <a href="#aanmeldform" class="wd-btn wd-btn-primary">Kom naar de verkoopdag</a>
+        <a href="#brochure" class="wd-btn wd-btn-outline-white">Vraag de brochure aan</a>
+      </div>
+      <p class="cta-note on-dark">Vrijblijvend. Geen presentatie of zaal. U bepaalt zelf hoe lang u blijft. Neem gerust uw partner en uw cijfers mee.</p>
+
+      <div class="na-aanmelding on-dark">
+        <h4>Wat gebeurt er na uw aanmelding</h4>
+        <ol>
+          <li>Binnen [TERMIJN — bv. één werkdag]<!-- BEWIJS NODIG: reactietermijn bevestigen --> belt of appt een makelaar om een tijd af te stemmen.</li>
+          <li>Op de verkoopdag loopt u de beschikbare kavels af en krijgt u alle cijfers en documenten mee.</li>
+          <li>U ontvangt vooraf alle documenten digitaal, zodat u ze rustig kunt doornemen.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="formsectie alt" id="brochure">
+    <div class="container">
+      <div class="form-card">
+        <p class="section-label">Brochure</p>
+        <h2>Liever eerst de brochure en prijslijst</h2>
+        <p>Ontvang de volledige informatie over de villa's, kavels en prijzen digitaal in uw mailbox.</p>
+        <!--
+          GHL / LeadConnector FORMULIER-EMBED HIER INSLUITEN.
+          Velden: voornaam, achternaam, telefoon, e-mail, optioneel: "Zakelijk of privé kopen?" (radio: Zakelijk/BV | Privé).
+          Tag: WD-BROCHURE
+          Verborgen velden: utm_source, utm_medium, utm_campaign, utm_content, utm_term
+        -->
+        <div class="form-embed">[ GHL-formulier: brochure aanvragen &bull; tag WD-BROCHURE ]</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTIE: AFM-melding · compliance (echte tekst, geen afbeelding) -->
+  <section class="afm">
+    <div class="container">
+      <p><strong>Let op! U belegt buiten AFM-toezicht.</strong> Geen vergunningplicht voor deze activiteit.</p>
+    </div>
+  </section>
+
+  <!-- SECTIE: Footer -->
+  <footer>
+    <div class="container">
+      Landal De Wielsche Dreef &bull; Kalverlandseweg 3, 4024 BT Eck en Wiel &nbsp;|&nbsp;
+      Verkoop: Recravas B.V. &bull; <a href="tel:0853032844">085 30 32 844</a> &nbsp;|&nbsp;
+      <a href="https://dewielschedreef.nl">dewielschedreef.nl</a>
+    </div>
+  </footer>
+
+</body></html>
