@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wielsche Dreef — alle landingspagina-versies</title>
+<style>
+  :root{
+    --teal:#2f5d57; --teal-dark:#23433f; --cream:#f5f1ec; --white:#ffffff;
+    --ink:#1f2a28; --muted:#6b7975; --line:#e3dcd2; --accent:#c9a24b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);
+       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif;line-height:1.55}
+  header.top{background:var(--teal-dark);color:#fff;padding:40px 24px 34px}
+  header.top .wrap{max-width:1080px;margin:0 auto}
+  header.top h1{margin:0 0 8px;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:600}
+  header.top p{margin:0;color:#cdddd8;max-width:640px}
+  main{max-width:1080px;margin:0 auto;padding:32px 24px 72px}
+  .groep{margin:0 0 40px}
+  .groep > h2{font-size:1.05rem;letter-spacing:.04em;text-transform:uppercase;
+       color:var(--teal);margin:0 0 4px}
+  .groep > .periode{color:var(--muted);font-size:.85rem;margin:0 0 16px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .kaart{background:var(--white);border:1px solid var(--line);border-radius:12px;
+       padding:18px 18px 16px;display:flex;flex-direction:column;gap:6px}
+  .kaart.nu{border-color:var(--accent);box-shadow:0 0 0 2px rgba(201,162,75,.18)}
+  .kaart .badge{align-self:flex-start;font-size:.7rem;font-weight:600;letter-spacing:.03em;
+       text-transform:uppercase;padding:3px 8px;border-radius:999px;background:var(--cream);color:var(--teal)}
+  .kaart.nu .badge{background:var(--accent);color:#3a2d07}
+  .kaart h3{margin:4px 0 0;font-size:1.02rem;font-weight:600}
+  .kaart .datum{color:var(--muted);font-size:.8rem}
+  .kaart .oms{color:#44524f;font-size:.9rem;margin:4px 0 2px;flex:1}
+  .kaart .file{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.76rem;color:var(--muted);word-break:break-all}
+  .kaart a.bekijk{margin-top:10px;align-self:flex-start;text-decoration:none;
+       background:var(--teal);color:#fff;font-size:.85rem;font-weight:600;
+       padding:8px 14px;border-radius:8px}
+  .kaart a.bekijk:hover{background:var(--teal-dark)}
+  .kaart a.bekijk.sec{background:transparent;color:var(--teal);border:1px solid var(--teal);padding:7px 13px}
+  .kaart .acties{display:flex;gap:8px;flex-wrap:wrap}
+  footer.pg{max-width:1080px;margin:0 auto;padding:0 24px 48px;color:var(--muted);font-size:.82rem}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <h1>Landal De Wielsche Dreef — alle landingspagina-versies</h1>
+    <p>Elke versie die we hebben gemaakt, op een rij. Chronologisch, nieuwste bovenaan. Klik op "Bekijken" om een versie te openen.</p>
+  </div>
+</header>
+
+<main>
+
+  <section class="groep">
+    <h2>Kort &amp; formulier hoog</h2>
+    <p class="periode">31 oktober 2026 · huidige richting</p>
+    <div class="grid">
+      <div class="kaart nu">
+        <span class="badge">Nieuwste</span>
+        <h3>Korte versie — formulier bovenaan</h3>
+        <div class="datum">31 okt 2026</div>
+        <p class="oms">Sterk ingekort: van ~81.000px naar ~6.300px. Aanmeldformulier op ~18% van de pagina in plaats van 90%. Opgezet als twee GHL-codeblokken met het formulier ertussen.</p>
+        <div class="file">wd-kort-preview.html</div>
+        <div class="acties">
+          <a class="bekijk" href="./wd-kort-preview.html">Bekijken →</a>
+          <a class="bekijk sec" href="./ghl-blok-A-boven.html">Blok A (code)</a>
+          <a class="bekijk sec" href="./ghl-blok-B-onder.html">Blok B (code)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="groep">
+    <h2>Landgoed-restyle</h2>
+    <p class="periode">28 oktober 2026 · basis van de huidige live-pagina</p>
+    <div class="grid">
+      <div class="kaart">
+        <span class="badge">Live-basis</span>
+        <h3>Uw eigen villa aan de Nederrijn</h3>
+        <div class="datum">28 okt 2026</div>
+        <p class="oms">De landgoed-restyle met formulier-placeholders (#aanmelden en #brochure). Dit is de versie waarop de huidige live-pagina in GHL is gebaseerd.</p>
+        <div class="file">index-landgoed.html</div>
+        <a class="bekijk" href="./index-landgoed.html">Bekijken →</a>
+      </div>
+      <div class="kaart">
+        <span class="badge">Variant</span>
+        <h3>Landgoed — zonder formulieren</h3>
+        <div class="datum">28 okt 2026</div>
+        <p class="oms">Dezelfde restyle, maar zonder de formuliersecties. Bedoeld voor losse weergave of hergebruik van blokken.</p>
+        <div class="file">index-landgoed-zonder-formulieren.html</div>
+        <a class="bekijk" href="./index-landgoed-zonder-formulieren.html">Bekijken →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="groep">
+    <h2>Ondernemers / BV</h2>
+    <p class="periode">26 september – 22 oktober 2026 · gericht op koop vanuit de BV</p>
+    <div class="grid">
+      <div class="kaart">
+        <span class="badge">Premium</span>
+        <h3>Een volwaardige villa aan de Nederrijn, blijvend van u</h3>
+        <div class="datum">22 okt 2026</div>
+        <p class="oms">De chique premium-variant voor ondernemers.</p>
+        <div class="file">ondernemers-premium.html</div>
+        <a class="bekijk" href="./ondernemers-premium.html">Bekijken →</a>
+      </div>
+      <div class="kaart">
+        <span class="badge">Premium · local</span>
+        <h3>Premium — lokale assetpaden</h3>
+        <div class="datum">22 okt 2026</div>
+        <p class="oms">Premium-variant met lokale afbeeldingspaden (voor offline / lokaal bekijken).</p>
+        <div class="file">ondernemers-premium-local.html</div>
+        <a class="bekijk" href="./ondernemers-premium-local.html">Bekijken →</a>
+      </div>
+      <div class="kaart">
+        <span class="badge">Premium · blok</span>
+        <h3>Premium — los blok</h3>
+        <div class="datum">22 okt 2026</div>
+        <p class="oms">Alleen het premium-blok, los, om in te sluiten.</p>
+        <div class="file">ondernemers-premium-blok.html</div>
+        <div class="acties">
+          <a class="bekijk" href="./ondernemers-premium-blok.html">Bekijken →</a>
+          <a class="bekijk sec" href="./ondernemers-premium-blok-local.html">Local-variant</a>
+        </div>
+      </div>
+      <div class="kaart">
+        <span class="badge">Ondernemers</span>
+        <h3>Een stenen villa op eigen grond, vanuit uw BV</h3>
+        <div class="datum">26 sep 2026</div>
+        <p class="oms">De eerste ondernemers-/BV-gerichte landingspagina.</p>
+        <div class="file">ondernemers.html</div>
+        <a class="bekijk" href="./ondernemers.html">Bekijken →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="groep">
+    <h2>Waardevergelijking</h2>
+    <p class="periode">10 september 2026 · u-vorm, Nederrijn-framing</p>
+    <div class="grid">
+      <div class="kaart">
+        <span class="badge">Waardevergelijking</span>
+        <h3>Uw eigen villa aan de Nederrijn, verhuurd door Landal</h3>
+        <div class="datum">10 sep 2026</div>
+        <p class="oms">Variant opgebouwd volgens de waardevergelijking. Eerste overstap naar de u-vorm en de Nederrijn-positionering.</p>
+        <div class="file">variant-waardevergelijking.html</div>
+        <a class="bekijk" href="./variant-waardevergelijking.html">Bekijken →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="groep">
+    <h2>Eerste serie (Heuvelrug, tutoyeren)</h2>
+    <p class="periode">22 juli – 8 augustus 2026 · "Eindelijk een plek die echt van jou is"</p>
+    <div class="grid">
+      <div class="kaart">
+        <span class="badge">Hoofd / A</span>
+        <h3>Eindelijk een plek die echt van jou is</h3>
+        <div class="datum">8 aug 2026</div>
+        <p class="oms">De originele hoofdpagina (variant A), gericht op gevoel en de Utrechtse Heuvelrug.</p>
+        <div class="file">index.html</div>
+        <a class="bekijk" href="./index.html">Bekijken →</a>
+      </div>
+      <div class="kaart">
+        <span class="badge">A3</span>
+        <h3>Variant A3</h3>
+        <div class="datum">5 aug 2026</div>
+        <p class="oms">Doorontwikkeling van variant A.</p>
+        <div class="file">variant-a3.html</div>
+        <a class="bekijk" href="./variant-a3.html">Bekijken →</a>
+      </div>
+      <div class="kaart">
+        <span class="badge">A2</span>
+        <h3>Variant A2</h3>
+        <div class="datum">27 jul 2026</div>
+        <p class="oms">Tweede versie van variant A.</p>
+        <div class="file">variant-a2.html</div>
+        <a class="bekijk" href="./variant-a2.html">Bekijken →</a>
+      </div>
+      <div class="kaart">
+        <span class="badge">B · rendement</span>
+        <h3>Een tweede woning die zichzelf terugverdient</h3>
+        <div class="datum">22 jul 2026</div>
+        <p class="oms">Variant B (rendement-first) voor de splittest tegen variant A.</p>
+        <div class="file">variant-b.html</div>
+        <a class="bekijk" href="./variant-b.html">Bekijken →</a>
+      </div>
+      <div class="kaart">
+        <span class="badge">C</span>
+        <h3>Variant C</h3>
+        <div class="datum">22 jul 2026</div>
+        <p class="oms">Kortere variant uit de eerste splittest-ronde.</p>
+        <div class="file">variant-c.html</div>
+        <a class="bekijk" href="./variant-c.html">Bekijken →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="groep">
+    <h2>Overige pagina's</h2>
+    <p class="periode">Geen landingspagina, wel onderdeel van de funnel</p>
+    <div class="grid">
+      <div class="kaart">
+        <span class="badge">Bedankt</span>
+        <h3>Gelukt, uw aanvraag is binnen</h3>
+        <div class="datum">11 aug 2026</div>
+        <p class="oms">De bedankpagina na een aanmelding of brochure-aanvraag.</p>
+        <div class="file">bedankt.html</div>
+        <a class="bekijk" href="./bedankt.html">Bekijken →</a>
+      </div>
+      <div class="kaart">
+        <span class="badge">E-mail</span>
+        <h3>Mailflow — mail 02 (dag 3)</h3>
+        <div class="datum">16 jul 2026</div>
+        <p class="oms">Voorbeeldmail uit de opvolgflow. Geen landingspagina.</p>
+        <div class="file">email-mail02-dag3.html</div>
+        <a class="bekijk" href="./email-mail02-dag3.html">Bekijken →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pg">
+  Volledige geschiedenis per versie staat in Git. Deze pagina is een handmatig overzicht; voeg een nieuwe versie toe door een kaart te kopiëren.
+</footer>
+</body>
+</html>

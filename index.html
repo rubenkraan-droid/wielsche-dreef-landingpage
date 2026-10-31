@@ -27,12 +27,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Noe Display: huisstijlfont, zelfde als dewielschedreef.nl. Lokaal gehost (cross-origin fonts worden door CORS geblokkeerd). -->
-  <link rel="preload" as="font" type="font/woff2" href="fonts/noe-display-bold.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/fonts/noe-display-bold.woff2" crossorigin />
   <link rel="icon" type="image/svg+xml" href="https://dewielschedreef.nl/wp-content/uploads/2024/09/Frame-13.svg" />
   <link rel="shortcut icon" href="https://dewielschedreef.nl/wp-content/uploads/2024/09/Frame-13.svg" />
 
   <!-- Hero laadt als eerste zichtbare beeld: vooraf ophalen scheelt laadtijd -->
-  <link rel="preload" as="image" href="images/hero-vijver.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/hero-vijver.jpg" fetchpriority="high" />
 
   <script type="application/ld+json">
   {
@@ -55,7 +55,7 @@
     /* ── HUISSTIJLFONT ── */
     @font-face {
       font-family: 'Noe Display';
-      src: url('fonts/noe-display-bold.woff2') format('woff2');
+      src: url('https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/fonts/noe-display-bold.woff2') format('woff2');
       font-weight: 700;
       font-style: normal;
       font-display: swap;
@@ -63,7 +63,7 @@
 
     @font-face {
       font-family: 'Noe Display';
-      src: url('fonts/noe-display-italic.woff2') format('woff2');
+      src: url('https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/fonts/noe-display-italic.woff2') format('woff2');
       font-weight: 400;
       font-style: italic;
       font-display: swap;
@@ -253,7 +253,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('images/hero-vijver.jpg');
+      background-image: url('https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/hero-vijver.jpg');
       background-size: cover;
       background-position: center center;
     }
@@ -1127,7 +1127,7 @@
       .site-top .wd-btn-sm { padding: 6px 10px; font-size: 0.72rem; }
       .header-ctas { gap: 7px; }
 
-      /* Banner: één smalle regel. Aanmeldlink weg — de sticky CTA onderaan
+      /* Banner: één smalle regel. Aanmeldlink weg: de sticky CTA onderaan
          en de knop in de header dekken die actie al. */
       .vw-banner { font-size: 0.7rem; padding: 5px 10px; line-height: 1.3; white-space: nowrap; }
       .vw-banner .vw-date { font-size: 0.78rem; padding: 1px 7px; margin: 0 4px; }
@@ -1176,7 +1176,7 @@
       .woning-tag { font-size: 0.72rem; padding: 2px 8px; }
       .woning-status { font-size: 0.66rem; padding: 5px 10px; top: 10px; left: 10px; }
 
-      /* Faciliteiten: 2 kolommen blijft — thumbnails, tikken opent groot */
+      /* Faciliteiten: 2 kolommen blijft: thumbnails, tikken opent groot */
       .fac-grid, .fac-grid-4 { grid-template-columns: 1fr 1fr; gap: 10px; }
       .fac-item figcaption { font-size: 0.72rem; padding: 18px 8px 7px; }
       .lb-vorige, .lb-volgende { width: 40px; height: 40px; }
@@ -1246,7 +1246,7 @@
   </header>
 
   <!-- ── VERKOOPWEEKEND DATUM BANNER ──
-       DATUM AANPASSEN: hier én bij #vw-datum-card verderop (aanmeldkaart). -->
+       Datum wordt automatisch gezet, zie het script onderaan de pagina. -->
   <div class="vw-banner">
     Volgend verkoopweekend:
     <span class="vw-date" id="vw-datum">7 &amp; 8 augustus 2026</span>
@@ -1260,8 +1260,8 @@
     <div class="hero-content">
       <span class="hero-eyebrow">Fase 1 &bull; 54 woningen &bull; Nu in aanbouw</span>
       <h1>Eindelijk een plek<br/>die echt van jou is</h1>
-      <p>Een luxe recreatiewoning aan de Nederrijn, met uitzicht op de Utrechtse Heuvelrug. Bossen, heide en water om de hoek. Volledig verzorgd verhuurd als je er niet bent — en elke keer thuiskomen als je er wel bent.</p>
-      <p class="hero-bouwstatus">De bouw is in volle gang — bij een deel van de woningen is er snelle oplevering mogelijk.</p>
+      <p>Een luxe recreatiewoning aan de Nederrijn, met uitzicht op de Utrechtse Heuvelrug. Bossen, heide en water om de hoek. Volledig verzorgd verhuurd als je er niet bent. En elke keer thuiskomen als je er wel bent.</p>
+      <p class="hero-bouwstatus">De bouw is in volle gang. Bij een deel van de woningen is er snelle oplevering mogelijk.</p>
 
       <div class="hero-ctas">
         <a href="#verkoopweekend" class="wd-btn wd-btn-primary">Aanmelden verkoopweekend</a>
@@ -1275,15 +1275,15 @@
     <div class="container">
       <div class="gevoel-grid">
         <div class="gevoel-image">
-          <img src="images/terras-wijn.jpg"
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/terras-wijn.jpg"
                alt="Glas wijn op het terras met uitzicht over de vijver" loading="lazy" />
         </div>
         <div class="gevoel-text">
           <p class="section-label">Het gevoel</p>
           <h2 class="section-title">Niet huren.<br/>Niet ergens logeren.<br/>Thuiskomen.</h2>
-          <blockquote>"Jouw plek, je stoel op het terras — en als je er niet bent, verdien je eraan."</blockquote>
-          <p>De Wielsche Dreef ligt aan de Nederrijn, met een prachtig uitzicht op de Utrechtse Heuvelrug. Hier komt alles samen: waar de bossen beginnen, de heide openligt en de rivier vlak om de hoek stroomt. Een plek die je bijblijft.</p>
-          <p>En als je er niet bent? Dan profiteer je van de opbrengsten uit de verhuur — zonder gedoe, volledig ontzorgd door Landal.</p>
+          <blockquote>"Jouw plek, je stoel op het terras. En als je er niet bent, verdien je eraan."</blockquote>
+          <p>De Wielsche Dreef ligt aan de rand van de Nederrijn met een prachtig uitzicht op de Utrechtse Heuvelrug. Hier komt alles samen, waar de bossen beginnen, de heide openligt en de Nederrijn vlak om de hoek stroomt. Een plek die je bijblijft.</p>
+          <p>En als je er niet bent, profiteer je van de opbrengsten uit de verhuur, zonder gedoe en volledig ontzorgd door Landal.</p>
         </div>
       </div>
     </div>
@@ -1294,7 +1294,7 @@
     <div class="container">
       <p class="section-label" style="text-align:center;">Hoe het werkt</p>
       <h2 class="section-title" style="text-align:center;margin:0 auto 16px;">Je geniet.<br/>De rest regelen wij.</h2>
-      <p class="section-sub" style="margin:0 auto 0;text-align:center;">Landal — de grootste vakantieaanbieder van Nederland — regelt alles. Marketing, boeking, beheer, schoonmaak. Je ziet elke maand wat het oplevert.</p>
+      <p class="section-sub" style="margin:0 auto 0;text-align:center;">Landal, de grootste vakantieaanbieder van Nederland, ontzorgt je volledig. Marketing, boekingen, beheer, schoonmaak en contact met de gasten. Je ziet elke maand wat het oplevert.</p>
 
       <div class="ontzorgd-grid">
         <div class="ontzorgd-card">
@@ -1328,8 +1328,8 @@
       <div class="park-grid">
         <div>
           <p class="section-label">Het park</p>
-          <h2 class="section-title" style="color:var(--white);">Aan de Nederrijn,<br/>uitzicht op de Heuvelrug</h2>
-          <p class="section-sub">Bossen, heide en de Nederrijn — dit is het groene hart van Nederland op zijn mooiste. De stilte die je vergeten was dat ze bestond.</p>
+          <h2 class="section-title" style="color:var(--white);">Aan de Nederrijn<br/>met uitzicht op de Utrechtse Heuvelrug</h2>
+          <p class="section-sub">Bossen, heide en de Nederrijn: dit is het groene hart van Nederland op zijn mooiste. De stilte die je vergeten was dat ze bestond.</p>
 
           <div class="park-kenmerken">
             <div class="park-kenmerk">
@@ -1383,7 +1383,7 @@
               </span>
               <div>
                 <h4>Alles dichtbij</h4>
-                <p>Kastelen, restaurants, Ouwehands Dierenpark, golfbaan — en de steden Utrecht en Arnhem op korte afstand.</p>
+                <p>Kastelen, restaurants, Ouwehands Dierenpark, golfbaan. En de steden Utrecht en Arnhem op korte afstand.</p>
               </div>
             </div>
           </div>
@@ -1392,7 +1392,7 @@
         <div class="park-images">
           <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/6persoonsC-DeWielscheDreef-57-scaled.jpg"
                alt="Recreatiewoningen aan de vijver op De Wielsche Dreef" loading="lazy" />
-          <img src="images/park-drone.jpg"
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/park-drone.jpg"
                alt="Het park vanuit de lucht met de vijver en de woningen" loading="lazy" />
           <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/2persoons-DeWielscheDreef-45-scaled.jpg"
                alt="Interieur recreatiewoning" loading="lazy" />
@@ -1412,42 +1412,42 @@
     <div class="container">
       <p class="section-label">Het parkgebouw</p>
       <h2 class="section-title">Alles wat je nodig hebt,<br/>op loopafstand</h2>
-      <p class="section-sub">Binnenzwembad, restaurant, grab &amp; go en een terras onder de pergola's — allemaal in het centrale parkgebouw. Klik op een beeld om het groot te bekijken.</p>
+      <p class="section-sub">Binnenzwembad, restaurant, grab &amp; go en een terras onder de pergola's: allemaal in het centrale parkgebouw. Klik op een beeld om het groot te bekijken.</p>
 
       <div class="fac-grid">
         <figure class="fac-item" tabindex="0" role="button" data-groep="park"
-                data-groot="images/park-zwembad.jpg" data-titel="Het binnenzwembad met bubbelbad en zicht op het groen">
-          <img src="images/park-zwembad.jpg" alt="Binnenzwembad met bubbelbad" loading="lazy" />
+                data-groot="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/park-zwembad.jpg" data-titel="Het binnenzwembad met bubbelbad en zicht op het groen">
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/park-zwembad.jpg" alt="Binnenzwembad met bubbelbad" loading="lazy" />
           <figcaption>Binnenzwembad</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="park"
-                data-groot="images/park-restaurant.jpg" data-titel="Het restaurant met open haard en bomen onder de kap">
-          <img src="images/park-restaurant.jpg" alt="Restaurant met open haard" loading="lazy" />
+                data-groot="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/park-restaurant.jpg" data-titel="Het restaurant met open haard en bomen onder de kap">
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/park-restaurant.jpg" alt="Restaurant met open haard" loading="lazy" />
           <figcaption>Het restaurant</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="park"
-                data-groot="images/park-terras.jpg" data-titel="Het terras met pergola's, loungebanken en picknicktafels">
-          <img src="images/park-terras.jpg" alt="Terras met pergola's en loungebanken" loading="lazy" />
+                data-groot="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/park-terras.jpg" data-titel="Het terras met pergola's, loungebanken en picknicktafels">
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/park-terras.jpg" alt="Terras met pergola's en loungebanken" loading="lazy" />
           <figcaption>Het terras</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="park"
-                data-groot="images/park-grabgo.jpg" data-titel="Grab &amp; go: koffie, ijs en een hapje tussendoor">
-          <img src="images/park-grabgo.jpg" alt="Grab and go met zitplekken" loading="lazy" />
+                data-groot="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/park-grabgo.jpg" data-titel="Grab &amp; go: koffie, ijs en een hapje tussendoor">
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/park-grabgo.jpg" alt="Grab and go met zitplekken" loading="lazy" />
           <figcaption>Grab &amp; go</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="park"
-                data-groot="images/park-receptie.jpg" data-titel="De receptie in het hoofdgebouw">
-          <img src="images/park-receptie.jpg" alt="Receptie in het hoofdgebouw" loading="lazy" />
+                data-groot="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/park-receptie.jpg" data-titel="De receptie in het hoofdgebouw">
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/park-receptie.jpg" alt="Receptie in het hoofdgebouw" loading="lazy" />
           <figcaption>De receptie</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="park"
-                data-groot="images/park-hoofdgebouw.jpg" data-titel="Het hoofdgebouw met het buitenterras">
-          <img src="images/park-hoofdgebouw.jpg" alt="Hoofdgebouw met buitenterras" loading="lazy" />
+                data-groot="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/park-hoofdgebouw.jpg" data-titel="Het hoofdgebouw met het buitenterras">
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/park-hoofdgebouw.jpg" alt="Hoofdgebouw met buitenterras" loading="lazy" />
           <figcaption>Het hoofdgebouw</figcaption>
         </figure>
       </div>
@@ -1465,10 +1465,10 @@
     <div class="container">
       <p class="section-label">De woningen</p>
       <h2 class="section-title">Tien typen, één gevoel</h2>
-      <p class="section-sub">Tien woningtypen, verdeeld over vier lijnen: <strong>Comfort</strong>, <strong>Luxe</strong>, <strong>Extra Luxe Wellness</strong> en <strong>Extra Luxe Culinair</strong> — van 2 tot 12 personen. Hieronder een greep uit het aanbod. Alle woningen worden opgeleverd met tuin en eigen parkeerplaats.</p>
+      <p class="section-sub">Tien woningtypen, verdeeld over vier lijnen: <strong>Comfort</strong>, <strong>Luxe</strong>, <strong>Extra Luxe Wellness</strong> en <strong>Extra Luxe Culinair</strong>, van 2 tot 12 personen. Hieronder een greep uit het aanbod. Alle woningen worden opgeleverd met tuin en eigen parkeerplaats.</p>
 
       <div class="woningen-grid">
-        <div class="woning-card" data-fotos="[{&quot;src&quot;: &quot;https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-2p-ELW-scaled.jpg&quot;, &quot;titel&quot;: &quot;2-persoons Extra Luxe Wellness — exterieur&quot;}, {&quot;src&quot;: &quot;images/typen/2elw-woonkamer.jpg&quot;, &quot;titel&quot;: &quot;Woonkamer — 2-persoons Extra Luxe Wellness&quot;}, {&quot;src&quot;: &quot;images/typen/2elw-badkamer.jpg&quot;, &quot;titel&quot;: &quot;Badkamer — 2-persoons Extra Luxe Wellness&quot;}, {&quot;src&quot;: &quot;images/typen/2elw-slaapkamer.jpg&quot;, &quot;titel&quot;: &quot;Slaapkamer — 2-persoons Extra Luxe Wellness&quot;}, {&quot;src&quot;: &quot;images/typen/2elw-plattegrond.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond — 2-persoons Extra Luxe Wellness (62 m², terras 16 m²)&quot;}]" tabindex="0" role="button" aria-label="Bekijk 2-persoons — 5 beelden">
+        <div class="woning-card" data-fotos="[{&quot;src&quot;: &quot;https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-2p-ELW-scaled.jpg&quot;, &quot;titel&quot;: &quot;2-persoons Extra Luxe Wellness: exterieur&quot;}, {&quot;src&quot;: &quot;https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/typen/2elw-woonkamer.jpg&quot;, &quot;titel&quot;: &quot;Woonkamer: 2-persoons Extra Luxe Wellness&quot;}, {&quot;src&quot;: &quot;https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/typen/2elw-badkamer.jpg&quot;, &quot;titel&quot;: &quot;Badkamer: 2-persoons Extra Luxe Wellness&quot;}, {&quot;src&quot;: &quot;https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/typen/2elw-slaapkamer.jpg&quot;, &quot;titel&quot;: &quot;Slaapkamer: 2-persoons Extra Luxe Wellness&quot;}, {&quot;src&quot;: &quot;https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/typen/2elw-plattegrond.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond: 2-persoons Extra Luxe Wellness (62 m², terras 16 m²)&quot;}]" tabindex="0" role="button" aria-label="Bekijk 2-persoons, 5 beelden">
           <span class="foto-hint">&#10530; 5 beelden</span>
           <span class="woning-status laatste">Nog 1 beschikbaar</span>
           <img src="https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-2p-ELW-scaled.jpg"
@@ -1485,7 +1485,7 @@
           </div>
         </div>
 
-        <div class="woning-card" data-fotos="[{&quot;src&quot;: &quot;https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-6p-L-scaled.jpg&quot;, &quot;titel&quot;: &quot;6-persoons Luxe — exterieur&quot;}, {&quot;src&quot;: &quot;images/typen/6l-woonkamer.jpg&quot;, &quot;titel&quot;: &quot;Woonkamer — 6-persoons Luxe&quot;}, {&quot;src&quot;: &quot;images/typen/6l-plattegrond-bg.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond begane grond — 6-persoons Luxe (86 m², terras 23 m²)&quot;}, {&quot;src&quot;: &quot;images/typen/6l-plattegrond-1e.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond eerste verdieping — 6-persoons Luxe&quot;}]" tabindex="0" role="button" aria-label="Bekijk 6-persoons — 4 beelden">
+        <div class="woning-card" data-fotos="[{&quot;src&quot;: &quot;https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-6p-L-scaled.jpg&quot;, &quot;titel&quot;: &quot;6-persoons Luxe: exterieur&quot;}, {&quot;src&quot;: &quot;https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/typen/6l-woonkamer.jpg&quot;, &quot;titel&quot;: &quot;Woonkamer: 6-persoons Luxe&quot;}, {&quot;src&quot;: &quot;https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/typen/6l-plattegrond-bg.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond begane grond: 6-persoons Luxe (86 m², terras 23 m²)&quot;}, {&quot;src&quot;: &quot;https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/typen/6l-plattegrond-1e.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond eerste verdieping: 6-persoons Luxe&quot;}]" tabindex="0" role="button" aria-label="Bekijk 6-persoons, 4 beelden">
           <span class="foto-hint">&#10530; 4 beelden</span>
           <span class="woning-status beschikbaar">4 beschikbaar</span>
           <img src="https://dewielschedreef.nl/wp-content/uploads/2024/09/De-Wielsche-Dreef-6p-L-scaled.jpg"
@@ -1502,7 +1502,7 @@
           </div>
         </div>
 
-        <div class="woning-card" data-fotos="[{&quot;src&quot;: &quot;https://dewielschedreef.nl/wp-content/uploads/2024/11/10ELW_EXT-dwd.jpg&quot;, &quot;titel&quot;: &quot;10-persoons Extra Luxe Wellness — exterieur&quot;}, {&quot;src&quot;: &quot;images/typen/10elw-woonkamer.jpg&quot;, &quot;titel&quot;: &quot;Woonkamer — 10-persoons Extra Luxe Wellness&quot;}, {&quot;src&quot;: &quot;images/typen/10elw-plattegrond-bg.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond begane grond — 10-persoons Extra Luxe Wellness (147 m², terras 38 m²)&quot;}, {&quot;src&quot;: &quot;images/typen/10elw-plattegrond-1e.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond eerste verdieping — 10-persoons Extra Luxe Wellness&quot;}]" tabindex="0" role="button" aria-label="Bekijk 10-persoons — 4 beelden">
+        <div class="woning-card" data-fotos="[{&quot;src&quot;: &quot;https://dewielschedreef.nl/wp-content/uploads/2024/11/10ELW_EXT-dwd.jpg&quot;, &quot;titel&quot;: &quot;10-persoons Extra Luxe Wellness: exterieur&quot;}, {&quot;src&quot;: &quot;https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/typen/10elw-woonkamer.jpg&quot;, &quot;titel&quot;: &quot;Woonkamer: 10-persoons Extra Luxe Wellness&quot;}, {&quot;src&quot;: &quot;https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/typen/10elw-plattegrond-bg.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond begane grond: 10-persoons Extra Luxe Wellness (147 m², terras 38 m²)&quot;}, {&quot;src&quot;: &quot;https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/typen/10elw-plattegrond-1e.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond eerste verdieping: 10-persoons Extra Luxe Wellness&quot;}]" tabindex="0" role="button" aria-label="Bekijk 10-persoons, 4 beelden">
           <span class="foto-hint">&#10530; 4 beelden</span>
           <span class="woning-status beschikbaar">2 beschikbaar</span>
           <img src="https://dewielschedreef.nl/wp-content/uploads/2024/11/10ELW_EXT-dwd.jpg"
@@ -1519,7 +1519,7 @@
           </div>
         </div>
 
-        <div class="woning-card" data-fotos="[{&quot;src&quot;: &quot;https://dewielschedreef.nl/wp-content/uploads/2024/11/12ELF_EXT-dwd.jpg&quot;, &quot;titel&quot;: &quot;12-persoons Extra Luxe Culinair — exterieur&quot;}, {&quot;src&quot;: &quot;images/typen/12elc-plattegrond-bg.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond begane grond — 12-persoons Extra Luxe Culinair (179 m², terras 43 m²)&quot;}, {&quot;src&quot;: &quot;images/typen/12elc-plattegrond-1e.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond eerste verdieping — 12-persoons Extra Luxe Culinair&quot;}]" tabindex="0" role="button" aria-label="Bekijk 12-persoons — 3 beelden">
+        <div class="woning-card" data-fotos="[{&quot;src&quot;: &quot;https://dewielschedreef.nl/wp-content/uploads/2024/11/12ELF_EXT-dwd.jpg&quot;, &quot;titel&quot;: &quot;12-persoons Extra Luxe Culinair: exterieur&quot;}, {&quot;src&quot;: &quot;https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/typen/12elc-plattegrond-bg.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond begane grond: 12-persoons Extra Luxe Culinair (179 m², terras 43 m²)&quot;}, {&quot;src&quot;: &quot;https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/typen/12elc-plattegrond-1e.jpg&quot;, &quot;titel&quot;: &quot;Plattegrond eerste verdieping: 12-persoons Extra Luxe Culinair&quot;}]" tabindex="0" role="button" aria-label="Bekijk 12-persoons, 3 beelden">
           <span class="foto-hint">&#10530; 3 beelden</span>
           <span class="woning-status laatste">Nog 1 beschikbaar</span>
           <img src="https://dewielschedreef.nl/wp-content/uploads/2024/11/12ELF_EXT-dwd.jpg"
@@ -1554,57 +1554,57 @@
 
       <div class="fac-grid">
         <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
-                data-groot="images/badkamer-ensuite.jpg" data-titel="En-suite badkamer — Verlichte spiegel, dubbele wastafel en handdoekradiator, met de slaapkamer ernaast. Beschikbaar in verschillende typen.">
-          <img src="images/badkamer-ensuite.jpg" alt="En-suite badkamer met verlichte spiegel en doorkijk naar de slaapkamer" loading="lazy" />
+                data-groot="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/badkamer-ensuite.jpg" data-titel="En-suite badkamer: verlichte spiegel, dubbele wastafel en handdoekradiator, met de slaapkamer ernaast. Beschikbaar in verschillende typen.">
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/badkamer-ensuite.jpg" alt="En-suite badkamer met verlichte spiegel en doorkijk naar de slaapkamer" loading="lazy" />
           <figcaption>En-suite badkamer</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
-                data-groot="images/bad-vrijstaand.jpg" data-titel="Vrijstaand bad — Tegen een wand van hoogwaardig tegelwerk. Beschikbaar in verschillende typen.">
-          <img src="images/bad-vrijstaand.jpg" alt="Vrijstaand bad tegen hoogwaardige tegelwand" loading="lazy" />
+                data-groot="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/bad-vrijstaand.jpg" data-titel="Vrijstaand bad: tegen een wand van hoogwaardig tegelwerk. Beschikbaar in verschillende typen.">
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/bad-vrijstaand.jpg" alt="Vrijstaand bad tegen hoogwaardige tegelwand" loading="lazy" />
           <figcaption>Vrijstaand bad</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
-                data-groot="images/sauna.jpg" data-titel="Sauna — Warm hout, zacht licht en stilte. Beschikbaar in verschillende woningtypen.">
-          <img src="images/sauna.jpg" alt="Sauna met houten banken en saunakachel" loading="lazy" />
+                data-groot="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/sauna.jpg" data-titel="Sauna: warm hout, zacht licht en stilte. Beschikbaar in verschillende woningtypen.">
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/sauna.jpg" alt="Sauna met houten banken en saunakachel" loading="lazy" />
           <figcaption>Sauna</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
-                data-groot="images/buitenterras.jpg" data-titel="Buitenterras — Ruimte om buiten te eten en te zitten. De zomeravonden duren hier langer.">
-          <img src="images/buitenterras.jpg" alt="Buitenterras van een recreatiewoning in de avond" loading="lazy" />
+                data-groot="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/buitenterras.jpg" data-titel="Buitenterras: ruimte om buiten te eten en te zitten. De zomeravonden duren hier langer.">
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/buitenterras.jpg" alt="Buitenterras van een recreatiewoning in de avond" loading="lazy" />
           <figcaption>Buitenterras</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
-                data-groot="images/wastafel.jpg" data-titel="Sanitair — Dubbele wastafel met verlichte spiegel, zodat je &#39;s ochtends niet op elkaar hoeft te wachten.">
-          <img src="images/wastafel.jpg" alt="Dubbele wastafel met ronde verlichte spiegel" loading="lazy" />
+                data-groot="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/wastafel.jpg" data-titel="Sanitair: dubbele wastafel met verlichte spiegel, zodat je &#39;s ochtends niet op elkaar hoeft te wachten.">
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/wastafel.jpg" alt="Dubbele wastafel met ronde verlichte spiegel" loading="lazy" />
           <figcaption>Sanitair</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
-                data-groot="https://dewielschedreef.nl/wp-content/uploads/2025/05/2persoons-DeWielscheDreef-48-scaled.jpg" data-titel="Keuken — Inbouwapparatuur en zicht op de eettafel. Uitvoering verschilt per type.">
+                data-groot="https://dewielschedreef.nl/wp-content/uploads/2025/05/2persoons-DeWielscheDreef-48-scaled.jpg" data-titel="Keuken: inbouwapparatuur en zicht op de eettafel. Uitvoering verschilt per type.">
           <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/2persoons-DeWielscheDreef-48-scaled.jpg" alt="Keuken met inbouwapparatuur" loading="lazy" />
           <figcaption>Keuken</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
-                data-groot="https://dewielschedreef.nl/wp-content/uploads/2025/05/6persoonsC-DeWielscheDreef-69-scaled.jpg" data-titel="Woonkamer — Eettafel, zithoek en keuken in één ruimte. Met de schuifpui open loopt de tuin zo naar binnen.">
+                data-groot="https://dewielschedreef.nl/wp-content/uploads/2025/05/6persoonsC-DeWielscheDreef-69-scaled.jpg" data-titel="Woonkamer: eettafel, zithoek en keuken in één ruimte. Met de schuifpui open loopt de tuin zo naar binnen.">
           <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/6persoonsC-DeWielscheDreef-69-scaled.jpg" alt="Woonkamer met eethoek, zithoek en schuifpui naar de tuin" loading="lazy" />
           <figcaption>Woonkamer</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="woning"
-                data-groot="images/slaapkamer.jpg" data-titel="Slaapkamer — Boxspring met leeslampje binnen handbereik. Zacht licht, warme tinten.">
-          <img src="images/slaapkamer.jpg" alt="Slaapkamer met boxspring, wandlamp en nachtkastje" loading="lazy" />
+                data-groot="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/slaapkamer.jpg" data-titel="Slaapkamer: boxspring met leeslampje binnen handbereik. Zacht licht, warme tinten.">
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/slaapkamer.jpg" alt="Slaapkamer met boxspring, wandlamp en nachtkastje" loading="lazy" />
           <figcaption>Slaapkamer</figcaption>
         </figure>
 
       </div>
 
       <p style="margin-top:32px;font-size:0.9rem;color:var(--text-muted);text-align:center;">
-        <strong>Voorzieningen en afwerking verschillen per woningtype</strong> — niet elke woning heeft een sauna of vrijstaand bad, en meubels op de foto&#39;s kunnen optioneel zijn. Vraag de brochure aan voor de complete interieur- en sanitairlijst per type.
+        <strong>Voorzieningen en afwerking verschillen per woningtype</strong>. Niet elke woning heeft een sauna of vrijstaand bad, en meubels op de foto&#39;s kunnen optioneel zijn. Vraag de brochure aan voor de complete interieur- en sanitairlijst per type.
       </p>
 
       <div class="cta-blok" style="margin-top:24px;">
@@ -1619,31 +1619,31 @@
   <section class="omgeving">
     <div class="container">
       <p class="section-label">De omgeving</p>
-      <h2 class="section-title">Om de hoek begint<br/>het echte werk</h2>
-      <p class="section-sub">Heide en bos van de Utrechtse Heuvelrug, de Nederrijn met het pontje, de boomgaarden van de Betuwe — en Ouwehands voor de kleinkinderen. Klik op een beeld om het groot te bekijken.</p>
+      <h2 class="section-title">De perfecte plek</h2>
+      <p class="section-sub">De mooiste wandel- en fietsroutes langs de Nederrijn, en vlakbij leuke dagattracties, zoals Ouwehands Dierenpark. Klik op een beeld om het groot te bekijken.</p>
 
       <div class="fac-grid fac-grid-4">
         <figure class="fac-item" tabindex="0" role="button" data-groep="omgeving"
-                data-groot="images/omgeving/heide.jpg" data-titel="De heide van de Utrechtse Heuvelrug — bossen, heide en glooiende landschappen om de hoek">
-          <img src="images/omgeving/heide.jpg" alt="Bloeiende heide met bos op de Utrechtse Heuvelrug" loading="lazy" />
+                data-groot="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/omgeving/heide.jpg" data-titel="De heide van de Utrechtse Heuvelrug: bossen, heide en glooiende landschappen om de hoek">
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/omgeving/heide.jpg" alt="Bloeiende heide met bos op de Utrechtse Heuvelrug" loading="lazy" />
           <figcaption>Utrechtse Heuvelrug</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="omgeving"
-                data-groot="images/omgeving/nederrijn.jpg" data-titel="De Nederrijn bij zonsopgang — het pontje brengt je zo de overkant op">
-          <img src="images/omgeving/nederrijn.jpg" alt="De Nederrijn met veerpont bij zonsopgang" loading="lazy" />
+                data-groot="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/omgeving/nederrijn.jpg" data-titel="De Nederrijn bij zonsopgang: het pontje brengt je zo de overkant op">
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/omgeving/nederrijn.jpg" alt="De Nederrijn met veerpont bij zonsopgang" loading="lazy" />
           <figcaption>De Nederrijn</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="omgeving"
-                data-groot="images/omgeving/fruit.jpg" data-titel="De Betuwe: boomgaarden zover je kijkt, bloesem in het voorjaar en fruit in het najaar">
-          <img src="images/omgeving/fruit.jpg" alt="Appel aan de boom in een Betuwse boomgaard" loading="lazy" />
+                data-groot="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/omgeving/fruit.jpg" data-titel="De Betuwe: boomgaarden zover je kijkt, bloesem in het voorjaar en fruit in het najaar">
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/omgeving/fruit.jpg" alt="Appel aan de boom in een Betuwse boomgaard" loading="lazy" />
           <figcaption>De Betuwe</figcaption>
         </figure>
 
         <figure class="fac-item" tabindex="0" role="button" data-groep="omgeving"
-                data-groot="images/omgeving/ouwehands.jpg" data-titel="Ouwehands Dierenpark in Rhenen — de reden dat de kleinkinderen graag mee gaan">
-          <img src="images/omgeving/ouwehands.jpg" alt="Panda in Ouwehands Dierenpark" loading="lazy" />
+                data-groot="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/omgeving/ouwehands.jpg" data-titel="Ouwehands Dierenpark in Rhenen: de reden dat de kleinkinderen graag mee gaan">
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/omgeving/ouwehands.jpg" alt="Panda in Ouwehands Dierenpark" loading="lazy" />
           <figcaption>Ouwehands Dierenpark</figcaption>
         </figure>
       </div>
@@ -1664,7 +1664,7 @@
               <span class="rp-check">✓</span>
               <div class="rp-text">
                 <strong>Lage energielasten</strong>
-                <span>Gasloos, triple glas, een warmtepomp en zonnepanelen houden de vaste lasten laag — dat komt je nettorendement ten goede.</span>
+                <span>Gasloos, triple glas, een warmtepomp en zonnepanelen houden de vaste lasten laag. Dat komt je nettorendement ten goede.</span>
               </div>
             </li>
             <li>
@@ -1678,7 +1678,7 @@
               <span class="rp-check">✓</span>
               <div class="rp-text">
                 <strong>Maandelijkse verhuurinkomsten</strong>
-                <span>Via de verhuurpool van Landal ontvang je elke maand een eerlijk aandeel — ongeacht de bezetting van je woning.</span>
+                <span>Via de verhuurpool van Landal ontvang je elke maand een eerlijk aandeel, ongeacht de bezetting van je woning.</span>
               </div>
             </li>
             <li>
@@ -1700,9 +1700,8 @@
 
         <div class="rendement-aside">
           <h3>Geen gedoe, wel opbrengst</h3>
-          <p>Veel vakantiewoningen kosten je geld en tijd. De Wielsche Dreef is anders: Landal neemt alles over — van marketing tot schoonmaak — en je ontvangt elke maand je aandeel.</p>
+          <p>Landal ontzorgt je in alles: van de marketing tot de gastenservice, bij aankomst ligt de tuin er netjes bij en is de woning schoon. En je ontvangt elke maand je huurinkomsten.</p>
           <p>Geen verhuurstress, geen lege kalenders, geen facturen die je zelf moet uitsturen.</p>
-          <p style="font-weight:600;color:var(--teal-dark);">Wil je de cijfers zien? Vraag de brochure aan of kom naar het verkoopweekend.</p>
           <a href="#brochure" class="wd-btn wd-btn-primary" style="margin-top:8px;">Brochure aanvragen</a>
         </div>
       </div>
@@ -1714,12 +1713,12 @@
     <div class="container">
       <p class="section-label">Veelgestelde vragen</p>
       <h2 class="section-title">Alles wat je wilt weten</h2>
-      <p class="section-sub">Nog een vraag die er niet bij staat? Stel hem tijdens het verkoopweekend — of vraag de brochure aan.</p>
+      <p class="section-sub">Nog een vraag die er niet bij staat? Stel hem tijdens het verkoopweekend. Of vraag de brochure aan.</p>
 
       <div class="faq-list">
         <details class="faq-item">
           <summary>Wanneer kan ik de woning in gebruik nemen?</summary>
-          <p class="faq-answer">De woningen van fase 1 worden op dit moment gebouwd. Bij een deel van de woningen is oplevering op korte termijn mogelijk; bij andere duurt het langer. Vraag naar de actuele planning per woning — die verschilt per kavel.</p>
+          <p class="faq-answer">De woningen van fase 1 worden op dit moment gebouwd. Bij een deel van de woningen is oplevering op korte termijn mogelijk; bij andere duurt het langer. Vraag naar de actuele planning per woning. Die verschilt per kavel.</p>
         </details>
 
         <details class="faq-item">
@@ -1729,12 +1728,12 @@
 
         <details class="faq-item">
           <summary>Koop ik ook de grond?</summary>
-          <p class="faq-answer">Ja. Je koopt de woning én de grond — geen erfpacht, geen verrassingen. Volledig eigendom.</p>
+          <p class="faq-answer">Ja. Je koopt de woning én de grond. Geen erfpacht, geen verrassingen. Volledig eigendom.</p>
         </details>
 
         <details class="faq-item">
           <summary>Wie regelt de verhuur?</summary>
-          <p class="faq-answer">Landal neemt boekingen, gasten, schoonmaak en beheer volledig over. Je ontvangt maandelijks je aandeel uit de verhuurpool — ongeacht de bezetting van je eigen woning.</p>
+          <p class="faq-answer">Landal neemt boekingen, gasten, schoonmaak en beheer volledig over. Je ontvangt maandelijks je aandeel uit de verhuurpool, ongeacht de bezetting van je eigen woning.</p>
         </details>
 
         <details class="faq-item">
@@ -1749,7 +1748,7 @@
 
         <details class="faq-item">
           <summary>Betaal ik overdrachtsbelasting?</summary>
-          <p class="faq-answer">Nee. Op nieuwbouw betaal je geen overdrachtsbelasting — voordeel direct bij aankoop.</p>
+          <p class="faq-answer">Nee. Op nieuwbouw betaal je geen overdrachtsbelasting. Voordeel direct bij aankoop.</p>
         </details>
 
         <details class="faq-item">
@@ -1771,7 +1770,7 @@
         <div>
           <p class="section-label">Verkoopweekend</p>
           <h2 class="section-title">Kom kijken,<br/>om te kunnen beslissen.</h2>
-          <p style="color:var(--text-muted);line-height:1.8;margin:16px 0 24px;">Regelmatig organiseren we een verkoopweekend op het park. Geen verkooppraatje — gewoon rondlopen, zien, voelen.</p>
+          <p style="color:var(--text-muted);line-height:1.8;margin:16px 0 24px;">Regelmatig organiseren we een verkoopweekend op het park. Geen verkooppraatje. Gewoon rondlopen, zien, voelen.</p>
 
           <ul class="vw-stappen">
             <li class="vw-stap">
@@ -1792,7 +1791,7 @@
               <span class="vw-stap-nr">3</span>
               <div class="vw-stap-text">
                 <h4>Alles uitgelegd</h4>
-                <p>Verhuurmodel, rendement, kosten, BTW-voordeel — geen vraag is te klein.</p>
+                <p>Verhuurmodel, rendement, kosten, BTW-voordeel. Geen vraag is te klein.</p>
               </div>
             </li>
             <li class="vw-stap">
@@ -1807,7 +1806,7 @@
 
         <div class="vw-card">
           <p class="datum-label">Volgend verkoopweekend</p>
-          <!-- DATUM AANPASSEN: hier én in de banner bovenaan (#vw-datum). -->
+          <!-- Datum wordt automatisch gezet, zie het script onderaan de pagina. -->
           <p class="datum-groot" id="vw-datum-card">7 &amp; 8 augustus 2026</p>
           <p class="datum-sub">Vrijdag &amp; zaterdag &bull; 10:00 – 16:00 uur<br/>Eck en Wiel, Gelderland</p>
           <div class="vw-card-ctas">
@@ -1837,7 +1836,7 @@
     <div class="container" style="max-width:700px;text-align:center;">
       <p class="section-label">Brochure</p>
       <h2 class="section-title">Brochure aanvragen</h2>
-      <p class="section-sub" style="margin:16px auto 32px;">Ontvang alle informatie — woningtypes, prijzen, rendement en het verhuurmodel — direct in je mailbox.</p>
+      <p class="section-sub" style="margin:16px auto 32px;">Ontvang alle informatie over woningtypes, prijzen, rendement en het verhuurmodel direct in je mailbox.</p>
       <!-- GHL FORMULIER BROCHURE HIER INSLUITEN -->
       <div style="background:var(--teal-light);border-radius:12px;padding:48px;color:var(--text-muted);font-size:0.95rem;">
         [GHL formulier brochure aanvragen]
@@ -1849,7 +1848,7 @@
   <section class="footer-cta">
     <div class="container">
       <h2>Jouw plek wacht.</h2>
-      <p>54 woningen, fase 1. Kom kijken tijdens het verkoopweekend — of begin met de brochure.</p>
+      <p>54 woningen, fase 1. Kom kijken tijdens het verkoopweekend. Of begin met de brochure.</p>
       <div class="footer-cta-btns">
         <a href="#aanmelden" class="wd-btn wd-btn-outline-white">Aanmelden verkoopweekend</a>
         <a href="#brochure" class="wd-btn" style="background:var(--white);color:var(--teal);">Brochure aanvragen</a>
@@ -1959,6 +1958,54 @@
         if (e.key === 'Escape')     sluit();
         if (e.key === 'ArrowLeft')  toon(index - 1);
         if (e.key === 'ArrowRight') toon(index + 1);
+      });
+    })();
+  </script>
+
+  <!-- ── VERKOOPWEEKEND-DATUM (automatisch) ──
+       Ankerdatum = vrijdag 7 augustus 2026, daarna elke 3 weken.
+       Toont steeds het eerstvolgende vrijdag+zaterdag-weekend in #vw-datum en #vw-datum-card.
+       Alleen de ankerdatum of de cyclus hieronder aanpassen als het schema wijzigt. -->
+  <script>
+    (function () {
+      var MND = ['januari','februari','maart','april','mei','juni','juli',
+                 'augustus','september','oktober','november','december'];
+      var CYCLE = 21;                       // 3 weken
+      var anker = new Date(2026, 7, 7);     // vrijdag 7 augustus 2026 (maand 0-based: 7 = augustus)
+      anker.setHours(0,0,0,0);
+      var nu = new Date(); nu.setHours(0,0,0,0);
+
+      // Toont het huidige weekend t/m de vrijdag; vanaf de zaterdag het volgende (drempel = de vrijdag).
+      function vrijdag(k){ var d = new Date(anker); d.setDate(d.getDate() + k*CYCLE); return d; }
+      var dagen = Math.floor((nu - anker) / 86400000);
+      var k = Math.floor(dagen / CYCLE);
+      if (k < 0) k = 0;
+      while (vrijdag(k) < nu) k++;          // vrijdag voorbij (zaterdag of later)? naar het volgende weekend
+
+      var vr = new Date(anker); vr.setDate(vr.getDate() + k*CYCLE);
+      var za = new Date(vr);    za.setDate(za.getDate() + 1);
+
+      var lang, kort;
+      if (vr.getMonth() === za.getMonth() && vr.getFullYear() === za.getFullYear()) {
+        lang = vr.getDate() + ' & ' + za.getDate() + ' ' + MND[za.getMonth()] + ' ' + za.getFullYear();
+        kort = vr.getDate() + ' & ' + za.getDate() + ' ' + MND[za.getMonth()];
+      } else if (vr.getFullYear() === za.getFullYear()) {
+        lang = vr.getDate() + ' ' + MND[vr.getMonth()] + ' & ' + za.getDate() + ' ' + MND[za.getMonth()] + ' ' + za.getFullYear();
+        kort = vr.getDate() + ' ' + MND[vr.getMonth()] + ' & ' + za.getDate() + ' ' + MND[za.getMonth()];
+      } else {
+        lang = vr.getDate() + ' ' + MND[vr.getMonth()] + ' ' + vr.getFullYear() + ' & ' + za.getDate() + ' ' + MND[za.getMonth()] + ' ' + za.getFullYear();
+        kort = vr.getDate() + ' ' + MND[vr.getMonth()] + ' & ' + za.getDate() + ' ' + MND[za.getMonth()];
+      }
+
+      // Balk + kaart (via id): volledige datum met jaar.
+      document.querySelectorAll('#vw-datum, #vw-datum-card').forEach(function (el) { el.textContent = lang; });
+
+      // CTA-knoppen met een datum in de tekst (bijv. "Kom kijken op 7 & 8 augustus"): korte notatie zonder jaar.
+      var re = /\d{1,2}\s*&\s*\d{1,2}\s+(?:januari|februari|maart|april|mei|juni|juli|augustus|september|oktober|november|december)(?:\s+\d{4})?/i;
+      document.querySelectorAll('.wd-btn').forEach(function (el) {
+        if (el.children.length === 0 && re.test(el.textContent)) {
+          el.textContent = el.textContent.replace(re, kort);
+        }
       });
     })();
   </script>
