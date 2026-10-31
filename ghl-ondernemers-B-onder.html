@@ -249,3 +249,27 @@
       <a href="https://dewielschedreef.nl">dewielschedreef.nl</a>
     </div>
   </footer>
+
+
+  <!-- Vangnet Meta/Facebook in-app browser: houdt de pagina bovenaan bij binnenkomst.
+       Disarmt zodra de bezoeker zelf scrolt (wheel), tikt of een toets indrukt, dus geen scroll-lock op desktop. -->
+  <script>
+  (function () {
+    try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch (e) {}
+    var armed = true;
+    ['wheel', 'pointerdown', 'touchstart', 'mousedown', 'keydown'].forEach(function (ev) {
+      window.addEventListener(ev, function () { armed = false; }, { once: true, passive: true });
+    });
+    function top() {
+      if (!armed) return;
+      var a = document.activeElement;
+      if (a && /^(INPUT|TEXTAREA|SELECT)$/.test(a.tagName)) { try { a.blur(); } catch (e) {} }
+      window.scrollTo(0, 0);
+    }
+    document.addEventListener('focusin', function () { if (armed) top(); }, true);
+    var eind = Date.now() + 4000;
+    var iv = setInterval(function () { if (!armed || Date.now() > eind) { clearInterval(iv); return; } top(); }, 100);
+    document.addEventListener('DOMContentLoaded', top);
+    if (document.readyState === 'complete') top(); else window.addEventListener('load', top);
+  })();
+  </script>
