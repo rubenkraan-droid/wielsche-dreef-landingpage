@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="nl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Jouw plek (u) VARIATION - formulier hoog</title></head><body>
-<!-- JOUW PLEK (U-VERSIE) - BLOK A (boven): styling + sticky kop + hero + aanmeld-anker.
-     Plak dit als custom code, en zet je GHL-aanmeldformulier direct ONDER dit blok. -->
+<!-- JOUW PLEK (U-VERSIE) - BLOK A (boven): styling + sticky kop + hero.
+     Zet je GHL-aanmeldformulier (GHL-sectie met id 'aanmelden') direct ONDER dit blok. -->
   <style>
     /* ── HUISSTIJLFONT ── */
     @font-face {
@@ -1219,16 +1219,6 @@
     </div>
   </section>
 
-  <!-- AANMELDEN (hoog) - sleep je GHL-aanmeldformulier direct ONDER dit blok -->
-  <section id="aanmelden" style="background:var(--white);padding:56px 24px 48px;">
-    <div class="container" style="max-width:700px;text-align:center;">
-      <p class="section-label">Aanmelden</p>
-      <h2 class="section-title">Aanmelden verkoopweekend</h2>
-      <p class="section-sub" style="margin:16px auto 32px;">Vul uw gegevens in en we bevestigen uw plek.</p>
-      <!-- GHL AANMELDFORMULIER HIER -->
-    </div>
-  </section>
-
   <section style="padding:40px 24px;text-align:center;"><div style="max-width:560px;margin:0 auto;background:#fff;border:1px solid #ddd;border-radius:12px;padding:28px;"><p style="color:#777;font-size:.9rem;margin:0 0 14px;">[ hier staat in GHL je echte aanmeldformulier ]</p><div style="display:flex;flex-direction:column;gap:10px;max-width:380px;margin:0 auto;"><input placeholder="Voornaam" style="padding:11px;border:1px solid #ccc;border-radius:8px;"><input placeholder="Telefoon" style="padding:11px;border:1px solid #ccc;border-radius:8px;"><button type="button" style="padding:12px;border:0;border-radius:8px;background:#2f5d57;color:#fff;font-weight:600;">Aanmelden</button></div></div></section>
 
 <!-- JOUW PLEK (U-VERSIE) - VARIATION BLOK B (v2): woningen + rendement naar voren.
@@ -1788,28 +1778,6 @@
     </div>
   </section>
 
-  <section id="brochure" style="background:var(--cream);padding:60px 24px;">
-    <div class="container" style="max-width:700px;text-align:center;">
-      <p class="section-label">Brochure</p>
-      <h2 class="section-title">Brochure aanvragen</h2>
-      <p class="section-sub" style="margin:16px auto 32px;">Ontvang alle informatie over woningtypes, prijzen, rendement en het verhuurmodel direct in uw mailbox.</p>
-      <!-- GHL FORMULIER BROCHURE HIER INSLUITEN -->
-      <!-- GHL BROCHUREFORMULIER HIER INSLUITEN -->
-    </div>
-  </section>
-
-  <!-- &#9472;&#9472; FOOTER CTA &#9472;&#9472; -->
-  <section class="footer-cta">
-    <div class="container">
-      <h2>Uw plek wacht.</h2>
-      <p>54 woningen, fase 1. Kom kijken tijdens het verkoopweekend. Of begin met de brochure.</p>
-      <div class="footer-cta-btns">
-        <a href="#aanmelden" class="wd-btn wd-btn-outline-white">Aanmelden verkoopweekend</a>
-        <a href="#brochure" class="wd-btn" style="background:var(--white);color:var(--teal);">Brochure aanvragen</a>
-      </div>
-    </div>
-  </section>
-
   <!-- &#9472;&#9472; LIGHTBOX &#9472;&#9472; -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Vergrote weergave">
     <button class="lb-sluit" aria-label="Sluiten">&times;</button>
@@ -1975,14 +1943,6 @@
       });
     })();
   </script>
-  <!-- &#9472;&#9472; FOOTER &#9472;&#9472; -->
-  <footer>
-    <p>
-      &copy; 2026 De Wielsche Dreef &nbsp;|&nbsp;
-      <a href="https://dewielschedreef.nl">dewielschedreef.nl</a> &nbsp;|&nbsp;
-      Recravas: <a href="tel:0853032844">085-30 32 844</a>
-    </p>
-  </footer>
 
 
   <!-- Vangnet Meta/Facebook in-app browser: houdt de pagina bovenaan bij binnenkomst.
