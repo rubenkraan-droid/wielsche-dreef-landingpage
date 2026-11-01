@@ -1496,12 +1496,12 @@
         </div>
 
         <div class="park-images">
-          <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/6persoonsC-DeWielscheDreef-57-scaled.jpg"
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/villa-aan-water-breed.jpg"
                alt="Recreatiewoningen aan de vijver op De Wielsche Dreef" loading="lazy" />
           <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/park-drone.jpg"
                alt="Het park vanuit de lucht met de vijver en de woningen" loading="lazy" />
-          <img src="https://dewielschedreef.nl/wp-content/uploads/2025/05/2persoons-DeWielscheDreef-45-scaled.jpg"
-               alt="Interieur recreatiewoning" loading="lazy" />
+          <img src="https://rubenkraan-droid.github.io/wielsche-dreef-landingpage/images/villa-topgevel-water.jpg"
+               alt="Villa met topgevel aan het water op De Wielsche Dreef" loading="lazy" />
         </div>
       </div>
 
@@ -1788,9 +1788,7 @@
       <h2 class="section-title">Brochure aanvragen</h2>
       <p class="section-sub" style="margin:16px auto 32px;">Ontvang alle informatie over woningtypes, prijzen, rendement en het verhuurmodel direct in uw mailbox.</p>
       <!-- GHL FORMULIER BROCHURE HIER INSLUITEN -->
-      <div style="background:var(--teal-light);border-radius:12px;padding:48px;color:var(--text-muted);font-size:0.95rem;">
-        [GHL formulier brochure aanvragen]
-      </div>
+      <!-- GHL BROCHUREFORMULIER HIER INSLUITEN -->
     </div>
   </section>
 
@@ -1813,6 +1811,7 @@
     <button class="lb-volgende" aria-label="Volgende">&#8250;</button>
     <img src="" alt="" />
     <p class="lb-bijschrift"></p>
+    <a href="#brochure" class="wd-btn wd-btn-primary lb-brochure" style="position:absolute;bottom:58px;left:50%;transform:translateX(-50%);white-space:nowrap;z-index:5;">Vraag de brochure aan</a>
   </div>
 
 
@@ -1898,6 +1897,17 @@
         });
       });
 
+      // Clarity: alle overige content-beelden ook klikbaar (openen zichzelf groot).
+      document.querySelectorAll('img').forEach(function (im) {
+        if (im.closest('.lightbox') || im.classList.contains('logo')) return;
+        if (im.closest('.fac-item') || im.closest('.woning-card')) return;
+        im.style.cursor = 'zoom-in'; im.setAttribute('tabindex', '0'); im.setAttribute('role', 'button');
+        function openZelf() { openReeks([{ src: im.currentSrc || im.src, titel: im.alt || '' }], 0, im); }
+        im.addEventListener('click', openZelf);
+        im.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openZelf(); } });
+      });
+      var lbBro = lb.querySelector('.lb-brochure');
+      if (lbBro) lbBro.addEventListener('click', function (e) { e.preventDefault(); sluit(); var d = document.querySelector('#brochure'); if (d) d.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
       lb.querySelector('.lb-sluit').addEventListener('click', sluit);
       lb.querySelector('.lb-vorige').addEventListener('click', function (e) { e.stopPropagation(); toon(index - 1); });
       lb.querySelector('.lb-volgende').addEventListener('click', function (e) { e.stopPropagation(); toon(index + 1); });
