@@ -38,6 +38,12 @@
   .kaart a.bekijk:hover{background:var(--teal-dark)}
   .kaart a.bekijk.sec{background:transparent;color:var(--teal);border:1px solid var(--teal);padding:7px 13px}
   .kaart .acties{display:flex;gap:8px;flex-wrap:wrap}
+  .kaart .kopieer-wrap{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .kaart button.kopieer{cursor:pointer;font-family:inherit;font-size:.82rem;font-weight:600;
+       background:var(--accent);color:#3a2d07;border:0;border-radius:8px;padding:8px 13px;line-height:1.2}
+  .kaart button.kopieer:hover{filter:brightness(.96)}
+  .kaart button.kopieer.ok{background:#2f7d55;color:#fff}
+  .kaart button.kopieer.fout{background:#9c4221;color:#fff}
   footer.pg{max-width:1080px;margin:0 auto;padding:0 24px 48px;color:var(--muted);font-size:.82rem}
 </style>
 </head>
@@ -45,17 +51,31 @@
 <header class="top">
   <div class="wrap">
     <h1>Landal De Wielsche Dreef — alle landingspagina-versies</h1>
-    <p>Elke versie die we hebben gemaakt, op een rij. Chronologisch, nieuwste bovenaan. Klik op "Bekijken" om een versie te openen.</p>
+    <p>Elke versie die we hebben gemaakt, op een rij. Chronologisch, nieuwste bovenaan. Klik op "Bekijken" om een versie te openen, of op "Kopieer HTML" om de code in één klik op je klembord te zetten.</p>
   </div>
 </header>
 
 <main>
 
   <section class="groep">
+    <h2>★ Klaar om te plaatsen</h2>
+    <p class="periode">3 november 2026 · volgende testrichting, nog niet live</p>
+    <div class="grid">
+      <div class="kaart nu" data-files="ghl-waardeverg-brochure.html">
+        <span class="badge">Waardevergelijking · brochure-first</span>
+        <h3>Uw eigen villa aan de Nederrijn, verhuurd door Landal</h3>
+        <div class="datum">3 nov 2026</div>
+        <p class="oms">Rendement-/waardevergelijking-hoek in de hero (geld in stenen in plaats van op de bank), brochure als primaire CTA en het verkoopweekend als tweede stap. Lightbox met contextuele brochure-knop en tap-to-zoom op de plattegronden (lost de dead click op). Op de schone, gecorrigeerde basis. Eén codeblok, formulier laag.</p>
+        <div class="file">ghl-waardeverg-brochure.html</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="groep">
     <h2>▶ Actieve split-test</h2>
     <p class="periode">Live sinds 1 november 2026 · beide armen aan in GHL · "Jouw plek" (u-vorm) met hint-kaartjes naast de formulieren</p>
     <div class="grid">
-      <div class="kaart nu">
+      <div class="kaart nu" data-files="ghl-jouwplek-u-A-boven.html,ghl-jouwplek-u-B-onder.html">
         <span class="badge">Live · VARIATION</span>
         <h3>VARIATION — formulier hoog</h3>
         <div class="datum">1 nov 2026</div>
@@ -67,7 +87,7 @@
           <a class="bekijk sec" href="./ghl-jouwplek-u-B-onder.html">Blok B</a>
         </div>
       </div>
-      <div class="kaart nu">
+      <div class="kaart nu" data-files="ghl-jouwplek-u-CONTROL-laag.html">
         <span class="badge">Live · CONTROL</span>
         <h3>CONTROL — formulier laag</h3>
         <div class="datum">1 nov 2026</div>
@@ -78,7 +98,7 @@
           <a class="bekijk sec" href="./ghl-jouwplek-u-CONTROL-laag.html">Codeblok</a>
         </div>
       </div>
-      <div class="kaart">
+      <div class="kaart" data-files="ghl-hint-aanmeld-naast.html">
         <span class="badge">Hint-kaartje · aanmelden</span>
         <h3>Hint naast het aanmeldformulier</h3>
         <div class="datum">1 nov 2026</div>
@@ -86,7 +106,7 @@
         <div class="file">ghl-hint-aanmeld-naast.html</div>
         <a class="bekijk" href="./aanmeld-hint-preview.html">Bekijken →</a>
       </div>
-      <div class="kaart">
+      <div class="kaart" data-files="ghl-hint-brochure-naast.html">
         <span class="badge">Hint-kaartje · brochure</span>
         <h3>Hint naast het brochureformulier</h3>
         <div class="datum">1 nov 2026</div>
@@ -101,7 +121,7 @@
     <h2>Kort &amp; formulier hoog</h2>
     <p class="periode">31 oktober 2026 · huidige richting</p>
     <div class="grid">
-      <div class="kaart nu">
+      <div class="kaart nu" data-files="ghl-blok-A-boven.html,ghl-blok-B-onder.html">
         <span class="badge">Nieuwste</span>
         <h3>Korte versie — formulier bovenaan</h3>
         <div class="datum">31 okt 2026</div>
@@ -120,7 +140,7 @@
     <h2>Formulier hoog (split-test-klaar)</h2>
     <p class="periode">31 oktober 2026 · oude pagina's met het formulier bovenaan</p>
     <div class="grid">
-      <div class="kaart">
+      <div class="kaart" data-files="ghl-jouwplek-u-A-boven.html,ghl-jouwplek-u-B-onder.html">
         <span class="badge">Jouw plek · u · VARIATION</span>
         <h3>"Jouw plek" (u-vorm) — VARIATION</h3>
         <div class="datum">1 nov 2026</div>
@@ -132,7 +152,7 @@
           <a class="bekijk sec" href="./ghl-jouwplek-u-B-onder.html">Blok B</a>
         </div>
       </div>
-      <div class="kaart">
+      <div class="kaart" data-files="ghl-jouwplek-u-CONTROL-laag.html">
         <span class="badge">Jouw plek · u · CONTROL</span>
         <h3>"Jouw plek" (u-vorm) — CONTROL</h3>
         <div class="datum">1 nov 2026</div>
@@ -143,7 +163,7 @@
           <a class="bekijk sec" href="./ghl-jouwplek-u-CONTROL-laag.html">Codeblok</a>
         </div>
       </div>
-      <div class="kaart">
+      <div class="kaart" data-files="ghl-waardeverg-A-boven.html,ghl-waardeverg-B-onder.html">
         <span class="badge">Waardevergelijking · hoog</span>
         <h3>Waardevergelijking met formulier hoog</h3>
         <div class="datum">31 okt 2026</div>
@@ -155,7 +175,7 @@
           <a class="bekijk sec" href="./ghl-waardeverg-B-onder.html">Blok B</a>
         </div>
       </div>
-      <div class="kaart">
+      <div class="kaart" data-files="ghl-ondernemers-A-boven.html,ghl-ondernemers-B-onder.html">
         <span class="badge">Ondernemers · hoog</span>
         <h3>Ondernemers met formulier hoog</h3>
         <div class="datum">31 okt 2026</div>
@@ -174,7 +194,7 @@
     <h2>Landgoed-restyle</h2>
     <p class="periode">28 oktober 2026 · basis van de huidige live-pagina</p>
     <div class="grid">
-      <div class="kaart">
+      <div class="kaart" data-files="index-landgoed.html">
         <span class="badge">Live-basis</span>
         <h3>Uw eigen villa aan de Nederrijn</h3>
         <div class="datum">28 okt 2026</div>
@@ -182,7 +202,7 @@
         <div class="file">index-landgoed.html</div>
         <a class="bekijk" href="./index-landgoed.html">Bekijken →</a>
       </div>
-      <div class="kaart">
+      <div class="kaart" data-files="index-landgoed-zonder-formulieren.html">
         <span class="badge">Variant</span>
         <h3>Landgoed — zonder formulieren</h3>
         <div class="datum">28 okt 2026</div>
@@ -197,7 +217,7 @@
     <h2>Ondernemers / BV</h2>
     <p class="periode">26 september – 22 oktober 2026 · gericht op koop vanuit de BV</p>
     <div class="grid">
-      <div class="kaart">
+      <div class="kaart" data-files="ondernemers-premium.html">
         <span class="badge">Premium</span>
         <h3>Een volwaardige villa aan de Nederrijn, blijvend van u</h3>
         <div class="datum">22 okt 2026</div>
@@ -205,7 +225,7 @@
         <div class="file">ondernemers-premium.html</div>
         <a class="bekijk" href="./ondernemers-premium.html">Bekijken →</a>
       </div>
-      <div class="kaart">
+      <div class="kaart" data-files="ondernemers-premium-local.html">
         <span class="badge">Premium · local</span>
         <h3>Premium — lokale assetpaden</h3>
         <div class="datum">22 okt 2026</div>
@@ -213,7 +233,7 @@
         <div class="file">ondernemers-premium-local.html</div>
         <a class="bekijk" href="./ondernemers-premium-local.html">Bekijken →</a>
       </div>
-      <div class="kaart">
+      <div class="kaart" data-files="ondernemers-premium-blok.html,ondernemers-premium-blok-local.html">
         <span class="badge">Premium · blok</span>
         <h3>Premium — los blok</h3>
         <div class="datum">22 okt 2026</div>
@@ -224,7 +244,7 @@
           <a class="bekijk sec" href="./ondernemers-premium-blok-local.html">Local-variant</a>
         </div>
       </div>
-      <div class="kaart">
+      <div class="kaart" data-files="ondernemers.html">
         <span class="badge">Ondernemers</span>
         <h3>Een stenen villa op eigen grond, vanuit uw BV</h3>
         <div class="datum">26 sep 2026</div>
@@ -239,11 +259,11 @@
     <h2>Waardevergelijking</h2>
     <p class="periode">10 september 2026 · u-vorm, Nederrijn-framing</p>
     <div class="grid">
-      <div class="kaart">
+      <div class="kaart" data-files="variant-waardevergelijking.html">
         <span class="badge">Waardevergelijking</span>
         <h3>Uw eigen villa aan de Nederrijn, verhuurd door Landal</h3>
         <div class="datum">10 sep 2026</div>
-        <p class="oms">Variant opgebouwd volgens de waardevergelijking. Eerste overstap naar de u-vorm en de Nederrijn-positionering.</p>
+        <p class="oms">Variant opgebouwd volgens de waardevergelijking. Eerste overstap naar de u-vorm en de Nederrijn-positionering. Je sterkste concept ooit (~2,78% opt-in).</p>
         <div class="file">variant-waardevergelijking.html</div>
         <a class="bekijk" href="./variant-waardevergelijking.html">Bekijken →</a>
       </div>
@@ -254,7 +274,7 @@
     <h2>Eerste serie (Heuvelrug, tutoyeren)</h2>
     <p class="periode">22 juli – 8 augustus 2026 · "Eindelijk een plek die echt van jou is"</p>
     <div class="grid">
-      <div class="kaart">
+      <div class="kaart" data-files="index.html">
         <span class="badge">Hoofd / A</span>
         <h3>Eindelijk een plek die echt van jou is</h3>
         <div class="datum">8 aug 2026</div>
@@ -262,7 +282,7 @@
         <div class="file">index.html</div>
         <a class="bekijk" href="./index.html">Bekijken →</a>
       </div>
-      <div class="kaart">
+      <div class="kaart" data-files="variant-a3.html">
         <span class="badge">A3</span>
         <h3>Variant A3</h3>
         <div class="datum">5 aug 2026</div>
@@ -270,7 +290,7 @@
         <div class="file">variant-a3.html</div>
         <a class="bekijk" href="./variant-a3.html">Bekijken →</a>
       </div>
-      <div class="kaart">
+      <div class="kaart" data-files="variant-a2.html">
         <span class="badge">A2</span>
         <h3>Variant A2</h3>
         <div class="datum">27 jul 2026</div>
@@ -278,15 +298,15 @@
         <div class="file">variant-a2.html</div>
         <a class="bekijk" href="./variant-a2.html">Bekijken →</a>
       </div>
-      <div class="kaart">
+      <div class="kaart" data-files="variant-b.html">
         <span class="badge">B · rendement</span>
         <h3>Een tweede woning die zichzelf terugverdient</h3>
         <div class="datum">22 jul 2026</div>
-        <p class="oms">Variant B (rendement-first) voor de splittest tegen variant A.</p>
+        <p class="oms">Variant B (rendement-first) voor de splittest tegen variant A. Versloeg de gevoel-variant (2,45% vs 1,79%).</p>
         <div class="file">variant-b.html</div>
         <a class="bekijk" href="./variant-b.html">Bekijken →</a>
       </div>
-      <div class="kaart">
+      <div class="kaart" data-files="variant-c.html">
         <span class="badge">C</span>
         <h3>Variant C</h3>
         <div class="datum">22 jul 2026</div>
@@ -301,7 +321,7 @@
     <h2>Overige pagina's</h2>
     <p class="periode">Geen landingspagina, wel onderdeel van de funnel</p>
     <div class="grid">
-      <div class="kaart">
+      <div class="kaart" data-files="bedankt.html">
         <span class="badge">Bedankt</span>
         <h3>Gelukt, uw aanvraag is binnen</h3>
         <div class="datum">11 aug 2026</div>
@@ -309,7 +329,7 @@
         <div class="file">bedankt.html</div>
         <a class="bekijk" href="./bedankt.html">Bekijken →</a>
       </div>
-      <div class="kaart">
+      <div class="kaart" data-files="email-mail02-dag3.html">
         <span class="badge">E-mail</span>
         <h3>Mailflow — mail 02 (dag 3)</h3>
         <div class="datum">16 jul 2026</div>
@@ -323,7 +343,66 @@
 </main>
 
 <footer class="pg">
-  Volledige geschiedenis per versie staat in Git. Deze pagina is een handmatig overzicht; voeg een nieuwe versie toe door een kaart te kopiëren.
+  Volledige geschiedenis per versie staat in Git. De "Kopieer HTML"-knop zet het bestand in één klik op je klembord. Let op: die knop werkt op de gepubliceerde site (GitHub Pages), niet wanneer je dit bestand lokaal opent. Nieuwe versie toevoegen: kopieer een kaart en zet het juiste bestand in het data-files-attribuut.
 </footer>
+
+<script>
+  // "Kopieer HTML"-knoppen: haalt het bestand op en zet de volledige HTML op het klembord.
+  (function () {
+    function labelVoor(file, meerdere) {
+      if (/A-boven/i.test(file)) return 'Kopieer blok A';
+      if (/B-onder/i.test(file)) return 'Kopieer blok B';
+      if (/-local/i.test(file))  return 'Kopieer local';
+      return meerdere ? ('Kopieer ' + file) : 'Kopieer HTML';
+    }
+
+    function kopieer(file, btn) {
+      var origineel = btn.textContent;
+      fetch('./' + file, { cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw new Error('fetch'); return r.text(); })
+        .then(function (txt) {
+          function legacy() {
+            var ta = document.createElement('textarea');
+            ta.value = txt; ta.style.position = 'fixed'; ta.style.left = '-9999px';
+            document.body.appendChild(ta); ta.focus(); ta.select();
+            var gelukt = false;
+            try { gelukt = document.execCommand('copy'); } catch (e) { gelukt = false; }
+            document.body.removeChild(ta);
+            if (!gelukt) throw new Error('copy');
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            return navigator.clipboard.writeText(txt).catch(legacy);
+          }
+          return legacy();
+        })
+        .then(function () {
+          btn.textContent = 'Gekopieerd ✓'; btn.classList.add('ok');
+          setTimeout(function () { btn.textContent = origineel; btn.classList.remove('ok'); }, 1800);
+        })
+        .catch(function () {
+          btn.textContent = 'Lukt niet (open via de site-URL)'; btn.classList.add('fout');
+          setTimeout(function () { btn.textContent = origineel; btn.classList.remove('fout'); }, 2800);
+        });
+    }
+
+    document.querySelectorAll('.kaart[data-files]').forEach(function (card) {
+      var files = card.getAttribute('data-files').split(',')
+        .map(function (s) { return s.trim(); }).filter(Boolean);
+      if (!files.length) return;
+      var wrap = document.createElement('div');
+      wrap.className = 'kopieer-wrap';
+      var meerdere = files.length > 1;
+      files.forEach(function (file) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'kopieer';
+        btn.textContent = labelVoor(file, meerdere);
+        btn.addEventListener('click', function () { kopieer(file, btn); });
+        wrap.appendChild(btn);
+      });
+      card.appendChild(wrap);
+    });
+  })();
+</script>
 </body>
 </html>
