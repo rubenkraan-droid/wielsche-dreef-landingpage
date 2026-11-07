@@ -1,5 +1,7 @@
-<!-- WAARDEVERGELIJKING - BLOK A (boven): styling + sticky kop + hero + aanmeld-anker.
-     Sleep je GHL-aanmeldformulier direct ONDER dit blok. -->
+<!-- WAARDEVERGELIJKING - BROCHURE-FIRST: volledige pagina, formulier LAAG.
+     Nederrijn/rendement-hoek in de hero, brochure als primaire CTA, verkoopweekend als tweede stap.
+     Lightbox met contextuele brochure-knop en tap-to-zoom op plattegronden.
+     Plak als custom code; zet je GHL-formulieren bij #aanmelden en #brochure (onderaan). -->
   <style>
     /* ── HUISSTIJLFONT ── */
     @font-face {
@@ -679,6 +681,7 @@
       margin-right: 4px;
     }
 
+
     /* ── PARKFACILITEITEN (compact, klikbaar) ── */
     .faciliteiten {
       background: var(--cream);
@@ -729,7 +732,7 @@
     }
 
     .fac-item figcaption::after {
-      content: '⤢';
+      content: '\2922';
       font-weight: 400;
       opacity: 0.75;
       flex-shrink: 0;
@@ -797,6 +800,14 @@
       max-height: 82vh;
       border-radius: 8px;
       display: block;
+      cursor: zoom-in;
+      transition: transform 0.2s ease;
+      touch-action: manipulation;
+    }
+
+    .lightbox img.lb-zoom {
+      transform: scale(1.9);
+      cursor: zoom-out;
     }
 
     .lb-bijschrift {
@@ -1175,180 +1186,44 @@
     .c-section.brochure:not(:has(input)):not(:has(textarea)) { padding-bottom: 8px !important; }
     .c-section.aanmelden:has(input), .c-section.aanmelden:has(textarea),
     .c-section.brochure:has(input), .c-section.brochure:has(textarea) { padding-top: 8px !important; }
-
-    /* ══════════════════════════════════════════════════════════════
-       VARIANT WAARDEVERGELIJKING: aanvullende stijlen
-       ══════════════════════════════════════════════════════════════ */
-
-    /* Placeholder voor bewijs dat nog aangeleverd moet worden. Niet live zetten zolang dit zichtbaar is. */
-    .bewijs-nodig {
-      background: #FFE58A;
-      color: #1A1A1A;
-      padding: 0 5px;
-      border-radius: 3px;
-      font-weight: 600;
-      outline: 1px dashed #B58900;
-    }
-
-    /* Hero: iets compactere kop, zodat de knoppen op mobiel eerder in beeld komen */
-    .hero h1 { font-size: clamp(2rem, 4.2vw, 3.1rem); text-wrap: balance; }
-
-    /* Risico-omkering direct onder elke CTA */
-    .cta-garantie {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-      margin-top: 12px;
-    }
-    .cta-blok + .cta-garantie { text-align: center; }
-    .cta-garantie.op-donker { color: rgba(255,255,255,0.78); }
-    .hero p.cta-garantie {
-      font-size: 0.9rem;
-      font-weight: 400;
-      opacity: 1;
-      color: rgba(255,255,255,0.85);
-      margin: 14px 0 0;
-    }
-    .footer-cta p.cta-garantie { font-size: 0.9rem; margin: 16px auto 0; }
-
-    /* Hero: bewijsrij boven de vouw, tussen subkop en knoppen */
-    .hero-bewijs {
-      list-style: none;
-      display: grid;
-      grid-template-columns: auto auto;
-      gap: 10px 28px;
-      margin: -12px 0 30px;
-      font-size: 0.95rem;
-      max-width: 640px;
-    }
-    .hero-bewijs li { display: flex; align-items: center; gap: 9px; }
-    .hero-bewijs li::before { content: '✓'; color: #7ED957; font-weight: 700; flex-shrink: 0; }
-    .hero-bewijs li.bouw::before {
-      content: '';
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #7ED957;
-      box-shadow: 0 0 0 3px rgba(126,217,87,0.28);
-      margin: 0 2px;
-    }
-    .hero-bewijs strong { font-weight: 600; }
-
-    /* Concept-kaarten: eigen bewijsregel per claim */
-    .kaart-bewijs {
-      margin-top: 16px;
-      padding-top: 14px;
-      border-top: 1px solid var(--border);
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--teal-dark);
-      line-height: 1.6;
-    }
-
-    /* Rendement-aside: bewijs en twee CTA's */
-    .aside-bewijs { font-weight: 500; color: var(--teal-dark) !important; }
-    .aside-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
-
-    /* Kopers aan het woord: alles zichtbaar, geen carrousel */
-    .kopers { background: var(--cream); }
-    .kopers-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .koper-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 28px 24px;
-    }
-    .koper-card blockquote {
-      font-family: 'Noe Display', Georgia, serif;
-      font-style: italic;
-      font-weight: 400;
-      font-size: 1.1rem;
-      line-height: 1.55;
-      color: var(--text);
-      margin-bottom: 16px;
-    }
-    .koper-card figcaption { font-size: 0.85rem; color: var(--text-muted); }
-
-    @media (max-width: 900px) {
-      .kopers-grid { grid-template-columns: 1fr; max-width: 560px; }
-    }
-
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 1.75rem; margin-bottom: 14px; }
-      .hero p { margin-bottom: 24px; }
-      .hero p.cta-garantie { font-size: 0.82rem; margin-top: 12px; }
-      .hero-bewijs { grid-template-columns: 1fr; gap: 6px; font-size: 0.86rem; margin: -8px 0 22px; }
-      .cta-garantie { font-size: 0.8rem; }
-      .aside-ctas .wd-btn { width: 100%; }
-    }
   </style>
 
-  <!-- ── STICKY KOP: header + datumbalk als één blok ── -->
+  <!-- &#9472;&#9472; STICKY KOP: header + datumbalk als &#233;&#233;n blok &#9472;&#9472; -->
   <div class="site-top">
   <header class="site-header">
     <img class="logo"
          src="https://dewielschedreef.nl/wp-content/uploads/2024/09/Frame-13.svg"
          alt="De Wielsche Dreef" />
     <div class="header-ctas">
-      <a href="#brochure" class="wd-btn wd-btn-outline wd-btn-sm"><span class="lbl-lang">Brochure aanvragen</span><span class="lbl-kort">Brochure</span></a>
-      <!-- Sticky knop: wordt geklikt door wie al gescrold heeft en nú wil handelen.
+      <a href="#brochure" class="wd-btn wd-btn-primary wd-btn-sm"><span class="lbl-lang">Ontvang de brochure</span><span class="lbl-kort">Brochure</span></a>
+      <!-- Sticky knop: wordt geklikt door wie al gescrold heeft en n&#250; wil handelen.
            Daarom direct het formulier in, niet eerst de uitleg. -->
-      <a href="#aanmelden" class="wd-btn wd-btn-primary wd-btn-sm"><span class="lbl-lang">Plan uw rondleiding</span><span class="lbl-kort">Rondleiding</span></a>
+      <a href="#aanmelden" class="wd-btn wd-btn-outline wd-btn-sm"><span class="lbl-lang">Aanmelden verkoopweekend</span><span class="lbl-kort">Aanmelden</span></a>
     </div>
   </header>
 
-  <!-- ── VERKOOPWEEKEND DATUM BANNER ──
+  <!-- &#9472;&#9472; VERKOOPWEEKEND DATUM BANNER &#9472;&#9472;
        Datum wordt automatisch gezet, zie het script onderaan de pagina. -->
   <div class="vw-banner">
     Volgend verkoopweekend:
     <span class="vw-date" id="vw-datum">7 &amp; 8 augustus 2026</span>
-    <a href="#aanmelden" class="vw-banner-link">Rondleiding &rarr;</a>
+    <a href="#aanmelden" class="vw-banner-link">Aanmelden &rarr;</a>
   </div>
   </div><!-- /site-top -->
 
-  <!-- ── HERO ──
-       Variabelen: droomuitkomst (kop, subkop, beeld), kans van slagen (bewijsrij, Landal),
-       tijdsverloop (bouwstatus, reactietermijn), moeite en risico (regel onder de knoppen). -->
+
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <!-- Bron 54 villa’s fase 1: basispagina. -->
-      <span class="hero-eyebrow">Fase 1 &bull; 54 villa’s &bull; Nu in aanbouw</span>
-      <h1>Uw eigen villa aan de Nederrijn, verhuurd door Landal als u er niet bent</h1>
-      <!-- Bron 90 dagen en maandelijkse uitkering uit de verhuurpool: basispagina (FAQ en rendementsectie). -->
-      <p>Op eigen grond in de Betuwe. Tot 90 dagen per jaar geniet u er zelf van, de rest van het jaar ontvangt u maandelijks uw aandeel uit de verhuur.</p>
-
-      <ul class="hero-bewijs">
-        <!-- BEWIJS NODIG: aantal verkochte villa’s in fase 1, met datum van telling. Bron: verkoopoverzicht. -->
-        <li><span><strong><span class="bewijs-nodig">[AANTAL]</span> van 54 villa’s</strong> in fase 1 verkocht</span></li>
-        <!-- Bron: huur-doorverwijzingsstrip op de basispagina ("wordt al volop verhuurd via Landal"). -->
-        <li><span>Park al volop in verhuur via Landal</span></li>
-        <!-- Bron: woningkaart 2-persoons Extra Luxe Wellness. Controleer of dit de laagste koopsom van fase 1 is. -->
-        <li><span>Villa’s vanaf € 323.500 excl. btw</span></li>
-        <!-- Bron: bouwstatus basispagina. -->
-        <li class="bouw"><span>Bouw in volle gang, voor een aantal villa’s snelle oplevering</span></li>
-      </ul>
+      <span class="hero-eyebrow">Fase 1 &bull; 54 villa&#39;s &bull; Grotendeels opgeleverd</span>
+      <h1>Uw eigen villa aan de Nederrijn,<br/>verhuurd door Landal</h1>
+      <p>Vanaf &euro; 313.500 koopt u een volwaardige villa op eigen grond aan de Nederrijn, met uitzicht op de Utrechtse Heuvelrug. U gebruikt hem zelf wanneer het u uitkomt. De rest van het jaar verhuurt Landal hem voor u en deelt u mee in de opbrengsten. Uw geld in stenen, niet op een spaarrekening.</p>
+      <p class="hero-bouwstatus">Een groot deel van fase 1 is al opgeleverd en wordt verhuurd. Voor de overige villa&#39;s is snelle oplevering mogelijk.</p>
 
       <div class="hero-ctas">
-        <a href="#aanmelden" class="wd-btn wd-btn-primary">Plan uw rondleiding</a>
-        <a href="#brochure" class="wd-btn wd-btn-outline-white">Brochure aanvragen</a>
+        <a href="#brochure" class="wd-btn wd-btn-primary">Ontvang de brochure</a>
+        <a href="#aanmelden" class="wd-btn wd-btn-outline-white">Aanmelden verkoopweekend</a>
       </div>
-      <!-- Reactietermijn één werkdag: bevestigd door Ruben (sept 2026). -->
-      <p class="cta-garantie">Vrijblijvend, zonder verplichting tot aankoop. Een adviseur belt u binnen één werkdag.</p>
     </div>
   </section>
 
-
-  <!-- AANMELDEN (hoog) - sleep je GHL-aanmeldformulier direct onder dit blok -->
-  <section id="aanmelden" style="background:var(--white);padding:56px 24px 48px;">
-    <div class="container" style="max-width:700px;text-align:center;">
-      <p class="section-label">Rondleiding</p>
-      <h2 class="section-title">Plan uw persoonlijke rondleiding</h2>
-      <p class="section-sub" style="margin:16px auto 32px;">Laat uw gegevens achter. Een adviseur neemt contact op om uw rondleiding in te plannen.</p>
-      <!-- GHL AANMELDFORMULIER HIER -->
-    </div>
-  </section>
