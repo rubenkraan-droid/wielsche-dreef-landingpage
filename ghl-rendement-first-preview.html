@@ -762,7 +762,8 @@
       .hero h1 { font-size: 2.3rem; line-height: 1.04; }
       .hero-prijs { padding: 8px 14px; }
       .hero-prijs .bedrag { font-size: 1.35rem; }
-      .hero p { display: none; }
+      .hero p:not(.hero-eyebrow) { display: none; }
+      .hero-eyebrow { background: none; padding: 0; color: var(--goud); font-size: 0.74rem; letter-spacing: 0.08em; margin-bottom: 12px; }
       /* Bouwstatus dupliceert de eyebrow "Grotendeels opgeleverd": weg op mobiel, scheelt hoogte boven de vouw. */
       .hero-bouwstatus { display: none; }
       .hero-ctas { flex-direction: column; gap: 10px; }
@@ -862,15 +863,9 @@
     <div class="hero-bg"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">Uw geld in stenen, niet op de spaarrekening</p>
-      <h1>Uw eigen villa aan de Nederrijn,<br/>die elk jaar voor u werkt</h1>
-      <!-- CIJFER NODIG: vul hieronder de geschatte netto verhuuropbrengst per jaar in (bijv. &euro;12.500). Bron: Landal-verhuurprognose of het rekenvoorbeeld uit de brochure. Verwijder deze comment na invullen. -->
-      <div class="hero-prijs">
-        <span class="vanaf">Geschatte netto verhuuropbrengst</span>
-        <span class="bedrag">[CIJFER NODIG]</span>
-        <span class="btw">per jaar</span>
-      </div>
+      <h1>Uw vermogen aan het werk<br/>op een plek vol herinneringen</h1>
       <div class="hero-ctas">
-        <a href="#brochure" class="wd-btn wd-btn-primary">Brochure met prijzen en rendement</a>
+        <a href="#brochure" class="wd-btn wd-btn-primary">Ontvang de brochure</a>
         <a href="#aanmelden" class="wd-btn wd-btn-outline-white hero-sec-link">Kom naar het verkoopweekend</a>
       </div>
     </div>
@@ -1158,7 +1153,7 @@
       </div>
 
       <div class="woningen-foot">
-        <p>Wilt u alle tien typen, de plattegronden en de prijslijst naast elkaar? Dat staat in de brochure.</p>
+        <p>Wilt u alle tien typen en de plattegronden rustig naast elkaar bekijken? Dat staat in de brochure.</p>
         <a href="#brochure" class="wd-btn wd-btn-primary">Ontvang de brochure</a>
         <a href="#aanmelden" class="wd-btn wd-btn-outline">Kom naar het verkoopweekend</a>
       </div>
@@ -1241,12 +1236,10 @@
         </div>
 
         <div class="rendement-aside">
-          <!-- CIJFER NODIG: zelfde geschatte netto verhuuropbrengst per jaar als in de hero. Bron: Landal-verhuurprognose of rekenvoorbeeld brochure. Verwijder deze comment na invullen. -->
-          <p style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal-dark);font-weight:600;margin-bottom:4px;">Geschatte netto verhuuropbrengst</p>
-          <div style="font-family:'Noe Display',Georgia,serif;font-weight:700;font-size:2.6rem;color:var(--teal-dark);line-height:1;margin-bottom:8px;">[CIJFER NODIG]</div>
-          <p style="font-size:0.92rem;color:var(--text-muted);margin-bottom:18px;">per jaar, terwijl Landal alles regelt: marketing, boekingen en gastenservice.</p>
+          <h3>Geen gedoe, wel opbrengst</h3>
+          <p>Landal regelt alles, van marketing tot gastenservice. U deelt mee in de opbrengst.</p>
           <p>Geen verhuurstress, geen lege kalenders, geen facturen die u zelf uitstuurt.</p>
-          <a href="#brochure" class="wd-btn wd-btn-primary" style="margin-top:8px;">Brochure met rekenvoorbeeld</a>
+          <a href="#brochure" class="wd-btn wd-btn-primary" style="margin-top:8px;">Ontvang de brochure</a>
         </div>
       </div>
 
@@ -1509,7 +1502,7 @@
 
   <!-- == STICKY BROCHURE-BALK (mobiel) == -->
   <div class="sticky-bro" aria-hidden="false">
-    <span class="sticky-bro-tekst">Brochure met plattegronden &amp; prijzen</span>
+    <span class="sticky-bro-tekst">Brochure met plattegronden &amp; woningtypes</span>
     <a href="#brochure" class="wd-btn wd-btn-primary wd-btn-sm">Ontvang de brochure</a>
   </div>
 
