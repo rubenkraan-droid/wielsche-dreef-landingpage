@@ -832,6 +832,22 @@
     .c-section.brochure:not(:has(input)):not(:has(textarea)) { padding-bottom: 8px !important; }
     .c-section.aanmelden:has(input), .c-section.aanmelden:has(textarea),
     .c-section.brochure:has(input), .c-section.brochure:has(textarea) { padding-top: 8px !important; }
+
+    /* GOOGLE REVIEWS (kans van slagen): echte gastbeoordelingen van het park */
+    .reviews { background: var(--white); }
+    .reviews-head { text-align: center; max-width: 660px; margin: 0 auto 40px; }
+    .reviews-score { display: inline-flex; align-items: center; gap: 14px; background: var(--cream); border: 1px solid var(--border); border-radius: 14px; padding: 13px 22px; margin-top: 18px; }
+    .reviews-score .score-num { font-family: 'Noe Display', Georgia, serif; font-weight: 700; font-size: 2.1rem; color: var(--teal-dark); line-height: 1; }
+    .reviews-score .score-meta { text-align: left; }
+    .reviews-stars { color: #E8A317; letter-spacing: 2px; font-size: 1rem; display: block; }
+    .reviews-score .score-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 3px; }
+    .reviews-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 920px; margin: 0 auto; }
+    .review-card { background: var(--cream); border: 1px solid var(--border); border-radius: 16px; padding: 28px 26px; display: flex; flex-direction: column; }
+    .review-card .r-stars { color: #E8A317; letter-spacing: 2px; font-size: 0.95rem; margin-bottom: 14px; }
+    .review-card blockquote { font-family: 'Noe Display', Georgia, serif; font-size: 1.15rem; line-height: 1.5; color: var(--text); margin: 0 0 18px; }
+    .review-card .r-name { font-weight: 700; color: var(--text); font-size: 0.92rem; }
+    .review-card .r-src { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+    @media (max-width: 760px) { .reviews-grid { grid-template-columns: 1fr; gap: 16px; } .review-card { padding: 24px 22px; } }
   </style>
 
   <!-- == STICKY KOP: header + datumbalk (werkt op alle waarden: toegang tot brochure + verkoopweekend) == -->

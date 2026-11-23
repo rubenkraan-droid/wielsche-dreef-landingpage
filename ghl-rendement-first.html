@@ -828,6 +828,22 @@
     .c-section.brochure:not(:has(input)):not(:has(textarea)) { padding-bottom: 8px !important; }
     .c-section.aanmelden:has(input), .c-section.aanmelden:has(textarea),
     .c-section.brochure:has(input), .c-section.brochure:has(textarea) { padding-top: 8px !important; }
+
+    /* GOOGLE REVIEWS (kans van slagen): echte gastbeoordelingen van het park */
+    .reviews { background: var(--white); }
+    .reviews-head { text-align: center; max-width: 660px; margin: 0 auto 40px; }
+    .reviews-score { display: inline-flex; align-items: center; gap: 14px; background: var(--cream); border: 1px solid var(--border); border-radius: 14px; padding: 13px 22px; margin-top: 18px; }
+    .reviews-score .score-num { font-family: 'Noe Display', Georgia, serif; font-weight: 700; font-size: 2.1rem; color: var(--teal-dark); line-height: 1; }
+    .reviews-score .score-meta { text-align: left; }
+    .reviews-stars { color: #E8A317; letter-spacing: 2px; font-size: 1rem; display: block; }
+    .reviews-score .score-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 3px; }
+    .reviews-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 920px; margin: 0 auto; }
+    .review-card { background: var(--cream); border: 1px solid var(--border); border-radius: 16px; padding: 28px 26px; display: flex; flex-direction: column; }
+    .review-card .r-stars { color: #E8A317; letter-spacing: 2px; font-size: 0.95rem; margin-bottom: 14px; }
+    .review-card blockquote { font-family: 'Noe Display', Georgia, serif; font-size: 1.15rem; line-height: 1.5; color: var(--text); margin: 0 0 18px; }
+    .review-card .r-name { font-weight: 700; color: var(--text); font-size: 0.92rem; }
+    .review-card .r-src { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+    @media (max-width: 760px) { .reviews-grid { grid-template-columns: 1fr; gap: 16px; } .review-card { padding: 24px 22px; } }
   </style>
 
   <!-- == STICKY KOP: header + datumbalk (werkt op alle waarden: toegang tot brochure + verkoopweekend) == -->
@@ -1147,6 +1163,37 @@
         <p>Wilt u alle tien typen en de plattegronden rustig naast elkaar bekijken? Dat staat in de brochure.</p>
         <a href="#brochure" class="wd-btn wd-btn-primary">Ontvang de brochure</a>
         <a href="#aanmelden" class="wd-btn wd-btn-outline">Kom naar het verkoopweekend</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- == GOOGLE REVIEWS (kans van slagen): echte gastbeoordelingen van het park. Bron: Google, Landal De Wielsche Dreef, 4,2 (31 reviews), geraadpleegd nov 2026. == -->
+  <section class="reviews reveal">
+    <div class="container">
+      <div class="reviews-head">
+        <p class="section-label" style="text-align:center;">Wat gasten zeggen</p>
+        <h2 class="section-title" style="margin:0 auto;">Een gewild park, en dat telt voor uw verhuur</h2>
+        <div class="reviews-score">
+          <span class="score-num">4,2</span>
+          <span class="score-meta">
+            <span class="reviews-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+            <span class="score-sub">31 beoordelingen op Google</span>
+          </span>
+        </div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>&ldquo;Het park beschikt nu al over prachtig ingerichte woningen, met goede faciliteiten.&rdquo;</blockquote>
+          <div class="r-name">Bram van Opstal</div>
+          <div class="r-src">Local Guide &bull; via Google</div>
+        </div>
+        <div class="review-card">
+          <div class="r-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>&ldquo;Mooi nieuw park, huisjes compleet ingericht.&rdquo;</blockquote>
+          <div class="r-name">Hennie Megens</div>
+          <div class="r-src">via Google</div>
+        </div>
       </div>
     </div>
   </section>
